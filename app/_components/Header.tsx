@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import Nav from './Nav'
 import Link from 'next/link'
-
+import Logo from '@/public/logo.svg'
 
 export type HeaderProps = {
   className?:string,
@@ -15,11 +15,11 @@ export default function Header({className, children}: HeaderProps) {
     <header className={classNames("py-4 px-6 flex justify-between items-center", className)}>
       <div className='flex gap-4 items-center'>
         <Link href='/'>
-          <Image src='/logo.svg' width={40} height={40} alt='開豊ジャパン' />
+          <Logo className={"fill-red-900"} width={32} height={32} />
         </Link>
         
         <Link href='/'>
-          <h1 className='text-2xl font-black'>開豊ジャパン</h1>
+          <h1 className='text-xl font-bold'>開豊ジャパン</h1>
         </Link>
       </div>
       

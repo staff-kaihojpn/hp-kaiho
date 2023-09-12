@@ -16,6 +16,10 @@
   }
 }
 
+h1 {
+  font-family: var(--font-yuji-syuku);
+}
+
 body {
   display: flex;
   flex-direction: column;

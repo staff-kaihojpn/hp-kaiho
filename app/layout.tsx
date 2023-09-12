@@ -1,11 +1,17 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Yuji_Syuku } from 'next/font/google'
 import Header from './_components/Header'
 import Footer from './_components/Footer'
 import classNames from 'classnames'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const yuji_syuku = Yuji_Syuku({
+  subsets: ['latin'],
+  weight:"400",
+  variable: '--font-yuji-syuku',
+})
 
 export const metadata: Metadata = {
   title: '開豊ジャパン',
@@ -20,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <body className={classNames(inter.className)}>
+    <html lang="ja" className={classNames([yuji_syuku.variable])}>
+      <body className={classNames([inter.className])}>
         <Header />
         <main className="h-full mb-auto">
           {children}

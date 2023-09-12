@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import Nav from './Nav'
 import Link from 'next/link'
+import Logo from '@/public/logo.svg'
 
 export type FooterProps = {
   className?:string,
@@ -15,9 +16,9 @@ export default function Footer({className, children}: FooterProps) {
           
         <div className='flex flex-col gap-4 items-center pt-10'>
           <Link href='/'>
-            <Image style={{stroke:'white'}} src='/logo.svg' width={80} height={80} alt='開豊ジャパン' />
+            <Logo className={"fill-white"} width={80} height={80} />
           </Link>
-          <h1 className='font-black'>開豊ジャパン</h1>
+          <h1 className=''>開豊ジャパン</h1>
         </div>
         
         <Nav />
