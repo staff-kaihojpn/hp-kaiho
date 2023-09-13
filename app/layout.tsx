@@ -28,13 +28,12 @@ export default function RootLayout({
   return (
     <html lang="ja" className={classNames([yuji_syuku.variable])}>
       <body className={classNames([inter.className])}>
-        <Header />
-        <main className="h-full mb-auto">
+        <Header className='sticky top-0'/>
+        <div className="h-full mb-auto">
           {children}
-        </main>
+        </div>
         <Footer />
       </body>
-      
     </html>
   )
 }
