@@ -15,7 +15,7 @@ export default function Footer({className, children}: FooterProps) {
       <div className='flex flex-col gap-8 justify-between items-center'>
           
         <div className='flex flex-col gap-4 items-center pt-10'>
-          <Link href='/'>
+          <Link href='/' aria-label='to home'>
             <Logo className={"fill-white"} width={80} height={80} />
           </Link>
           <h1 className=''>開豊ジャパン</h1>

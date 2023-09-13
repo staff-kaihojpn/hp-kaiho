@@ -1,6 +1,6 @@
 import {GiJapan} from 'react-icons/gi'
 import {TfiPackage} from 'react-icons/tfi'
-import {GrMailOption} from 'react-icons/gr'
+import {AiOutlineMail} from 'react-icons/ai'
 import {SiLine} from 'react-icons/si'
 import {Card} from './Card'
 import Heading from './Heading'
@@ -35,7 +35,7 @@ export function Items() {
         {items.map((item, i) => (
           <div className='flex flex-col gap-2' key={i}>
             <div className='relative w-36 aspect-square sm:w-48 md:w-60'>
-              <Image className='' src={item.src} fill style={{objectFit:'contain'}} alt={item.name} />
+              <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={item.src} fill style={{objectFit:'contain'}} alt={item.name} />
             </div>
             <h3 className='text-center text-xl'>{item.name}</h3>
           </div>
@@ -58,7 +58,7 @@ export function Assessments() {
   const cards = [
     {title:'出張査定' , description:'スタッフが直接査定に伺います。"日本全国対応"' , icon:GiJapan},
     {title:'宅配査定' , description:'事前簡易査定後に、弊社にお送りください' , icon:TfiPackage},
-    {title:'メール査定' , description:'メールに写真を添付' , icon:GrMailOption},
+    {title:'メール査定' , description:'メールに写真を添付' , icon:AiOutlineMail},
     {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine},
   ]
   return (
@@ -66,7 +66,7 @@ export function Assessments() {
       <Heading {...heading}></Heading>
       <div className='grid grid-cols-2 gap-4 mx-auto max-w-4xl'>
         {cards.map((card, i) => (
-          <Card className='flex-1 bg-slate-50 hover:shadow-lg cursor-pointer' {...card} key={i} />
+          <Card className='flex-1 bg-stone-100 hover:shadow-lg cursor-pointer' {...card} key={i} />
         ))}
       </div>
     </section>

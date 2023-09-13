@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export const pages = [
   { name: '査定方法', href: '/assessment'},
-  { name: '買取フォーム', href: '/form'},
+  { name: '買取フォーム', href: '/'},
 ]
 
 export type NavProps = {
@@ -14,13 +14,14 @@ export type NavProps = {
 export default function Nav({className, children}: NavProps) {
   return (
     <nav className={classNames(className)}>
-      <ul className='flex gap-6 items-center'>
+      <ul className='flex gap-4 items-center'>
         {pages.map(({name, href}) => (
-          <Link href={href} key={name}>
-            <li className="h-12">
-              {name}
+            <li key={name} >
+              <Link className="block py-2 px-3" href={href} >
+                {name}
+              </Link>
             </li>
-          </Link>
+          
         ))}
       </ul>
     </nav>

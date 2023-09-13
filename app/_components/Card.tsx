@@ -15,9 +15,9 @@ export function Card({title, icon: Icon, description, className}: CardProps) {
   return (
     <div className={classNames('shadow rounded-lg p-4', className)}>
       <div className='flex flex-col'>
-        {Icon && <div><Icon className='text-4xl'/></div>}
-        {title && <h2 className='font-bold text-slate-900 mt-4'>{title}</h2>}
-        {description && <p className=' text-slate-600 mt-4'>{description}</p>}
+        {Icon && <div><Icon className='text-4xl text-stone-600'/></div>}
+        {title && <h2 className='font-bold text-stone-900 mt-4'>{title}</h2>}
+        {description && <p className=' text-stone-600 mt-4'>{description}</p>}
         
         <div className="ml-auto text-xl">
           <LuArrowRight />
@@ -42,9 +42,9 @@ export function ReviewCard({title, icon: Icon, description, className, rating}: 
           </div>
         }
         <div className='flex-1'>
-          {title && <h2 className='font-bold text-slate-900 mt-4'>{title}</h2>}
+          {title && <h2 className='font-bold text-stone-900 mt-4'>{title}</h2>}
           {rating && <div>{rating}</div>}
-          {description && <p className=' text-slate-600 mt-4'>{description}</p>}
+          {description && <p className=' text-stone-600 mt-4'>{description}</p>}
         </div>
       </div>
     </div>
