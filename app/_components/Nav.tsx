@@ -16,11 +16,11 @@ export default function Nav({className, children}: NavProps) {
     <nav className={classNames(className)}>
       <ul className='flex gap-6 items-center'>
         {pages.map(({name, href}) => (
-          <li key={name}>
-            <Link href={href} className="">
+          <Link href={href} key={name}>
+            <li className="h-12">
               {name}
-            </Link>
-          </li>
+            </li>
+          </Link>
         ))}
       </ul>
     </nav>
