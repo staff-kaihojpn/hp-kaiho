@@ -11,7 +11,7 @@ export type FooterProps = {
 
 export default function Footer({className, children}: FooterProps) {
   return (
-    <footer className={classNames("bg-gray-900 text-gray-50 pb-4",className)}>
+    <footer className={classNames("bg-stone-900 text-stone-50 pb-4 mt-16",className)}>
       <div className='flex flex-col gap-8 justify-between items-center'>
           
         <div className='flex flex-col gap-4 items-center pt-10'>

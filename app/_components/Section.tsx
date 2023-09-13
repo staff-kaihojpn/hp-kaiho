@@ -7,9 +7,64 @@ import Heading from './Heading'
 import Image from 'next/image'
 import classNames from 'classnames'
 
+export type SectionProps = {
+  title?: string
+  description?: string
+  className?: string
+  children?: React.ReactNode
+}
+export function Section({title, description, className, children}:SectionProps) {
+  return (
+    <div className={classNames('w-full', className)}>
+      <section className='px-6 mx-auto max-w-6xl'>
+        <Heading className="py-16" title={title} description={description}/>
+        {children}
+      </section>
+    </div>
+  )
+}
 
 
-export function Items() {
+export function HeroSection() {
+  const heading = {
+    title: 
+`
+ご自宅に眠っている
+骨董品・古美術品
+無料で査定いたします
+`,
+    description: 
+`
+株式会社開豊ジャパンは、八王子市の古美術品店です。
+骨董品や古美術の確かな目利きと高価買取実績がございます。
+ご自宅に眠っている骨董品や美術品、また故人の思いの詰まった遺品など、一点一点丁寧に鑑定します。
+価値がないと思われているものでも、高価買取の対象になることもあります。
+お客様に安心していただけるよう、丁寧、スピーディーに鑑定・買取させていただきます。
+`
+  }
+  return (
+    <div className={classNames('w-full')}>
+      <section className='px-6 mx-auto max-w-6xl'>
+        <div className='relative py-12 overflow-hidden flex flex-col md:flex-row'>
+          <div className='max-w-xl relative break-words whitespace-pre-wrap'>
+            {heading.title && 
+              <h2 className='text-3xl md:text-4xl font-bold text-stone-900'>{heading.title}</h2>
+            }
+            {heading.description && 
+              <p className='md:text-xl text-stone-700 mt-4'>{heading.description}</p>
+            }
+          </div>
+          <div className='md:-right-[200px] '>
+            <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={'/hero_1.webp'} width={500} height={500} style={{objectFit:'contain'}} alt={'logo image'} />
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+
+export function ItemSection() {
   const heading = {
     title:"買取しています",
     description:'あなたの家族の大切にしていたものを、確かな目利きで高く買取いたします。'
@@ -29,27 +84,24 @@ export function Items() {
   ]
 
   return (
-    <section className={classNames('px-6')}>
-      <Heading {...heading} />
-      <div className='flex flex-wrap gap-4 place-content-between'>
+    <Section {...heading}>
+      <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
         {items.map((item, i) => (
-          <div className='flex flex-col gap-2' key={i}>
-            <div className='relative w-36 aspect-square sm:w-48 md:w-60'>
+          <div className='flex flex-col items-center gap-2' key={i}>
+            <div className='relative aspect-square w-60 max-w-full'>
               <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={item.src} fill style={{objectFit:'contain'}} alt={item.name} />
             </div>
             <h3 className='text-center text-xl'>{item.name}</h3>
           </div>
         ))}
       </div>
-    </section>
-    
+    </Section>
   )
 }
 
 
 
-export function Assessments() {
-
+export function AssessmentSection() {
   const heading = {
     title:"査定方法",
     description:'様々な鑑定・買取をさせていただいております、まずはお気軽にご相談ください。'
@@ -61,14 +113,14 @@ export function Assessments() {
     {title:'メール査定' , description:'メールに写真を添付' , icon:AiOutlineMail},
     {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine},
   ]
+
   return (
-    <section className={classNames('px-6')}>
-      <Heading {...heading}></Heading>
-      <div className='grid grid-cols-2 gap-4 mx-auto max-w-4xl'>
+    <Section {...heading}>
+      <div className='grid grid-cols-2 gap-4'>
         {cards.map((card, i) => (
           <Card className='flex-1 bg-stone-100 hover:shadow-lg cursor-pointer' {...card} key={i} />
         ))}
       </div>
-    </section>
+    </Section>
   )
 }
