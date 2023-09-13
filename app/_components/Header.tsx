@@ -12,18 +12,15 @@ export type HeaderProps = {
 
 export default function Header({className, children}: HeaderProps) {
   return (
-    <header className={classNames("py-4 px-6 flex justify-between items-center z-20 backdrop-blur", className)}>
-      <div className='flex gap-4 items-center'>
-        <Link href='/' aria-label='to home' >
-          <Logo className={"fill-red-900"} width={32} height={32} />
-        </Link>
-        
-        <Link href='/'>
+    <header className={classNames(" z-20 backdrop-blur", className)}>
+      <div className='flex justify-between items-center max-w-6xl mx-auto py-4 px-6'>
+        <Link href='/' aria-label='to home' className='flex items-center' >
+          <Logo className={"fill-red-900 mr-4"} width={32} height={32} />
           <h1 className='text-xl'>開豊ジャパン</h1>
         </Link>
-      </div>
       
-      <Nav />
+        <Nav />
+      </div>
     
     </header>
   )

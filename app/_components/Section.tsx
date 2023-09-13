@@ -28,14 +28,12 @@ export function Section({title, description, className, children}:SectionProps) 
 export function HeroSection() {
   const heading = {
     title: 
-`
-ご自宅に眠っている
+`ご自宅に眠っている
 骨董品・古美術品
 無料で査定いたします
 `,
     description: 
-`
-株式会社開豊ジャパンは、八王子市の古美術品店です。
+`株式会社開豊ジャパンは、八王子市の古美術品店です。
 骨董品や古美術の確かな目利きと高価買取実績がございます。
 ご自宅に眠っている骨董品や美術品、また故人の思いの詰まった遺品など、一点一点丁寧に鑑定します。
 価値がないと思われているものでも、高価買取の対象になることもあります。
@@ -45,18 +43,17 @@ export function HeroSection() {
   return (
     <div className={classNames('w-full')}>
       <section className='px-6 mx-auto max-w-6xl'>
-        <div className='relative py-12 overflow-hidden flex flex-col md:flex-row'>
-          <div className='max-w-xl relative break-words whitespace-pre-wrap'>
-            {heading.title && 
-              <h2 className='text-3xl md:text-4xl font-bold text-stone-900'>{heading.title}</h2>
-            }
-            {heading.description && 
-              <p className='md:text-xl text-stone-700 mt-4'>{heading.description}</p>
-            }
-          </div>
-          <div className='md:-right-[200px] '>
+        <div className='relative py-12 flex flex-col whitespace-pre-wrap overflow-hidden'>
+          {heading.title && 
+            <h2 className='text-3xl md:max-w-xl text-center md:text-left tracking-widest leading-relaxed font-bold text-stone-900'>{heading.title}</h2>
+          }
+          <div className='mx-auto md:absolute md:bottom-0 md:-right-[250px] md:-z-10'>
             <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={'/hero_1.webp'} width={500} height={500} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
+          {heading.description && 
+            <p className='md:text-xl md:max-w-xl text-stone-700 mt-4'>{heading.description}</p>
+          }
+          
         </div>
       </section>
     </div>
