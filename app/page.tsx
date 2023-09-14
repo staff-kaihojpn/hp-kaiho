@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import HelloWorld from './hello.mdx'
-import { HeroSection, ItemSection, AssessmentSection } from './_components/Section'
+import { HeroSection, ItemSection, AssessmentSection, ReviewSection } from './_components/Section'
 
 export default function Home() {
   return (
@@ -9,6 +9,7 @@ export default function Home() {
       <HeroSection />
       <ItemSection />
       <AssessmentSection />
+      <ReviewSection />
       {/*<HelloWorld />*/}
     
     </>

@@ -2,7 +2,7 @@ import {GiJapan} from 'react-icons/gi'
 import {TfiPackage} from 'react-icons/tfi'
 import {AiOutlineMail} from 'react-icons/ai'
 import {SiLine} from 'react-icons/si'
-import {Card} from './Card'
+import {Card, ReviewCard} from './Card'
 import Heading from './Heading'
 import Image from 'next/image'
 import classNames from 'classnames'
@@ -97,6 +97,12 @@ export function ItemSection() {
 }
 
 
+export const assessments = [
+  {title:'出張査定' , description:'スタッフが直接査定に伺います。"日本全国対応"' , icon:GiJapan, href:'/assessment'},
+  {title:'宅配査定' , description:'事前簡易査定後に、弊社にお送りください' , icon:TfiPackage, href:'/assessment'},
+  {title:'メール査定' , description:'メールに写真を添付' , icon:AiOutlineMail, href:'/assessment'},
+  {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine, href:'/assessment'},
+]
 
 export function AssessmentSection() {
   const heading = {
@@ -104,18 +110,31 @@ export function AssessmentSection() {
     description:'様々な鑑定・買取をさせていただいております、まずはお気軽にご相談ください。'
   }
 
-  const cards = [
-    {title:'出張査定' , description:'スタッフが直接査定に伺います。"日本全国対応"' , icon:GiJapan},
-    {title:'宅配査定' , description:'事前簡易査定後に、弊社にお送りください' , icon:TfiPackage},
-    {title:'メール査定' , description:'メールに写真を添付' , icon:AiOutlineMail},
-    {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine},
-  ]
-
   return (
     <Section {...heading}>
       <div className='grid grid-cols-2 gap-4'>
-        {cards.map((card, i) => (
-          <Card className='flex-1 bg-stone-100 hover:shadow-lg cursor-pointer' {...card} key={i} />
+        {assessments.map((assessment, i) => (
+          <Card className='flex-1 ' {...assessment} key={i} />
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+export function ReviewSection() {
+  const heading = {
+    title:"お客様の声",
+    description:''
+  }
+  const reviews = [
+    {title:'骨董品の買取', description:'骨董品の買取をお願いしました。思い出の品でしたが、思ったよりも高く買い取っていただけました。', rating:4.5, author:'30代・男性'},
+    {title:'骨董品の買取', description:'骨董品の買取をお願いしました。思い出の品でしたが、思ったよりも高く買い取っていただけました。', rating:5, author:'40代・女性'}
+  ]
+  return (
+    <Section {...heading}>
+      <div className='flex flex-col gap-4'>
+        {reviews.map((review, i) => (
+          <ReviewCard {...review} key={i} />
         ))}
       </div>
     </Section>

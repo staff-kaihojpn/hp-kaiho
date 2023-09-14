@@ -1,8 +1,8 @@
 import classNames from 'classnames'
 import Image from 'next/image'
-import Nav from './Nav'
 import Link from 'next/link'
 import Logo from '@/public/logo.svg'
+import { ListNav } from './Nav'
 
 export type HeaderProps = {
   className?:string,
@@ -19,9 +19,10 @@ export default function Header({className, children}: HeaderProps) {
           <h1 className='text-xl'>開豊ジャパン</h1>
         </Link>
       
-        <Nav />
+        <ListNav />
       </div>
     
     </header>
   )
 }
+
