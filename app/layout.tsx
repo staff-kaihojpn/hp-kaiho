@@ -4,6 +4,7 @@ import { Inter, Yuji_Syuku } from 'next/font/google'
 import Header from './_components/Header'
 import Footer from './_components/Footer'
 import classNames from 'classnames'
+import dynamic from 'next/dynamic'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,13 +21,12 @@ export const metadata: Metadata = {
   viewport:"width=device-width, initial-scale=1.0"
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  const CrispChat = dynamic(() => import('./_components/CrispChat'))
+  
   return (
     <html lang="ja" className={classNames([yuji_syuku.variable])}>
+      <CrispChat />
       <body className={classNames(/*[inter.className]*/)}>
         <Header className='sticky top-0'/>
         <div className="h-full mb-auto">

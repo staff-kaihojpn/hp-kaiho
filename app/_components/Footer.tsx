@@ -1,8 +1,9 @@
 import classNames from 'classnames'
-import Image from 'next/image'
 import { BottomNav, ListNav } from './Nav'
 import Link from 'next/link'
 import Logo from '@/public/logo.svg'
+import { FloatingButton } from './BUtton'
+import {SiLine} from 'react-icons/si'
 
 export type FooterProps = {
   className?:string,
@@ -27,6 +28,7 @@ export default function Footer({className, children}: FooterProps) {
         
       </div>
       <BottomNav className='md:hidden fixed bottom-0 left-0 z-50 w-full '/>
+      <FloatingButton href="/" icon={SiLine} className='hidden md:block fixed bottom-24 right-6 z-50 text-stone-50 bg-green-600 ' />
     </footer>
   )
 }

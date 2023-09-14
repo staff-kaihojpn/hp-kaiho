@@ -42,16 +42,16 @@ export function HeroSection() {
   }
   return (
     <div className={classNames('w-full')}>
-      <section className='px-6 mx-auto max-w-6xl'>
-        <div className='relative py-12 flex flex-col whitespace-pre-wrap overflow-hidden'>
+      <section className='p-6 mx-auto max-w-6xl'>
+        <div className='relative flex flex-col whitespace-pre-wrap overflow-hidden'>
           {heading.title && 
-            <h2 className='text-3xl md:max-w-xl text-center md:text-left tracking-widest leading-relaxed font-bold text-stone-900'>{heading.title}</h2>
+            <h2 className='text-3xl md:max-w-xl text-center md:text-left tracking-widest leading-relaxed font-bold text-stone-900 mb-8'>{heading.title}</h2>
           }
-          <div className='mx-auto md:absolute md:bottom-0 md:-right-[250px] md:-z-10'>
-            <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={'/hero_1.webp'} width={500} height={500} style={{objectFit:'contain'}} alt={'logo image'} />
+          <div className='mx-auto md:absolute md:bottom-0 md:-right-[240px] md:-z-10'>
+            <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={'/hero_1.webp'} width={480} height={480} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
           {heading.description && 
-            <p className='md:text-xl md:max-w-xl text-stone-700 mt-4'>{heading.description}</p>
+            <p className='md:text-xl md:max-w-xl text-stone-700 mt-8'>{heading.description}</p>
           }
           
         </div>
@@ -127,8 +127,8 @@ export function ReviewSection() {
     description:''
   }
   const reviews = [
-    {title:'骨董品の買取', description:'骨董品の買取をお願いしました。思い出の品でしたが、思ったよりも高く買い取っていただけました。', rating:4.5, author:'30代・男性'},
-    {title:'骨董品の買取', description:'骨董品の買取をお願いしました。思い出の品でしたが、思ったよりも高く買い取っていただけました。', rating:5, author:'40代・女性'}
+    {title:'亡くなった父の遺品整理の際に利用しました', description:'亡くなった父が、集めていた骨董品の処分に困り、とりあえず鑑定してもらうため、開豊ジャパンさんに査定をお願いしました。 父の思い入れのある骨董品を一つ一つ丁寧に鑑定していただき、親身に相談にも乗っていただき大変心強かったです。', rating:4.5, author:'30代・男性'},
+    {title:'量も多かったので、 まずは「LINE査定」してもらいました。', description:'実家の蔵の整理で、大量に出てきた古い品々があり、価値もわからなかったため、開豊ジャパンさんの「LINE査定」を利用しました。写真を撮って送るだけで、 簡単に査定判断をしてもらえ手間も少なく助かりました。また思っていた以上の買取額で驚いています。', rating:5, author:'40代・女性'}
   ]
   return (
     <Section {...heading}>
