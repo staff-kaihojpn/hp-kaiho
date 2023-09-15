@@ -12,7 +12,7 @@ export type FooterProps = {
 
 export default function Footer({className, children}: FooterProps) {
   return (
-    <footer className={classNames("bg-stone-900 text-stone-50 pb-20 md:pb-4 mt-16",className)}>
+    <footer className={classNames("bg-stone-900 text-stone-50 pb-8 mt-16",className)}>
       <div className='flex flex-col gap-8 justify-between items-center'>
           
         <div className='flex flex-col gap-4 items-center pt-10'>
@@ -27,8 +27,10 @@ export default function Footer({className, children}: FooterProps) {
         <p><small>&copy; {new Date().getFullYear()}- 開豊ジャパン</small></p>
         
       </div>
-      <BottomNav className='md:hidden fixed bottom-0 left-0 z-50 w-full '/>
-      <FloatingButton href="/" icon={SiLine} className='hidden md:block fixed bottom-24 right-6 z-50 text-stone-50 bg-green-600 ' />
+      {process.env.NEXT_PUBLIC_LINE_SHARE_ID && 
+        <FloatingButton href={`https://lin.ee/${process.env.NEXT_PUBLIC_LINE_SHARE_ID}`} target="_blank" rel="noopener noreferrer" icon={SiLine} className='fixed bottom-24 right-6 z-50 text-stone-50 bg-green-600 ' />
+      }
+      
     </footer>
   )
 }

@@ -55,3 +55,38 @@ body {
     transition-duration: 200ms;
   }
 }
+
+
+
+.marker{
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /*background-image: linear-gradient(90deg, #fff 0%, #fff 30%, #222 30%, #222 100%);*/
+  background-image: 
+    linear-gradient(90deg, #fff 0%, #fff 100%),
+    linear-gradient(90deg, #222 0%, #222 100%);
+  background-size: 0%, 100%;
+  background-repeat: no-repeat;
+  color: #222;
+
+  transition: background-size .3s ease-in;
+  transition-delay: .1s;
+}
+.marker.active{
+  background-size: 100%, 100%;
+}
+.marker::before{
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background-color: darkred;
+  content: '';
+  z-index: -1;
+
+  transition: width .3s ease-in;
+  transition-delay: .1s;
+}
+.marker.active::before{
+  width: 100%;
+}
