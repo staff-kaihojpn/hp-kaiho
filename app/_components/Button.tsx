@@ -13,3 +13,17 @@ export function FloatingButton({icon:Icon, className, ...props}: FloatingButtonP
     </Link>
   )
 }
+
+
+type ButtonProps = React.ComponentProps<typeof Link> & {
+  icon?: IconType;
+  label: string;
+};
+export function Button({icon:Icon, className, ...props}: ButtonProps) {
+  return (
+    <Link {...props} className={classNames(className, "block cursor-pointer px-4 py-2 tracking-wide text-lg")}>
+      {Icon && <Icon className="w-8 h-full m-auto"/> }
+      <span className="block text-center">{props.label}</span>
+    </Link>
+  )
+}

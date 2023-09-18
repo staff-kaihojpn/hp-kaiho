@@ -6,6 +6,7 @@ import {Card, ReviewCard} from './Card'
 import Heading from './Heading'
 import Image from 'next/image'
 import classNames from 'classnames'
+import { Button } from './Button'
 
 export type SectionProps = {
   title?: string
@@ -43,15 +44,24 @@ export function HeroSection() {
   return (
     <div className={classNames('w-full')}>
       <section className='p-6 mx-auto max-w-6xl'>
-        <div className='relative flex flex-col whitespace-pre-wrap overflow-hidden'>
+        <div className='relative flex flex-col whitespace-pre-wrap overflow-hidden gap-8'>
           {heading.title && 
-            <h2 className='text-3xl md:max-w-xl text-center md:text-left tracking-widest leading-relaxed font-bold text-stone-900 mb-8'>{heading.title}</h2>
+            <h2 className='text-3xl md:max-w-xl text-center md:text-left tracking-widest leading-relaxed font-bold text-stone-900'>{heading.title}</h2>
           }
+          {
+            <div className="flex gap-6 md:max-w-xl justify-center md:justify-normal">
+              <Button href="/" className=' bg-green-600 text-white rounded-full px-12' label="LINE査定" />
+              <Button href="/" className='  border-stone-800 border rounded-full px-12' label="電話で相談" />
+            </div>
+          }
+          
+          
+          
           <div className='mx-auto md:absolute md:bottom-0 md:-right-[240px] md:-z-10'>
             <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={'/hero_1.webp'} width={480} height={480} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
           {heading.description && 
-            <p className='md:text-xl md:max-w-xl text-stone-700 mt-8'>{heading.description}</p>
+            <p className='md:text-xl md:max-w-xl text-stone-700'>{heading.description}</p>
           }
           
         </div>

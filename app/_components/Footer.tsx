@@ -2,7 +2,7 @@ import classNames from 'classnames'
 import { BottomNav, ListNav } from './Nav'
 import Link from 'next/link'
 import Logo from '@/public/logo.svg'
-import { FloatingButton } from './BUtton'
+import { FloatingButton } from './Button'
 import {SiLine} from 'react-icons/si'
 
 export type FooterProps = {

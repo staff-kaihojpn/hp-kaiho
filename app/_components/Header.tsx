@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '@/public/logo.svg'
 import { ListNav } from './Nav'
+import { AiOutlineMenu } from 'react-icons/ai'
 
 export type HeaderProps = {
   className?:string,
@@ -20,6 +21,8 @@ export default function Header({className, children}: HeaderProps) {
         </Link>
       
         <ListNav className='hidden md:block' />
+
+        <AiOutlineMenu className='md:hidden w-8 h-8 cursor-pointer' />
       </div>
     
     </header>
