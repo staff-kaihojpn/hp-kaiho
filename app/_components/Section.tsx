@@ -1,5 +1,5 @@
 import {GiJapan} from 'react-icons/gi'
-import {TfiPackage} from 'react-icons/tfi'
+import {BsChatLeftText} from 'react-icons/bs'
 import {AiOutlineMail} from 'react-icons/ai'
 import {SiLine} from 'react-icons/si'
 import {Card, ReviewCard} from './Card'
@@ -34,34 +34,37 @@ export function HeroSection() {
 無料で査定いたします
 `,
     description: 
-`株式会社開豊ジャパンは、八王子市の古美術品店です。
-骨董品や古美術の確かな目利きと高価買取実績がございます。
-ご自宅に眠っている骨董品や美術品、また故人の思いの詰まった遺品など、一点一点丁寧に鑑定します。
-価値がないと思われているものでも、高価買取の対象になることもあります。
-お客様に安心していただけるよう、丁寧、スピーディーに鑑定・買取させていただきます。
+`開豊ジャパンは、八王子市の古美術品店
+
+古美術の確かな目利きと、高価買取実績があります。
+
+眠ったままの骨董品、故人の思いの詰まった遺品など、
+１点１点しっかり、丁寧に鑑定します。
+
+どんなお品物でも高価買取、
+LINEやチャットで、スピーディに鑑定・買取!!
 `
   }
   return (
-    <div className={classNames('w-full')}>
-      <section className='p-6 mx-auto max-w-6xl'>
-        <div className='relative flex flex-col whitespace-pre-wrap overflow-hidden gap-8'>
+    <div className={classNames('w-full  overflow-hidden')} style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 25%, #D0E7D2 25%, #D0E7D2 80%, transparent 80%, transparent 100%)"}}>
+      <section className='p-6 mx-auto max-w-6xl '>
+        <div className='relative flex flex-col whitespace-pre-wrap gap-8'>
           {heading.title && 
             <h2 className='text-3xl md:max-w-xl text-center md:text-left tracking-widest leading-relaxed font-bold text-stone-900'>{heading.title}</h2>
           }
           {
             <div className="flex gap-6 md:max-w-xl justify-center md:justify-normal">
               <Button href="/" className=' bg-green-600 text-white rounded-full px-12' label="LINE査定" />
-              <Button href="/" className='  border-stone-800 border rounded-full px-12' label="電話で相談" />
+              <Button href="/" className=' bg-stone-50 border-stone-300 border rounded-full px-12' label="電話で相談" />
             </div>
           }
-          
-          
-          
-          <div className='mx-auto md:absolute md:bottom-0 md:-right-[240px] md:-z-10'>
+
+          <div className='mx-auto md:absolute md:bottom-0 md:-right-[240px]'>
             <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={'/hero_1.webp'} width={480} height={480} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
+          
           {heading.description && 
-            <p className='md:text-xl md:max-w-xl text-stone-700'>{heading.description}</p>
+            <p className='md:text-lg md:max-w-xl text-center md:text-left text-stone-700'>{heading.description}</p>
           }
           
         </div>
@@ -94,7 +97,7 @@ export function ItemSection() {
     <Section {...heading}>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
         {items.map((item, i) => (
-          <div className='flex flex-col items-center gap-2' key={i}>
+          <div className='flex flex-col items-center gap-2' style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 50%, #D0E7D2 50%, #D0E7D2 80%, transparent 80%, transparent 100%)"}} key={i}>
             <div className='relative aspect-square w-60 max-w-full'>
               <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={item.src} fill style={{objectFit:'contain'}} alt={item.name} />
             </div>
@@ -108,10 +111,10 @@ export function ItemSection() {
 
 
 export const assessments = [
-  {title:'出張査定' , description:'スタッフが直接査定に伺います。"日本全国対応"' , icon:GiJapan, href:'/assessment'},
-  {title:'宅配査定' , description:'事前簡易査定後に、弊社にお送りください' , icon:TfiPackage, href:'/assessment'},
-  {title:'メール査定' , description:'メールに写真を添付' , icon:AiOutlineMail, href:'/assessment'},
-  {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine, href:'/assessment'},
+  {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine, href:'/assessments/line'},
+  {title:'チャット査定' , description:'チャットでご相談ください' , icon:BsChatLeftText, href:'/assessments/chat'},
+  {title:'メール査定' , description:'メールに写真を添付' , icon:AiOutlineMail, href:'/assessments/mail'},
+  {title:'出張査定' , description:'スタッフが直接査定に伺います。"日本全国対応"' , icon:GiJapan, href:'/assessments/visit'},
 ]
 
 export function AssessmentSection() {
@@ -124,7 +127,7 @@ export function AssessmentSection() {
     <Section {...heading}>
       <div className='grid grid-cols-2 gap-4'>
         {assessments.map((assessment, i) => (
-          <Card className='flex-1 ' {...assessment} key={i} />
+          <Card className='flex-1 ' {...assessment} href={assessment.href} key={i}/>
         ))}
       </div>
     </Section>

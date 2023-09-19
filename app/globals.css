@@ -90,3 +90,28 @@ body {
 .marker.active::before{
   width: 100%;
 }
+
+
+.border-triangle:after, .border-triangle:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.border-triangle:after {
+  border-color: transparent;
+  border-top-color: #fafaf9;
+  border-width: 20px;
+  margin-left: -20px;
+}
+.border-triangle:before {
+  border-color: transparent;
+  border-top-color: #78716c;
+  border-width: 21px;
+  margin-left: -21px;
+}
