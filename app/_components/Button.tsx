@@ -8,7 +8,7 @@ type FloatingButtonProps = React.ComponentProps<typeof Link> & {
 
 export function FloatingButton({icon:Icon, className, ...props}: FloatingButtonProps) {
   return (
-    <Link {...props} className={classNames("block rounded-full w-[54px] sm:w-[60px] aspect-square cursor-pointer shadow-md ", className)}>
+    <Link {...props} aria-label="to line app" className={classNames("block rounded-full w-[54px] sm:w-[60px] aspect-square cursor-pointer shadow-md ", className)}>
       <Icon className="w-8 h-full m-auto"/>
     </Link>
   )

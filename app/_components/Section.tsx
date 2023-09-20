@@ -51,7 +51,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
 `
   }
   return (
-    <div className={classNames('w-full  overflow-hidden')} style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 25%, #D0E7D2 25%, #D0E7D2 80%, transparent 80%, transparent 100%)"}}>
+    <div className={classNames('w-full')} style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 25%, #D0E7D2 25%, #D0E7D2 80%, transparent 80%, transparent 100%)"}}>
       <section className='p-6 mx-auto max-w-6xl '>
         <div className='relative flex flex-col whitespace-pre-wrap gap-8'>
           {heading.title && 
@@ -59,7 +59,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
           }
           {
             <div className="flex gap-6 md:max-w-xl justify-center md:justify-normal">
-              <Button href="/" className=' bg-green-600 text-white rounded-full px-12' label="LINE査定" />
+              <Button href="/" className=' bg-green-700 text-stone-50 rounded-full px-12' label="LINE査定" />
               <Button href="/" className=' bg-stone-50 border-stone-300 border rounded-full px-12' label="チャット相談" />
             </div>
           }
@@ -76,7 +76,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
                 </p>
               </div>
             </div>
-            <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg md:-right-[210px]' src={'/hero_1.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
+            <Image className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
           
           {heading.description && 
@@ -106,7 +106,7 @@ export function ItemSection() {
     {name:'御茶道具', src:'/items/tea.webp'},
     {name:'陶磁器', src:'/items/ceramics.webp'},
     {name:'仏教美術', src:'/items/statue.webp'},
-    {name:'その他', src:'/hero_1.webp'},
+    {name:'その他', src:'/items/other.webp'},
   ]
 
   return (
