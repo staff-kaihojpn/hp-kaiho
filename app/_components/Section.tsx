@@ -60,7 +60,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
           {
             <div className="flex gap-6 md:max-w-xl justify-center md:justify-normal">
               <Button href="/" className=' bg-green-600 text-white rounded-full px-12' label="LINE査定" />
-              <Button href="/" className=' bg-stone-50 border-stone-300 border rounded-full px-12' label="電話で相談" />
+              <Button href="/" className=' bg-stone-50 border-stone-300 border rounded-full px-12' label="チャット相談" />
             </div>
           }
 
@@ -70,7 +70,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
               <p className='text-center fukidashi px-6 font-bold'>いまだけ！ LINE査定なら<br />査定額が、20%アップ</p>
             
               <div className='flex rounded-lg bg-stone-500 '>
-                <p className='vertical-rl bg-stone-700 text-green-50 rounded-l-lg font-bold text-center'>査定額</p>
+                <p className='vertical-rl bg-stone-600 text-green-50 rounded-l-lg font-bold text-center'>査定額</p>
                 <p className={classNames("inline-block text-5xl text-green-50 p-4 text-right", digitalNumbers.className)}>
                   <CountUp isCounting start={58000} end={63800} thousandsSeparator=',' duration={1.5} />
                 </p>
