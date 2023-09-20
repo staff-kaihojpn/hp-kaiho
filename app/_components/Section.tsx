@@ -1,5 +1,3 @@
-'use client'
-
 import {GiJapan} from 'react-icons/gi'
 import {BsChatLeftText} from 'react-icons/bs'
 import {AiOutlineMail} from 'react-icons/ai'
@@ -9,8 +7,9 @@ import Heading from './Heading'
 import Image from 'next/image'
 import classNames from 'classnames'
 import { Button } from './Button'
-import { digitalNumbers } from '@/app/styles/fonts'
+
 import { CountUp } from 'use-count-up'
+import Counter from './Counter'
 
 
 export type SectionProps = {
@@ -50,6 +49,12 @@ export function HeroSection() {
 LINEやチャットで、スピーディに鑑定・買取!!
 `
   }
+  const counter = {
+    outerComment:
+`いまだけ！ LINE査定なら
+査定額が、20%アップ`
+
+  }
   return (
     <div className={classNames('w-full')} style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 25%, #D0E7D2 25%, #D0E7D2 80%, transparent 80%, transparent 100%)"}}>
       <section className='p-6 mx-auto max-w-6xl '>
@@ -66,16 +71,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
 
           <div className='mx-auto md:absolute md:top-0 md:right-0'>
               
-            <div className='flex flex-col items-center mb-6 gap-2'>
-              <p className='text-center fukidashi px-6 font-bold'>いまだけ！ LINE査定なら<br />査定額が、20%アップ</p>
-            
-              <div className='flex rounded-lg bg-stone-500 '>
-                <p className='vertical-rl bg-stone-600 text-green-50 rounded-l-lg font-bold text-center'>査定額</p>
-                <p className={classNames("inline-block text-5xl text-green-50 p-4 text-right", digitalNumbers.className)}>
-                  <CountUp isCounting start={58000} end={63800} thousandsSeparator=',' duration={1.5} />
-                </p>
-              </div>
-            </div>
+            <Counter {...counter}/>
             <Image className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
           
