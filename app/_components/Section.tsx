@@ -1,3 +1,5 @@
+'use client'
+
 import {GiJapan} from 'react-icons/gi'
 import {BsChatLeftText} from 'react-icons/bs'
 import {AiOutlineMail} from 'react-icons/ai'
@@ -7,6 +9,9 @@ import Heading from './Heading'
 import Image from 'next/image'
 import classNames from 'classnames'
 import { Button } from './Button'
+import { digitalNumbers } from '@/app/styles/fonts'
+import { CountUp } from 'use-count-up'
+
 
 export type SectionProps = {
   title?: string
@@ -59,8 +64,19 @@ LINEやチャットで、スピーディに鑑定・買取!!
             </div>
           }
 
-          <div className='mx-auto md:absolute md:bottom-0 md:-right-[240px]'>
-            <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={'/hero_1.webp'} width={480} height={480} style={{objectFit:'contain'}} alt={'logo image'} />
+          <div className='mx-auto md:absolute md:top-0 md:right-0'>
+              
+            <div className='flex flex-col items-center mb-6 gap-2'>
+              <p className='text-center fukidashi px-6 font-bold'>いまだけ！ LINE査定なら<br />査定額が、20%アップ</p>
+            
+              <div className='flex rounded-lg bg-stone-500 '>
+                <p className='vertical-rl bg-stone-700 text-green-50 rounded-l-lg font-bold text-center'>査定額</p>
+                <p className={classNames("inline-block text-5xl text-green-50 p-4 text-right", digitalNumbers.className)}>
+                  <CountUp isCounting start={58000} end={63800} thousandsSeparator=',' duration={1.5} />
+                </p>
+              </div>
+            </div>
+            <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg md:-right-[210px]' src={'/hero_1.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
           
           {heading.description && 

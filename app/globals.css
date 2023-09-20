@@ -43,6 +43,10 @@ body {
 
 
 @layer utilities {
+  .vertical-rl {
+    writing-mode: vertical-rl
+  }
+
   .filter-shadow-md {
     filter: drop-shadow(3px 3px 5px rgba(160, 160, 160, 0.7));
   }
@@ -54,45 +58,67 @@ body {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 200ms;
   }
+
+  .marker{
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*background-image: linear-gradient(90deg, #fff 0%, #fff 30%, #222 30%, #222 100%);*/
+    background-image: 
+      linear-gradient(90deg, #fff 0%, #fff 100%),
+      linear-gradient(90deg, #222 0%, #222 100%);
+    background-size: 0%, 100%;
+    background-repeat: no-repeat;
+    color: #222;
+  
+    transition: background-size .3s ease-in;
+    transition-delay: .1s;
+  }
+  .marker.active{
+    background-size: 100%, 100%;
+  }
+  .marker::before{
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    background-color: darkred;
+    content: '';
+    z-index: -1;
+  
+    transition: width .3s ease-in;
+    transition-delay: .1s;
+  }
+  .marker.active::before{
+    width: 100%;
+  }
+
+  .fukidashi{
+    display: inline-block;
+    position: relative;
+  }
+  .fukidashi::before,
+  .fukidashi::after{
+    content: "";
+    display: inline-block;
+    background: #000;
+    width: 1px;
+    position: absolute;
+    height: 50px;
+    top: 0;
+  }
+  .fukidashi::before{
+    transform: rotate(-30deg);
+    left: 0;
+  }
+  .fukidashi::after{
+    transform: rotate(30deg);
+    right: 0;
+  }
 }
 
 
 
-.marker{
-  position: relative;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /*background-image: linear-gradient(90deg, #fff 0%, #fff 30%, #222 30%, #222 100%);*/
-  background-image: 
-    linear-gradient(90deg, #fff 0%, #fff 100%),
-    linear-gradient(90deg, #222 0%, #222 100%);
-  background-size: 0%, 100%;
-  background-repeat: no-repeat;
-  color: #222;
-
-  transition: background-size .3s ease-in;
-  transition-delay: .1s;
-}
-.marker.active{
-  background-size: 100%, 100%;
-}
-.marker::before{
-  width: 0%;
-  height: 100%;
-  position: absolute;
-  background-color: darkred;
-  content: '';
-  z-index: -1;
-
-  transition: width .3s ease-in;
-  transition-delay: .1s;
-}
-.marker.active::before{
-  width: 100%;
-}
-
-
-.border-triangle:after, .border-triangle:before {
+.border-b-triangle:after, .border-b-triangle:before {
   top: 100%;
   left: 50%;
   border: solid transparent;
@@ -102,14 +128,13 @@ body {
   position: absolute;
   pointer-events: none;
 }
-
-.border-triangle:after {
+.border-b-triangle:after {
   border-color: transparent;
   border-top-color: #fafaf9;
   border-width: 20px;
   margin-left: -20px;
 }
-.border-triangle:before {
+.border-b-triangle:before {
   border-color: transparent;
   border-top-color: #78716c;
   border-width: 21px;

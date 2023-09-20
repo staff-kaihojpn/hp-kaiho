@@ -82,8 +82,8 @@ export const StepCard = ({title, step, icon: Icon, description, className}: Step
         </div>
       }
       <div className='flex-1 p-6'>
-        { title && <p>{title}</p> }
-        { description && <p>{description}</p> }
+        { title && <p className='font-bold'>{title}</p> }
+        { description && <p className='mt-6 text-stone-600'>{description}</p> }
       </div>
       <div className='flex flex-col justify-center items-center w-16 '>
         {Icon && <Icon />}
