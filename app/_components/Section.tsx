@@ -117,7 +117,7 @@ export function ItemSection() {
             <div className='relative aspect-square w-60 max-w-full'>
               <Image src={item.src} fill style={{objectFit:'contain'}} alt={item.name} />
             </div>
-            <Counter className='absolute bottom-0 right-0' end={item.end} mini={true}  />
+            <Counter className='absolute bottom-4 right-0 left-0' end={item.end} mini={true}  />
             
           </div>
         ))}
