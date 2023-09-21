@@ -91,6 +91,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_CRISP_WEBSITE_ID: ${{ vars.NEXT_PUBLIC_CRISP_WEBSITE_ID }}
+      NEXT_PUBLIC_LINE_SHARE_ID: ${{ vars.NEXT_PUBLIC_LINE_SHARE_ID }}
     needs: build
     steps:
       - name: Deploy to GitHub Pages
