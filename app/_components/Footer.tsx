@@ -46,10 +46,10 @@ return (
   <div className='flex flex-wrap gap-8 '>
     {config.pages.map((page, i) => (
       <div key={i}>
-        <p className='mb-2 font-bold text-stone-50'>
+        <p className='py-4 font-bold text-stone-50'>
           {page.path ? <Link href={page.path}>{page.name+''}</Link> : page.name+''}
         </p>
-        <ul className=''>
+        <ul className='flex flex-col gap-4'>
           {page.pages?.map((subpage, j) => (
             <li key={j} className=''>
               {subpage.path ? <Link href={subpage.path}>{subpage.name+''}</Link> : subpage.name+''}
