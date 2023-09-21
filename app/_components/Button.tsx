@@ -1,6 +1,7 @@
 import classNames from "classnames"
 import { IconType } from "react-icons"
 import Link from "next/link"
+import { Config } from "../_config";
 
 type FloatingButtonProps = React.ComponentProps<typeof Link> & {
   icon: IconType;
@@ -8,22 +9,22 @@ type FloatingButtonProps = React.ComponentProps<typeof Link> & {
 
 export function FloatingButton({icon:Icon, className, ...props}: FloatingButtonProps) {
   return (
-    <Link {...props} aria-label="to line app" className={classNames("block rounded-full w-[54px] sm:w-[60px] aspect-square cursor-pointer shadow-md ", className)}>
+    <Link {...props} aria-label="to line app" className={classNames("block rounded-full w-[54px] xs:w-[60px] aspect-square cursor-pointer shadow-md ", className)}>
       <Icon className="w-8 h-full m-auto"/>
     </Link>
   )
 }
 
-
-type ButtonProps = React.ComponentProps<typeof Link> & {
-  icon?: IconType;
-  label: string;
-};
-export function Button({icon:Icon, className, ...props}: ButtonProps) {
+export type ButtonProps = {
+  label?:string
+}
+export function LineButton({label="査定をはじめる"}:ButtonProps){
   return (
-    <Link {...props} className={classNames(className, "block cursor-pointer px-4 py-2 tracking-wide text-lg")}>
-      {Icon && <Icon className="w-8 h-full m-auto"/> }
-      <span className="block text-center">{props.label}</span>
-    </Link>
+    <Link href={'/assessments/line'} className="block tracking-wide text-lg py-2 px-4 bg-green-700 text-stone-50 rounded-full">{label}</Link>
+  )
+}
+export function ChatButton({label="チャットで相談"}:ButtonProps){
+  return (
+    <div onClick={Config.action.openChat} className='tracking-wide text-lg py-2 px-4 bg-stone-50 border-stone-300 border rounded-full cursor-pointer'>{label}</div>
   )
 }

@@ -24,7 +24,7 @@ export default function Header({className, children}: HeaderProps) {
       <header className={classNames(" z-10 backdrop-blur", className)}>
         <div className='flex justify-between items-center max-w-6xl mx-auto py-4 px-6'>
           <Link href='/' aria-label='to home' className='flex items-center' >
-            <Logo className={"fill-red-900 mr-4"} width={32} height={32} />
+            <Logo className={"fill-stone-800 mr-4"} width={32} height={32} />
             <h1 className='text-xl'>開豊ジャパン</h1>
           </Link>
         

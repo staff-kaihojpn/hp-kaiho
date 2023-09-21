@@ -17,7 +17,7 @@ export default function Footer({className, children}: FooterProps) {
           
         <div className='flex flex-col gap-4 items-center pt-10'>
           <Link href='/' aria-label='to home'>
-            <Logo className={"fill-red-800"} width={80} height={80} />
+            <Logo className={"fill-stone-50"} width={80} height={80} />
           </Link>
           <h1 className=''>開豊ジャパン</h1>
         </div>
@@ -28,7 +28,7 @@ export default function Footer({className, children}: FooterProps) {
         
       </div>
       {process.env.NEXT_PUBLIC_LINE_SHARE_ID && 
-        <FloatingButton href={`https://lin.ee/${process.env.NEXT_PUBLIC_LINE_SHARE_ID}`} target="_blank" rel="noopener noreferrer" icon={SiLine} className='fixed bottom-20 sm:bottom-24 right-4 sm:right-6 z-10 text-stone-50 bg-green-600 ' />
+        <FloatingButton href={`https://lin.ee/${process.env.NEXT_PUBLIC_LINE_SHARE_ID}`} target="_blank" rel="noopener noreferrer" icon={SiLine} className='fixed bottom-20 xs:bottom-24 right-4 xs:right-6 z-20 text-stone-50 bg-green-600 ' />
       }
       
     </footer>

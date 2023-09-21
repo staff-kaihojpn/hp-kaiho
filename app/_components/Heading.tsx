@@ -1,7 +1,6 @@
 'use client'
 
 import classNames from 'classnames'
-import { useInView } from '@react-spring/web'
 
 export type HeadingProps = {
   title?:string,
@@ -11,14 +10,10 @@ export type HeadingProps = {
 }
 
 export default function Heading({title, description, className}: HeadingProps) {
-  const [ref, inView] = useInView({
-    rootMargin: '-90px 0px -30% 0px',
-  })
-
   return (
     <div className={classNames(className)}>
       {title && 
-        <h2 ref={ref} className={classNames(inView&&'active', 'marker inline-block text-3xl tracking-widest text-stone-900 border-l-4 border-red-900')}>
+        <h2 className={classNames('inline-block text-3xl tracking-widest text-stone-900 border-l-4 border-amber-700')}>
           <span className='px-6'>{title}</span>
         </h2>
       }

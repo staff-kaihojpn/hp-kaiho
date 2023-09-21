@@ -1,8 +1,11 @@
+'use client'
+
 import classNames from "classnames"
 import Link from "next/link"
 import { IconType } from "react-icons"
 import { assessments } from "./Section"
 import {AiOutlineClose} from 'react-icons/ai'
+import { Config } from '@/app/_config'
 
 export type ListNavProps = {
   className?:string,
@@ -11,19 +14,22 @@ export type ListNavProps = {
 
 export function ListNav({className, children}: ListNavProps) {
   const pages = [
-    { name: 'LINE査定', href: '/'},
-    { name: 'チャット', href: '/'},
-    { name: '査定方法', href: '/assessments'},
+    { name: 'LINE査定', href: Config.link.line},
+    { name: 'サポートチャット', onClick: ()=>Config.action.openChat()},
   ]
 
   return (
     <nav className={classNames(className)}>
       <ul className='flex gap-4 items-center'>
-        {pages.map(({name, href}) => (
-            <li key={name} >
-              <Link className="block py-2 px-3" href={href} >
-                {name}
-              </Link>
+        {pages.map(({name, href, onClick}) => (
+            <li key={name} onClick={onClick} className={classNames(onClick && 'cursor-pointer')}>
+              {href ? 
+                <Link className="block py-2 px-3" href={href} >
+                  {name}
+                </Link>
+                :
+                <span>{name}</span>
+              }
             </li>
         ))}
       </ul>

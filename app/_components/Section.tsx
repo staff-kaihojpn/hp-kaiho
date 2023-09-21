@@ -1,3 +1,5 @@
+'use client'
+
 import {GiJapan} from 'react-icons/gi'
 import {BsChatLeftText} from 'react-icons/bs'
 import {AiOutlineMail} from 'react-icons/ai'
@@ -6,10 +8,9 @@ import {Card, ReviewCard} from './Card'
 import Heading from './Heading'
 import Image from 'next/image'
 import classNames from 'classnames'
-import { Button } from './Button'
 
-import { CountUp } from 'use-count-up'
 import Counter from './Counter'
+import { ChatButton, LineButton } from './Button'
 
 
 export type SectionProps = {
@@ -50,6 +51,8 @@ LINEやチャットで、スピーディに鑑定・買取!!
 `
   }
   const counter = {
+    start: 58000,
+    end: 63800, 
     outerComment:
 `いまだけ！ LINE査定なら
 査定額が、20%アップ`
@@ -64,13 +67,13 @@ LINEやチャットで、スピーディに鑑定・買取!!
           }
           {
             <div className="flex gap-6 md:max-w-xl justify-center md:justify-normal">
-              <Button href="/" className=' bg-green-700 text-stone-50 rounded-full px-12' label="LINE査定" />
-              <Button href="/" className=' bg-stone-50 border-stone-300 border rounded-full px-12' label="チャット相談" />
+              <LineButton />
+              <ChatButton />
             </div>
           }
 
+          
           <div className='mx-auto md:absolute md:top-0 md:right-0'>
-              
             <Counter {...counter}/>
             <Image className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
@@ -93,27 +96,29 @@ export function ItemSection() {
   }
 
   const items = [
-    {name:'金製品', src:'/items/gold.webp'},
-    {name:'鉄瓶', src:'/items/iron.webp'},
-    {name:'銀製品', src:'/items/silver.webp'},
-    {name:'煎茶道具', src:'/items/sencha.webp'},
-    {name:'竹花籠', src:'/items/basket.webp'},
-    {name:'蒔絵', src:'/items/makie.webp'},
-    {name:'御茶道具', src:'/items/tea.webp'},
-    {name:'陶磁器', src:'/items/ceramics.webp'},
-    {name:'仏教美術', src:'/items/statue.webp'},
-    {name:'その他', src:'/items/other.webp'},
+    {name:'金製品', src:'/items/gold.webp', end:3500000},
+    {name:'鉄瓶', src:'/items/iron.webp', end:500000},
+    {name:'銀製品', src:'/items/silver.webp', end:40000},
+    {name:'煎茶道具', src:'/items/sencha.webp', end:18000},
+    {name:'竹花籠', src:'/items/basket.webp', end:80000},
+    {name:'蒔絵', src:'/items/makie.webp', end:750000},
+    {name:'御茶道具', src:'/items/tea.webp', end:50000},
+    {name:'陶磁器', src:'/items/ceramics.webp', end:800000},
+    {name:'仏教美術', src:'/items/statue.webp', end:1200000},
+    {name:'その他', src:'/items/other.webp', end:58000},
   ]
 
   return (
     <Section {...heading}>
       <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
         {items.map((item, i) => (
-          <div className='flex flex-col items-center gap-2' style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 50%, #D0E7D2 50%, #D0E7D2 80%, transparent 80%, transparent 100%)"}} key={i}>
+          <div className='relative flex flex-col items-center gap-2 border rounded-lg shadow' style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 50%, #D0E7D2 50%, #D0E7D2 80%, transparent 80%, transparent 100%)"}} key={i}>
+            <h3 className='text-center text-xl py-2 px-4'>{item.name}</h3>
             <div className='relative aspect-square w-60 max-w-full'>
-              <Image className='transition-filter-shadow filter-shadow-md hover:filter-shadow-lg' src={item.src} fill style={{objectFit:'contain'}} alt={item.name} />
+              <Image src={item.src} fill style={{objectFit:'contain'}} alt={item.name} />
             </div>
-            <h3 className='text-center text-xl'>{item.name}</h3>
+            <Counter className='absolute bottom-0 right-0' end={item.end} mini={true}  />
+            
           </div>
         ))}
       </div>
@@ -152,8 +157,9 @@ export function ReviewSection() {
     description:''
   }
   const reviews = [
-    {title:'亡くなった父の遺品整理の際に利用しました', description:'亡くなった父が、集めていた骨董品の処分に困り、とりあえず鑑定してもらうため、開豊ジャパンさんに査定をお願いしました。 父の思い入れのある骨董品を一つ一つ丁寧に鑑定していただき、親身に相談にも乗っていただき大変心強かったです。', rating:4.5, author:'30代・男性'},
-    {title:'量も多かったので、 まずは「LINE査定」してもらいました。', description:'実家の蔵の整理で、大量に出てきた古い品々があり、価値もわからなかったため、開豊ジャパンさんの「LINE査定」を利用しました。写真を撮って送るだけで、 簡単に査定判断をしてもらえ手間も少なく助かりました。また思っていた以上の買取額で驚いています。', rating:5, author:'40代・女性'}
+    {title:'亡くなった父の遺品整理の際に利用しました', description:'亡くなった父が、集めていた骨董品の処分に困り、とりあえず鑑定してもらうため、開豊ジャパンさんに査定をお願いしました。 父の思い入れのある骨董品を一つ一つ丁寧に鑑定していただき、親身に相談にも乗っていただき大変心強かったです。', rating:4.5, author:'40代・男性'},
+    {title:'量も多かったので、 まずは「LINE査定」してもらいました。', description:'実家の蔵の整理で、大量に出てきた古い品々があり、価値もわからなかったため、開豊ジャパンさんの「LINE査定」を利用しました。写真を撮って送るだけで、 簡単に査定判断をしてもらえ手間も少なく助かりました。また思っていた以上の買取額で驚いています。', rating:5, author:'40代・女性'},
+    {title:'チャットサポートがとてもよかった', description:'LINEアプリを入れていないため、チャットで査定していただけました。とても簡単な操作で査定ができたのでびっくりしました。スマホに不慣れで不安もありましたが、安心して取引できました。', rating:5, author:'60代・男性'}
   ]
   return (
     <Section {...heading}>
