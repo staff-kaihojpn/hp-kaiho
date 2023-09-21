@@ -20,10 +20,10 @@ export type CardProps = DivProps & {
 
 export function Card({href, title, icon: Icon, description, className}: CardProps) {
   return (
-    <Link href={href||''} className={classNames('shadow rounded-lg p-4 bg-stone-100 hover:shadow-lg cursor-pointer', className)}>
+    <Link href={href||''} className={classNames('shadow rounded-lg p-4 bg-stone-50 hover:shadow-lg border cursor-pointer', className)}>
       <div className='flex flex-col'>
-        {Icon && <div><Icon className='text-4xl text-stone-600'/></div>}
-        {title && <h2 className='font-bold text-stone-900 mt-4'>{title}</h2>}
+        {Icon && <div><Icon className='text-4xl text-stone-400'/></div>}
+        {title && <h2 className='font-bold text-lg text-stone-900 mt-4'>{title}</h2>}
         {description && <p className=' text-stone-600 mt-4'>{description}</p>}
         
         <div className="ml-auto text-xl text-stone-400">
@@ -42,7 +42,7 @@ export type PreviewCardProps = {
 export function ReviewCard({title, icon: Icon, description, className, rating=5, author='', ...divProps}: PreviewCardProps) {
   return (
     <div {...divProps} className={classNames('shadow rounded-lg p-4 border', className)}>
-      <div className='flex gap-2'>
+      <div className='flex flex-col md:flex-row gap-6 items-center'>
         <div className='w-28 flex flex-col items-center justify-center text-stone-600'>
           <IoPersonCircleOutline className='text-7xl ' />
           <p className='text-sm'>{author}</p>

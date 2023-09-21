@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import { IconType } from "react-icons"
 import Link from "next/link"
-import { Config } from "../_config";
+import { config } from "../_config";
 
 type FloatingButtonProps = React.ComponentProps<typeof Link> & {
   icon: IconType;
@@ -25,6 +25,6 @@ export function LineButton({label="査定をはじめる"}:ButtonProps){
 }
 export function ChatButton({label="チャットで相談"}:ButtonProps){
   return (
-    <div onClick={Config.action.openChat} className='tracking-wide text-lg py-2 px-4 bg-stone-50 border-stone-300 border rounded-full cursor-pointer'>{label}</div>
+    <div onClick={config.action.openChat} className='tracking-wide text-lg py-2 px-4 bg-stone-50 border-stone-300 border rounded-full cursor-pointer'>{label}</div>
   )
 }

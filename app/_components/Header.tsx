@@ -8,6 +8,7 @@ import { ListNav } from './Nav'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { useState } from 'react'
 import { ModalNav } from './Nav'
+import { metadata } from '../_config'
 
 export type HeaderProps = {
   className?:string,
@@ -25,7 +26,7 @@ export default function Header({className, children}: HeaderProps) {
         <div className='flex justify-between items-center max-w-6xl mx-auto py-4 px-6'>
           <Link href='/' aria-label='to home' className='flex items-center' >
             <Logo className={"fill-stone-800 mr-4"} width={32} height={32} />
-            <h1 className='text-xl'>開豊ジャパン</h1>
+            <h1 className='text-xl'>{metadata.title+''}</h1>
           </Link>
         
           <ListNav className='hidden md:block' />

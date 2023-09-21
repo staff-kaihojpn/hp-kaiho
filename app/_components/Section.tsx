@@ -2,7 +2,7 @@
 
 import {GiJapan} from 'react-icons/gi'
 import {BsChatLeftText} from 'react-icons/bs'
-import {AiOutlineMail} from 'react-icons/ai'
+import {AiOutlineShop} from 'react-icons/ai'
 import {SiLine} from 'react-icons/si'
 import {Card, ReviewCard} from './Card'
 import Heading from './Heading'
@@ -41,18 +41,19 @@ export function HeroSection() {
     description: 
 `開豊ジャパンは、八王子市の古美術品店
 
-古美術の確かな目利きと、高価買取実績があります。
+確かな目利きと、多数の高価買取実績あり
 
-眠ったままの骨董品、故人の思いの詰まった遺品など、
-１点１点しっかり、丁寧に鑑定します。
+眠ったままの骨董品、思いの詰まった遺品など、
+１点１点しっかり丁寧に鑑定します。
 
 どんなお品物でも高価買取、
 LINEやチャットで、スピーディに鑑定・買取!!
 `
   }
   const counter = {
+    innerComment: '58,000 →',
     start: 58000,
-    end: 63800, 
+    end: 72500, 
     outerComment:
 `いまだけ！ LINE査定なら
 査定額が、20%アップ`
@@ -130,8 +131,8 @@ export function ItemSection() {
 export const assessments = [
   {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine, href:'/assessments/line'},
   {title:'チャット査定' , description:'チャットでご相談ください' , icon:BsChatLeftText, href:'/assessments/chat'},
-  {title:'メール査定' , description:'メールに写真を添付' , icon:AiOutlineMail, href:'/assessments/mail'},
-  {title:'出張査定' , description:'スタッフが直接査定に伺います。"日本全国対応"' , icon:GiJapan, href:'/assessments/visit'},
+  {title:'持ち込み査定' , description:'弊社に査定品をお持ちください' , icon:AiOutlineShop, href:'/assessments/mail'},
+  {title:'訪問査定' , description:'スタッフが直接査定に伺います' , icon:GiJapan, href:'/assessments/visit'},
 ]
 
 export function AssessmentSection() {
@@ -142,7 +143,7 @@ export function AssessmentSection() {
 
   return (
     <Section {...heading}>
-      <div className='grid grid-cols-2 gap-4'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         {assessments.map((assessment, i) => (
           <Card className='flex-1 ' {...assessment} href={assessment.href} key={i}/>
         ))}
@@ -163,7 +164,7 @@ export function ReviewSection() {
   ]
   return (
     <Section {...heading}>
-      <div className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-6'>
         {reviews.map((review, i) => (
           <ReviewCard {...review} key={i} />
         ))}
