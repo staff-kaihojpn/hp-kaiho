@@ -24,6 +24,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  NEXT_PUBLIC_CRISP_WEBSITE_ID: ${{ vars.NEXT_PUBLIC_CRISP_WEBSITE_ID }}
+  NEXT_PUBLIC_LINE_SHARE_ID: ${{ vars.NEXT_PUBLIC_LINE_SHARE_ID }}
+
 jobs:
   # Build job
   build:
@@ -75,9 +79,6 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-        env:
-          NEXT_PUBLIC_CRISP_WEBSITE_ID: ${{ vars.NEXT_PUBLIC_CRISP_WEBSITE_ID }}
-          NEXT_PUBLIC_LINE_SHARE_ID: ${{ vars.NEXT_PUBLIC_LINE_SHARE_ID }}
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
       - name: Upload artifact
