@@ -26,11 +26,11 @@ concurrency:
 
 jobs:
   # Build job
-  env:
-    NEXT_PUBLIC_CRISP_WEBSITE_ID: ${{ vars.NEXT_PUBLIC_CRISP_WEBSITE_ID }}
-    NEXT_PUBLIC_LINE_SHARE_ID: ${{ vars.NEXT_PUBLIC_LINE_SHARE_ID }}
   build:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_CRISP_WEBSITE_ID: ${{ vars.NEXT_PUBLIC_CRISP_WEBSITE_ID }}
+      NEXT_PUBLIC_LINE_SHARE_ID: ${{ vars.NEXT_PUBLIC_LINE_SHARE_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
