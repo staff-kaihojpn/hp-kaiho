@@ -2,7 +2,6 @@
 import classNames from 'classnames'
 import { StepCard } from '../../_components/Card'
 import { Section } from '../../_components/Section'
-import {LiaUserFriendsSolid} from 'react-icons/lia'
 
 export default function AssessmentsLinePage() {
   const steps = [
