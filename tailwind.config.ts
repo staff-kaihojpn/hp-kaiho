@@ -15,6 +15,7 @@ const config: Config = {
         primary: 'var(--color-primary, hsl(0, 0%, 0%))',
         secondary: 'var(--color-secondary, hsl(0, 0%, 0%))',
         tertiary: 'var(--color-tertiary, hsl(0, 0%, 0%))',
+        accent: 'var(--color-accent, hsl(25, 90%, 37%))',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

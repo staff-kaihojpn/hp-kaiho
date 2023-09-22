@@ -23,7 +23,7 @@ export function Section({title, description, className, children}:SectionProps) 
   return (
     <div className={classNames('w-full', className)}>
       <section className='px-6 mx-auto max-w-6xl'>
-        <Heading className="py-16" title={title} description={description}/>
+        <Heading className="pb-12" title={title} description={description}/>
         {children}
       </section>
     </div>

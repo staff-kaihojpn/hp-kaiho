@@ -66,13 +66,12 @@ export type StepCardProps = JSX.IntrinsicElements['div'] & {
   step?: number
   title?: string
   description?: string
-  icon?: IconType,
-  className?:string
+  image?: string,
 }
 
 
 
-export const StepCard = ({title, step, icon: Icon, description, className}: StepCardProps) => {
+export const StepCard = ({title, step, image, description, className}: StepCardProps) => {
   return (
     <div className={classNames(className, 'relative border bg-stone-50 border-stone-500 rounded-lg  flex gap-4 ')}>
       {step && 
@@ -85,8 +84,8 @@ export const StepCard = ({title, step, icon: Icon, description, className}: Step
         { title && <p className='font-bold'>{title}</p> }
         { description && <p className='mt-6 text-stone-600'>{description}</p> }
       </div>
-      <div className='flex flex-col justify-center items-center w-16 '>
-        {Icon && <Icon />}
+      <div className='relative aspect-square'>
+        {image && <Image alt={`step-image`} src={image} fill />}
       </div>
     
     </div>

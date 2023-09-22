@@ -19,20 +19,31 @@ export const config = {
     }
   },
 
-  pages:[
-    {name: 'トップ', path: '/'},
-    {name: '査定方法', pages: [
-      {name: 'LINE査定', path: '/assessments/line'},
-      {name: 'チャット査定', path: '/assessments/chat'},
-      {name: '持ち込み査定', path: '/assessments/carryin'},
-      {name: '出張査定', path: '/assessments/onsite'},
-    ]},
-    {name: 'よくある質問', path: '/faq'},
-    {name: 'ポリシー', pages: [
-      {name: '買取規定', path: '/policy/buying'},
-      {name: 'プライバシーポリシー', path: '/policy/privacy'},
-      {name: '会社概要', path: '/policy/company'},
-    ]}
+  pageGroups:[
+    {
+      name:'', 
+      pages:[
+        {name:'HOME', path:'/'},
+        {name: 'よくある質問', path: '/faq'},
+      ],
+    },
+    {
+      name:'査定方法', 
+      pages:[
+        {name: 'LINE査定', path: '/assessments/line'},
+        {name: 'チャット査定', path: '/assessments/chat'},
+        {name: '持ち込み査定', path: '/assessments/carryin'},
+        {name: '出張査定', path: '/assessments/onsite'},
+      ],
+    },
+    {
+      name:'ポリシー', 
+      pages:[
+        {name: '買取規定', path: '/policy/buying'},
+        {name: 'プライバシーポリシー', path: '/policy/privacy'},
+        {name: '会社概要', path: '/policy/company'},
+      ],
+    },
   ],
 
   

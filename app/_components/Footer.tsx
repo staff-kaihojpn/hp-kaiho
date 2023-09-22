@@ -13,7 +13,7 @@ export type FooterProps = {
 
 export default function Footer({className, children}: FooterProps) {
   return (
-    <footer className={classNames("bg-stone-900 text-stone-50 pb-8 mt-16",className)}>
+    <footer className={classNames("bg-stone-900 text-stone-300 pb-8 mt-16",className)}>
       <div className='flex flex-col gap-16 justify-between items-center'>
           
         <div className='flex flex-col gap-4 items-center pt-10'>
@@ -43,23 +43,24 @@ export default function Footer({className, children}: FooterProps) {
 
 export function PageList() {
 return (
-  <div className='flex flex-wrap gap-8 '>
-    {config.pages.map((page, i) => (
+  <nav className='flex flex-wrap gap-12 text-sm '>
+    {config.pageGroups.map((group, i) => (
       <div key={i}>
-        <p className='py-4 font-bold text-stone-50'>
-          {page.path ? <Link href={page.path}>{page.name+''}</Link> : page.name+''}
+        <p className='text-sm h-12 '>
+          {group.name}
         </p>
         <ul className='flex flex-col gap-4'>
-          {page.pages?.map((subpage, j) => (
+          {group.pages?.map((page, j) => (
             <li key={j} className=''>
-              {subpage.path ? <Link href={subpage.path}>{subpage.name+''}</Link> : subpage.name+''}
+              <Link href={page.path||''} className={classNames('text-stone-50 font-bold')}>
+                {page.name+''}
+              </Link>
             </li>
           ))}
-          
         </ul>
       </div>
     ))}
-  </div>
+  </nav>
 )
 
 

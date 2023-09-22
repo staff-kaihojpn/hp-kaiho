@@ -1,11 +1,12 @@
 import { company } from "@/app/_config"
+import classNames from "classnames"
 
-export type CompanyTableProps = {
+export type CompanyTableProps = JSX.IntrinsicElements['table'] & {
   isHeader?:boolean,
 }
-export function CompanyTable({isHeader=false}:CompanyTableProps){
+export function CompanyTable({isHeader=false, ...props}:CompanyTableProps){
   return (
-    <table>
+    <table className={classNames(props.className)}>
       <tbody>
         {Object.keys(company).map((key, i) => (
           <tr key={i}>

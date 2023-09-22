@@ -38,13 +38,13 @@ export function ListNav({className, children}: ListNavProps) {
 }
 
 
-export type ModalNavProps = JSX.IntrinsicElements['div'] & {
+export type MobileNavProps = JSX.IntrinsicElements['div'] & {
  onClose?:()=>void,
 }
 
-export function ModalNav({className, onClose}:ModalNavProps){
+export function MobileNav({className, onClose}:MobileNavProps){
   return(
-    <div className={classNames(className, "fixed flex flex-col items-center inset-0 w-full h-full bg-stone-800/80 z-20 py-4 px-6 text-stone-50")}>
+    <div className={classNames(className, "flex flex-col items-center bg-stone-800/80 text-stone-50")}>
       <div className="flex justify-end w-full text-3xl ">
         <div className="cursor-pointer" onClick={()=>onClose && onClose()}>
           <AiOutlineClose />
