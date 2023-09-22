@@ -84,7 +84,7 @@ export const StepCard = ({title, step, image, description, className}: StepCardP
         { title && <p className='font-bold'>{title}</p> }
         { description && <p className='mt-6 text-stone-600'>{description}</p> }
       </div>
-      <div className='relative aspect-square'>
+      <div className='relative w-[calc(50%_-_20px)] aspect-square rounded-r-lg overflow-hidden'>
         {image && <Image alt={`step-image`} src={image} fill />}
       </div>
     

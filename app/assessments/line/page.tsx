@@ -14,7 +14,7 @@ export default function AssessmentsLinePage() {
   ]
   return (
     <Section title='LINE査定'>
-      <div className=' flex flex-col gap-6 '>
+      <div className=' flex flex-col gap-6 max-w-xl mx-auto '>
         {steps.map((step, index) => (
           <StepCard key={index} step={index+1} title={step.title} className={classNames((index < steps.length-1)&&'border-b-triangle')} description={step.description} image={step.image} />
         ))}
