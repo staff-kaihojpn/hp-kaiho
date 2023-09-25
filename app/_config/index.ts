@@ -33,7 +33,7 @@ export const config = {
         {name: 'LINE査定', path: '/assessments/line'},
         {name: 'チャット査定', path: '/assessments/chat'},
         {name: '持ち込み査定', path: '/assessments/carryin'},
-        {name: '出張査定', path: '/assessments/onsite'},
+        {name: '訪問査定', path: '/assessments/onsite'},
       ],
     },
     {
@@ -60,7 +60,6 @@ export type Company = {
 export const company:Company = {
   name: {label:'会社名', value:'株式会社 開豊ジャパン'},
   tel: {label:'電話', value:'042-667-7005'},
-  zip: {label:'郵便番号', value:'193-0935'},
   address: {label:'住所', value:'東京都八王子市大船町142-6'},
   email: {label:'メール', value:'staff.kaihojpn@gmail.com'},
   business : {label:'営業時間', value:'10:00〜18:00 (土日祝日を除く)'},

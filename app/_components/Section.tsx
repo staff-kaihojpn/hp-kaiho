@@ -61,7 +61,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
   }
   return (
     <div className={classNames('w-full')} style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 25%, #D0E7D2 25%, #D0E7D2 80%, transparent 80%, transparent 100%)"}}>
-      <section className='p-6 mx-auto max-w-6xl '>
+      <section className='px-6 mx-auto max-w-6xl '>
         <div className='relative flex flex-col whitespace-pre-wrap gap-8'>
           {heading.title && 
             <h2 className='text-3xl md:max-w-xl text-center md:text-left tracking-widest leading-relaxed font-bold text-stone-900'>{heading.title}</h2>

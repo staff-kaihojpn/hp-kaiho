@@ -2,9 +2,6 @@
 
 import classNames from "classnames"
 import Link from "next/link"
-import { IconType } from "react-icons"
-import { assessments } from "./Section"
-import {AiOutlineClose} from 'react-icons/ai'
 import { config } from '@/app/_config'
 
 export type ListNavProps = {
@@ -34,23 +31,5 @@ export function ListNav({className, children}: ListNavProps) {
         ))}
       </ul>
     </nav>
-  )
-}
-
-
-export type MobileNavProps = JSX.IntrinsicElements['div'] & {
- onClose?:()=>void,
-}
-
-export function MobileNav({className, onClose}:MobileNavProps){
-  return(
-    <div className={classNames(className, "flex flex-col items-center bg-stone-800/80 text-stone-50")}>
-      <div className="flex justify-end w-full text-3xl ">
-        <div className="cursor-pointer" onClick={()=>onClose && onClose()}>
-          <AiOutlineClose />
-        </div>
-      </div>
-      <p>aaa</p>
-    </div>
   )
 }

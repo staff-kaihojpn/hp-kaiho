@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter, Yuji_Syuku } from 'next/font/google'
-import Header from './_components/Header'
+import Header, { MobileNav } from './_components/Header'
 import Footer from './_components/Footer'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
@@ -24,7 +24,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
       {process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID && <CrispChat />}
       <body className={classNames(/*[inter.className]*/)}>
         <Header className='sticky top-0' />
-        <div className="h-full mb-auto">
+        <div className="h-full mb-auto pt-12">
           {children}
         </div>
         <Footer />
