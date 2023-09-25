@@ -1,6 +1,9 @@
 import { Crisp } from "crisp-sdk-web"
 import { Metadata } from "next";
-
+import { IconType } from "react-icons";
+import {BsFillTelephoneFill, BsFillGeoAltFill} from 'react-icons/bs'
+import {BsCalendarCheck} from 'react-icons/bs'
+import {FiMail} from 'react-icons/fi'
 
 export const metadata:Metadata = {
   title: '開豊ジャパン',
@@ -55,12 +58,13 @@ export type Company = {
   [key: string]: {
     label:string; 
     value:string;
+    icon?:IconType;
   }
 }
 export const company:Company = {
   name: {label:'会社名', value:'株式会社 開豊ジャパン'},
-  tel: {label:'電話', value:'042-667-7005'},
-  address: {label:'住所', value:'東京都八王子市大船町142-6'},
-  email: {label:'メール', value:'staff.kaihojpn@gmail.com'},
-  business : {label:'営業時間', value:'10:00〜18:00 (土日祝日を除く)'},
+  address: {label:'住所', value:'東京都八王子市大船町142-6', icon:BsFillGeoAltFill},
+  email: {label:'メール', value:'staff.kaihojpn@gmail.com', icon:FiMail},
+  tel: {label:'電話', value:'042-667-7005', icon: BsFillTelephoneFill},
+  business : {label:'営業時間', value:'10:00〜18:00 (土日祝日を除く)', icon:BsCalendarCheck},
 }

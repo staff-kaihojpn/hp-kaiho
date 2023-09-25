@@ -25,8 +25,12 @@ export default function Header({className, children}: HeaderProps) {
       <header className={classNames(" z-10 backdrop-blur bg-stone-50/80", className)}>
         <div className='flex justify-between items-center max-w-6xl mx-auto py-4 px-6'>
           <Link href='/' aria-label='to home' className='flex items-center' >
-            <Logo className={"fill-stone-800 mr-4"} width={32} height={32} />
-            <h1 className='text-xl'>{metadata.title+''}</h1>
+            <Logo className={"fill-stone-800 mr-4"} width={40} height={40} />
+            <div>
+              <p className='text-xs'>骨董品・古美術品 買取</p>
+              <h1 className='text-xl'>{metadata.title+''}</h1>
+
+            </div>
           </Link>
         
           <ListNav className='hidden md:block' />

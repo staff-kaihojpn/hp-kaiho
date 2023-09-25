@@ -100,11 +100,15 @@ body {
   .fukidashi::after{
     content: "";
     display: inline-block;
-    background: #000;
+    background: #222;
     width: 1px;
     position: absolute;
     height: 50px;
     top: 0;
+  }
+  .fukidashi.accent::before,
+  .fukidashi.accent::after{
+    background: #d97706;
   }
   .fukidashi::before{
     transform: rotate(-30deg);

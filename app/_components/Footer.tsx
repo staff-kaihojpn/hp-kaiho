@@ -13,7 +13,7 @@ export type FooterProps = {
 
 export default function Footer({className, children}: FooterProps) {
   return (
-    <footer className={classNames("bg-stone-900 text-stone-300 pb-8 mt-16",className)}>
+    <footer className={classNames("bg-stone-900 text-stone-300 py-12 mt-16",className)}>
       <div className='flex flex-col gap-16 justify-between items-center'>
           
         <div className='flex flex-col gap-4 items-center pt-10'>
@@ -22,7 +22,7 @@ export default function Footer({className, children}: FooterProps) {
           </Link>
         </div>
         
-        <div className='flex flex-col items-center md:items-start md:flex-row md:justify-between gap-8 w-full px-6 max-w-4xl'>
+        <div className='flex flex-col items-center md:items-start md:flex-row md:justify-between gap-16 w-full px-6 max-w-4xl'>
           
           <CompanyTable />
           <PageList />

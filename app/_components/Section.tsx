@@ -75,7 +75,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
 
           
           <div className='mx-auto md:absolute md:top-0 md:right-0'>
-            <Counter {...counter}/>
+            <Counter {...counter} outerCommentClassName=' text-amber-600 animate-bounce'/>
             <Image className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
           
@@ -131,8 +131,8 @@ export function ItemSection() {
 export const assessments = [
   {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine, href:'/assessments/line'},
   {title:'チャット査定' , description:'チャットでご相談ください' , icon:BsChatLeftText, href:'/assessments/chat'},
-  {title:'持ち込み査定' , description:'弊社に査定品をお持ちください' , icon:AiOutlineShop, href:'/assessments/mail'},
-  {title:'訪問査定' , description:'スタッフが直接査定に伺います' , icon:GiJapan, href:'/assessments/visit'},
+  {title:'持ち込み査定' , description:'弊社に査定品をお持ちください' , icon:AiOutlineShop, href:'/assessments/carryin'},
+  {title:'訪問査定' , description:'スタッフが直接査定に伺います' , icon:GiJapan, href:'/assessments/onsite'},
 ]
 
 export function AssessmentSection() {

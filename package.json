@@ -33,6 +33,7 @@
     "use-count-up": "^3.0.1"
   },
   "devDependencies": {
-    "@svgr/webpack": "^8.1.0"
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/typography": "^0.5.10"
   }
 }
