@@ -12,6 +12,7 @@ import classNames from 'classnames'
 import Counter from './Counter'
 import { ChatButton, LineButton } from './Button'
 
+import { blurDataURL } from '@/lib/blur'
 
 export type SectionProps = {
   title?: string
@@ -76,7 +77,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
           
           <div className='mx-auto md:absolute md:top-0 md:right-0'>
             <Counter {...counter} outerCommentClassName=' text-amber-600 animate-bounce'/>
-            <Image priority={true} className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
+            <Image priority={true} placeholder="blur" blurDataURL={blurDataURL} className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
           
           {heading.description && 
