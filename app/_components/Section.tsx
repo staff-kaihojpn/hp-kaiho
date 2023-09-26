@@ -76,7 +76,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
           
           <div className='mx-auto md:absolute md:top-0 md:right-0'>
             <Counter {...counter} outerCommentClassName=' text-amber-600 animate-bounce'/>
-            <Image className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
+            <Image priority={true} className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
           </div>
           
           {heading.description && 
