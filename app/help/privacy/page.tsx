@@ -1,4 +1,4 @@
-import Content from './privacy.mdx';
+import Content from './content.mdx';
 
 export default function PrivacyPolicyPage(){
   return (

@@ -24,27 +24,26 @@ export const config = {
 
   pageGroups:[
     {
-      name:'', 
-      pages:[
-        {name:'HOME', path:'/'},
-        {name: 'よくある質問', path: '/faq'},
-      ],
-    },
-    {
-      name:'査定方法', 
+      name:'仮査定の手順', 
       pages:[
         {name: 'LINE査定', path: '/assessments/line'},
         {name: 'チャット査定', path: '/assessments/chat'},
+      ],
+    },
+    {
+      name:'本査定の手順', 
+      pages:[
         {name: '持ち込み査定', path: '/assessments/carryin'},
         {name: '訪問査定', path: '/assessments/onsite'},
       ],
     },
     {
-      name:'ポリシー', 
+      name:'ヘルプとポリシー', 
       pages:[
-        {name: '買取規定', path: '/policy/buying'},
-        {name: 'プライバシーポリシー', path: '/policy/privacy'},
-        {name: '会社概要', path: '/policy/company'},
+        {name: 'よくある質問', path: '/help/faq'},
+        {name: '買取規定', path: '/help/buying'},
+        {name: 'プライバシーポリシー', path: '/help/privacy'},
+        {name: '会社概要', path: '/help/about'},
       ],
     },
   ],

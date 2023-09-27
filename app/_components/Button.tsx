@@ -20,11 +20,11 @@ export type ButtonProps = {
 }
 export function LineButton({label="査定をはじめる"}:ButtonProps){
   return (
-    <Link href={'/assessments/line'} className="block text-lg py-2 px-4 bg-green-700 text-stone-50 rounded-full">{label}</Link>
+    <Link href={'/assessments/line'} className="block text-base py-2 px-4 bg-green-700 text-stone-50 rounded-full">{label}</Link>
   )
 }
 export function ChatButton({label="チャットで相談"}:ButtonProps){
   return (
-    <div onClick={config.action.openChat} className='text-lg py-2 px-4 bg-stone-50 border-stone-300 border rounded-full cursor-pointer'>{label}</div>
+    <div onClick={config.action.openChat} className='text-base py-2 px-4 bg-stone-50 border-stone-300 border rounded-full cursor-pointer'>{label}</div>
   )
 }
