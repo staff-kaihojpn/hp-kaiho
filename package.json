@@ -37,6 +37,7 @@
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/gtag.js": "^0.0.14"
+    "@types/gtag.js": "^0.0.14",
+    "daisyui": "^3.8.0"
   }
 }
