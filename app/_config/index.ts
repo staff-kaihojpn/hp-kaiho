@@ -41,7 +41,7 @@ export const config = {
       name:'ヘルプとポリシー', 
       pages:[
         {name: 'よくある質問', path: '/help/faq'},
-        {name: '買取規定', path: '/help/buying'},
+        {name: '出張査定・買取規約', path: '/help/rule'},
         {name: 'プライバシーポリシー', path: '/help/privacy'},
         {name: '会社概要', path: '/help/about'},
       ],

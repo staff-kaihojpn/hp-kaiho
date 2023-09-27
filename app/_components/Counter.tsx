@@ -4,15 +4,15 @@ import classNames from "classnames";
 import { CountUp, useCountUp } from "use-count-up";
 import { digitalNumbers } from '@/app/styles/fonts'
 import { useInView } from "@react-spring/web";
-import { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 
 export type CounterProps = {
   start?:number,
   end:number,
   duration?:number,
   mini?:boolean,
-  outerComment?:string,
-  innerComment?:string,
+  outerComment?:string|React.ReactNode,
+  innerComment?:string|React.ReactNode,
   className?:string,
   outerCommentClassName?:string,
   children?:React.ReactNode,
