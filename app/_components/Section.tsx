@@ -41,7 +41,6 @@ LINE・チャットで受付中
 `,
     description: 
 `開豊ジャパンは、八王子市の古美術品店
-
 確かな目利きと、多数の高価買取実績あり
 
 眠ったままの骨董品、思いの詰まった遺品など、
@@ -63,9 +62,9 @@ LINEやチャットで、スピーディに鑑定・買取!!
   return (
     <div className={classNames('w-full')} style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 25%, #D0E7D2 25%, #D0E7D2 80%, transparent 80%, transparent 100%)"}}>
       <section className='px-6 mx-auto max-w-6xl '>
-        <div className='relative flex flex-col whitespace-pre-wrap gap-8'>
+        <div className='relative flex flex-col whitespace-pre-wrap gap-12'>
           {heading.title && 
-            <h2 className='text-3xl md:max-w-xl text-center md:text-left tracking-widest leading-relaxed font-bold text-stone-900'>{heading.title}</h2>
+            <h2 className='text-2xl md:text-3xl md:max-w-xl text-center md:text-left font-bold text-stone-900'>{heading.title}</h2>
           }
           {
             <div className="flex gap-6 md:max-w-xl justify-center md:justify-normal">

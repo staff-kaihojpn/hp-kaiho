@@ -26,5 +26,8 @@ const config: Config = {
     require('@tailwindcss/typography'),
     require("daisyui"),
   ],
+  daisyui: {
+    themes: ["light"],
+  },
 }
 export default config

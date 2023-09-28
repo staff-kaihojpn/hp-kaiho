@@ -45,9 +45,9 @@ export default function Counter({start=0, end, duration=1, mini=false, outerComm
         {outerComment && <p className={classNames('text-center fukidashi accent px-6 font-bold',outerCommentClassName)}>{outerComment}</p>}
         <div ref={ref} className='flex rounded-lg bg-stone-500/70 '>
           <p className={classNames('vertical-rl bg-stone-600/80 text-green-50 rounded-l-lg text-right font-bold', mini?'py-1 sm:py-2':'py-4')}>￥</p>
-          <div className={classNames("flex flex-col text-green-50 ", mini?'px-1 pb-1 sm:px-2 sm:pb-2':'px-4 pb-4', digitalNumbers.className)}>
+          <div className={classNames("flex flex-col text-green-50 ", mini?'px-1 pb-1 sm:px-2 sm:pb-2':'px-3 pb-2', digitalNumbers.className)}>
             <p className="text-sm md:py-1">{innerComment}</p>
-            <div className={classNames("inline-block text-right", mini?'text-lg sm:text-2xl ':'text-5xl' )}>
+            <div className={classNames("inline-block text-right", mini?'text-lg sm:text-2xl ':'text-4xl' )}>
               {value}
             </div>
           </div>
