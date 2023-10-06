@@ -22,7 +22,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
   const CrispChat = dynamic(() => import('./_components/CrispChat'))
   
   return (
-    <html lang="ja" className={classNames([yuji_syuku.variable])}>
+    <html lang="ja" data-theme="custom" className={classNames([yuji_syuku.variable])}>
       {process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID && <CrispChat />}
       {process.env.NEXT_PUBLIC_GA_TRACKING_ID && <GoogleAnalytics />}
       <body className={classNames(/*[inter.className]*/)}>

@@ -13,6 +13,7 @@ import Counter from './Counter'
 import { ChatButton, LineButton } from './Button'
 
 import { blurDataURL } from '@/lib/blur'
+import { CSSProperties } from 'react'
 
 export type SectionProps = {
   title?: string
@@ -23,8 +24,8 @@ export type SectionProps = {
 export function Section({title, description, className, children}:SectionProps) {
   return (
     <div className={classNames('w-full', className)}>
-      <section className='px-6 mx-auto max-w-6xl'>
-        <Heading className="pb-12" title={title} description={description}/>
+      <section className='px-4 mx-auto max-w-4xl'>
+        <Heading className="pb-12 text-center" title={title} description={description}/>
         {children}
       </section>
     </div>
@@ -36,8 +37,8 @@ export function HeroSection() {
   const heading = {
     title: 
 `骨董品・古美術品
-無料で査定いたします
-LINE・チャットで受付中
+無料で鑑定いたします
+スマホで、かんたん査定
 `,
     description: 
 `開豊ジャパンは、八王子市の古美術品店
@@ -60,66 +61,72 @@ LINEやチャットで、スピーディに鑑定・買取!!
 
   }
   return (
-    <div className={classNames('w-full')} style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 25%, #D0E7D2 25%, #D0E7D2 80%, transparent 80%, transparent 100%)"}}>
-      <section className='px-6 mx-auto max-w-6xl '>
-        <div className='relative flex flex-col whitespace-pre-wrap gap-12'>
-          {heading.title && 
-            <h2 className='text-2xl md:text-3xl md:max-w-xl text-center md:text-left font-bold text-stone-900'>{heading.title}</h2>
-          }
-          {
-            <div className="flex gap-6 md:max-w-xl justify-center md:justify-normal">
-              <LineButton />
-              <ChatButton />
-            </div>
-          }
-
-          
-          <div className='mx-auto md:absolute md:top-0 md:right-0'>
-            <Counter {...counter} outerCommentClassName=' text-amber-600 animate-bounce'/>
-            <Image priority={true} placeholder="blur" blurDataURL={blurDataURL} className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
+    <section className={classNames('w-full')} style={{}}>
+      <div className='px-4 mx-auto max-w-4xl flex justify-between flex-col-reverse md:flex-row-reverse items-center'>
+        
+        <div className='flex flex-col text-center whitespace-pre-wrap gap-8 items-center'>
+          <h2 className='text-2xl md:text-3xl font-black text-primary'>{heading.title}</h2>
+          <div className="flex gap-8">
+            <div className='btn btn-primary'>査定をはじめる</div>
+            <div className='btn btn-primary btn-outline'>チャットで相談</div>
           </div>
-          
-          {heading.description && 
-            <p className='md:text-lg md:max-w-xl text-center md:text-left text-stone-700'>{heading.description}</p>
-          }
-          
+          <p className=''>{heading.description}</p>
         </div>
-      </section>
-    </div>
+        
+        <div className='relative'>
+          <Image priority={true} src={'/items/other.webp'} width={350} height={350} alt={'antique item'} className='absolute bottom-[30px]' />
+
+          <div className='relative'>
+            <div className='w-48 text-center text-secondary absolute font-bold' style={{top:'80px', left:'50%', transform:'translate(-50%, 0)'}}>
+              <p className='mb-2'>いまだけ! LINE査定で<br />査定額 20%UP</p>
+              <p className='text-4xl'>￥72,500</p>
+            </div>
+            <Image priority={true} src={'/home/phone_frame.webp'} width={350} height={539} alt={'smart_phone_frame'} />
+          </div>
+        </div>
+      </div>
+
+    </section>
   )
 }
 
 
 export function ItemSection() {
   const heading = {
-    title:"買取しています",
-    description:'あなたの家族の大切にしていたものを、確かな目利きで高く買取いたします。'
+    title:
+`高額買取保障！
+さがしています`,
+    description:
+`当社が特に高価買取に力を入れている商品を紹介します`
   }
 
   const items = [
-    {name:'金製品', src:'/items/gold.webp', end:3500000},
-    {name:'鉄瓶', src:'/items/iron.webp', end:500000},
-    {name:'銀製品', src:'/items/silver.webp', end:40000},
-    {name:'煎茶道具', src:'/items/sencha.webp', end:18000},
-    {name:'竹花籠', src:'/items/basket.webp', end:80000},
-    {name:'蒔絵', src:'/items/makie.webp', end:750000},
-    {name:'御茶道具', src:'/items/tea.webp', end:50000},
-    {name:'陶磁器', src:'/items/ceramics.webp', end:800000},
-    {name:'仏教美術', src:'/items/statue.webp', end:1200000},
-    {name:'その他', src:'/items/other.webp', end:58000},
+    {title:'金製品', description:'金瓶・金杯・アクセサリー', src:'/items/gold.webp', end:3500000},
+    {title:'鉄瓶', description:'南部鉄瓶・', src:'/items/iron.webp', end:500000},
+    {title:'銀製品', description:'銀瓶・銀杯・カトラリー', src:'/items/silver.webp', end:40000},
+    {title:'煎茶道具', description:'煎茶道具', src:'/items/sencha.webp', end:18000},
+    {title:'竹花籠', description:'花籠', src:'/items/basket.webp', end:80000},
+    {title:'蒔絵', description:'蒔絵', src:'/items/makie.webp', end:750000},
+    {title:'御茶道具', description:'御茶道具', src:'/items/tea.webp', end:50000},
+    {title:'陶磁器', description:'陶磁器', src:'/items/ceramics.webp', end:800000},
+    {title:'仏教美術', description:'仏教美術', src:'/items/statue.webp', end:1200000},
+    {title:'その他', description:'その他', src:'/items/other.webp', end:58000},
   ]
 
+  const wantedPaper:CSSProperties = {
+    background:`radial-gradient(#FFF3DC 90%, #A66D00 120%);`,
+    color:'#5B3C00',
+  }
   return (
-    <Section {...heading}>
-      <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
+    <Section {...heading} >
+      <div className='flex flex-wrap gap-4 justify-center'>
         {items.map((item, i) => (
-          <div className='relative flex flex-col items-center gap-2 border rounded-lg shadow' style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 50%, #D0E7D2 50%, #D0E7D2 80%, transparent 80%, transparent 100%)"}} key={i}>
-            <h3 className='text-center text-xl py-2 px-4'>{item.name}</h3>
-            <div className='relative aspect-square w-60 max-w-full'>
-              <Image src={item.src} fill style={{objectFit:'contain'}} alt={item.name} />
+          <div key={i} className='flex flex-col gap-2 shadow-lg p-2 w-40 md:w-48' style={wantedPaper}>
+            <h3 className='text-center text-lg font-bold'>{item.title}</h3>
+            <div className='relative aspect-square border ' style={{borderColor:'#a88136'}}>
+              <Image className='p-2' src={item.src} fill style={{objectFit:'contain'}} alt={item.title} />
             </div>
-            <Counter className='absolute bottom-4 right-0 left-0' end={item.end} mini={true}  />
-            
+            <p className='text-center text-sm h-12'>{item.description}</p>
           </div>
         ))}
       </div>
