@@ -14,6 +14,8 @@ import { ChatButton, LineButton } from './Button'
 
 import { blurDataURL } from '@/lib/blur'
 import { CSSProperties } from 'react'
+import Link from 'next/link'
+import { config } from '../_config'
 
 export type SectionProps = {
   title?: string
@@ -67,13 +69,15 @@ LINEやチャットで、スピーディに鑑定・買取!!
         <div className='flex flex-col text-center whitespace-pre-wrap gap-8 items-center'>
           <h2 className='text-2xl md:text-3xl font-black text-primary'>{heading.title}</h2>
           <div className="flex gap-8">
-            <div className='btn btn-primary'>査定をはじめる</div>
-            <div className='btn btn-primary btn-outline'>チャットで相談</div>
+            <Link href='/assessments/line'>
+              <div className='btn btn-primary'>査定をはじめる</div>
+            </Link>
+            <div className='btn btn-primary btn-outline' onClick={config.action.openChat}>チャットで相談</div>
           </div>
           <p className=''>{heading.description}</p>
         </div>
         
-        <div className='relative'>
+        <div className='relative mb-12 md:mb-0'>
           <Image priority={true} src={'/items/other.webp'} width={350} height={350} alt={'antique item'} className='absolute bottom-[30px]' />
 
           <div className='relative'>
@@ -90,6 +94,36 @@ LINEやチャットで、スピーディに鑑定・買取!!
   )
 }
 
+
+export function HowtoSection() {
+  const steps = [
+    {title:'LINEアプリでトークを開始', image:'/home/howto_1.webp'},
+    {title:'トークに写真を送りましょう', image:'/home/howto_2.webp'},
+    {title:'鑑定結果のメッセージが届く', image:'/home/howto_3.webp'},
+  ]
+
+  return (
+    <Section title={
+`必要なのはスマホだけ！
+まずは、かんたん査定から`
+    }>
+      <div className='flex flex-col md:flex-row gap-8'>
+          {steps.map((step, i) => (
+            <div key={i} className='flex flex-row-reverse md:flex-col items-center gap-4'>
+              <div className='flex flex-1 gap-2 items-baseline'>
+                <p className='text-5xl'>{i+1}</p>
+                <h3 className=''>{step.title}</h3>
+              </div>
+              <div className='w-[40%] md:w-auto'>
+                <Image src={step.image} width={300} height={460} alt={step.title} />
+              </div>
+            </div>
+          ))}
+      </div>
+    </Section>
+  )
+
+}
 
 export function ItemSection() {
   const heading = {
@@ -121,12 +155,12 @@ export function ItemSection() {
     <Section {...heading} >
       <div className='flex flex-wrap gap-4 justify-center'>
         {items.map((item, i) => (
-          <div key={i} className='flex flex-col gap-2 shadow-lg p-2 w-40 md:w-48' style={wantedPaper}>
+          <div key={i} className='wanted-paper flex flex-col gap-2 shadow-lg p-2 w-40 md:w-48 '>
             <h3 className='text-center text-lg font-bold'>{item.title}</h3>
-            <div className='relative aspect-square border ' style={{borderColor:'#a88136'}}>
+            <div className='relative aspect-square border' style={{borderColor:'#5B3C00'}}>
               <Image className='p-2' src={item.src} fill style={{objectFit:'contain'}} alt={item.title} />
             </div>
-            <p className='text-center text-sm h-12'>{item.description}</p>
+            <p className='text-center font-bold text-sm h-12'>{item.description}</p>
           </div>
         ))}
       </div>
@@ -135,24 +169,94 @@ export function ItemSection() {
 }
 
 
-export const assessments = [
-  {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine, href:'/assessments/line'},
-  {title:'チャット査定' , description:'チャットでご相談ください' , icon:BsChatLeftText, href:'/assessments/chat'},
-  {title:'持ち込み査定' , description:'弊社に査定品をお持ちください' , icon:AiOutlineShop, href:'/assessments/carryin'},
-  {title:'訪問査定' , description:'スタッフが直接査定に伺います' , icon:GiJapan, href:'/assessments/onsite'},
-]
-
 export function AssessmentSection() {
   const heading = {
-    title:"査定方法",
-    description:'様々な鑑定・買取をさせていただいております、まずはお気軽にご相談ください。'
+    title:"査定のすすめ方",
+    description:
+`査定は２ステップに分けて行います
+かんたん査定で概算を出した後、
+本査定で実際の買取金額をお伝えします`
   }
+  const steps = [
+    {
+      title:'かんたん査定',
+      description:
+`まずはお手持ちのスマホ・パソコンから写真を送り、
+概算の査定額を出しましょう`, 
+      cards:[
+        {
+          title:'かんたん査定(LINE)' , 
+          description:
+`やることは、
+LINEに写真を送るだけ！
+かんたんに査定できます`, 
+          image:'/home/step_line.webp', 
+          href:'/assessments/line'
+        },
+        {
+          title:'かんたん査定(チャット)',
+          description:
+`LINEをやってなくても大丈夫！
+ホームページ上からチャットで相談や査定ができます`,
+          image:'/home/step_chat.webp', 
+          href:'/assessments/chat'
+        },
+      ]
+    },
+    {
+      title:'本査定',
+      description:
+`かんたん査定が済んだ後、
+鑑定士が実際の買取額を決定します`, 
+      cards:[
+        {
+          title:'本査定（訪問）' , 
+          description:
+`かんたん査定が済んだ後、
+ご自宅に鑑定士が査定に伺い、
+査定を行います`, 
+          image:'/home/step_carryin.webp', 
+          href:'/assessments/carryin'
+        },
+        {
+          title:'本査定（持込）',
+          description:
+`かんたん査定が済んだ後、
+弊社に直接商品をお持ちいただき、
+査定を行います`,
+          image:'/home/step_onsite.webp', 
+          href:'/assessments/onsite'
+        },
+      ]
+    }
+  ]
 
   return (
     <Section {...heading}>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-        {assessments.map((assessment, i) => (
-          <Card className='flex-1 ' {...assessment} href={assessment.href} key={i}/>
+      <div className='flex flex-col items-center gap-8'>
+        {steps.map((step, i) => (
+          <div key={i} className=''>
+            <div className='flex gap-2 items-end max-w-sm'>
+              <p className='text-7xl'>{i+1}</p>
+              <div>
+                <h3 className='text-xl font-bold'>{step.title}</h3>
+                <p className='text-sm'>{step.description}</p>
+              </div>
+            </div>
+            <div className='flex flex-col md:flex-row'>
+              {step.cards.map((card, j) => (
+                <div key={j} className='flex flex-col p-4 max-w-xs border rounded-lg items-center bg-white/50'>
+                  <p className='text-xl font-bold mb-4'>{card.title}</p>
+                  <Image src={card.image} width={300} height={460} alt={card.title} />
+                  <p className='my-4'>{card.description}</p>
+                  <Link href={card.href}>
+                    <p className='font-bold'>{`〉もっと詳しく`}</p>
+                  </Link>
+                </div>
+              ))}
+            </div>
+            
+          </div>
         ))}
       </div>
     </Section>
@@ -161,8 +265,12 @@ export function AssessmentSection() {
 
 export function ReviewSection() {
   const heading = {
-    title:"お客様の声",
-    description:''
+    title:
+`ご利用いただいた
+お客様の声`,
+    description:
+`LINE査定、チャットサポートが
+好評いただいています`
   }
   const reviews = [
     {title:'LINE査定が簡単でした♪', description:'実家の整理で、価値のわからない古いものがたくさん出てきました、近所のお店だったので利用しました。LINEで写真を送るだけで、 すぐに査定をしてもらえたので助かりました。また利用する機会があればお願いします。', rating:5, author:'40代・女性'},

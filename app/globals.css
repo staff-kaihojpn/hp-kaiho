@@ -114,6 +114,11 @@ body {
     transform: rotate(30deg);
     right: 0;
   }
+
+  .wanted-paper {
+    background:radial-gradient(#FFF3DC 90%, #A66D00 120%);
+    color:#5B3C00;
+  }
 }
 
 
