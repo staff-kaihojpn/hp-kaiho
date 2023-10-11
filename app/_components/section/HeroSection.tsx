@@ -7,14 +7,13 @@ import { config } from '@/app/_config'
 import { useInView, animated } from '@react-spring/web'
 
 
-export default function HeroSection() {
-  const heading = {
-    title: 
+const heading = {
+  title: 
 `骨董品・古美術品
 無料で鑑定いたします
 スマホで、かんたん査定
 `,
-    description: 
+  description: 
 `開豊ジャパンは、八王子市の古美術品店
 確かな目利きと、多数の高価買取実績あり
 
@@ -24,9 +23,10 @@ export default function HeroSection() {
 どんなお品物でも高価買取、
 LINEやチャットで、スピーディに鑑定・買取!!
 `
-  }
+}
 
-  const [ref, springs] = useInView(
+export default function HeroSection() {
+ const [ref, springs] = useInView(
     () => ({
       from: {
         rotate: 90,
