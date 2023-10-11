@@ -1,7 +1,7 @@
 
 import classNames from 'classnames'
 import { StepCard } from '../../_components/Card'
-import { Section } from '../../_components/Section'
+import { Section } from '../../_components/section'
 
 export default function AssessmentsOnsite() {
   const steps = [

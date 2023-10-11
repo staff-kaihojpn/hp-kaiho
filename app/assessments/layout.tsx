@@ -1,4 +1,4 @@
-import { AssessmentSection } from "../_components/Section";
+import AssessmentSection from "@/app/_components/section/AsessmentSection";
 
 export default function AssessmentsLayout({children}: { children: React.ReactNode }) {
   
