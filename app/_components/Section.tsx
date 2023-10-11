@@ -25,7 +25,7 @@ export type SectionProps = {
 }
 export function Section({title, description, className, children}:SectionProps) {
   return (
-    <div className={classNames('w-full', className)}>
+    <div className={classNames('w-full bg-flash py-20', className)}>
       <section className='px-4 mx-auto max-w-4xl'>
         <Heading className="pb-12 text-center" title={title} description={description}/>
         {children}
@@ -62,7 +62,7 @@ LINEやチャットで、スピーディに鑑定・買取!!
 査定額が、20%アップ`
   }
   return (
-    <section className={classNames('w-full')} style={{}}>
+    <section className={classNames('w-full', 'bg-flash', 'pt-12 pb-20')}>
       <div className='px-4 mx-auto max-w-4xl flex justify-between flex-col-reverse md:flex-row-reverse items-center'>
         
         <div className='flex flex-col text-center whitespace-pre-wrap gap-8 items-center'>

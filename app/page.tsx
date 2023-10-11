@@ -5,7 +5,7 @@ import { HeroSection, ItemSection, AssessmentSection, ReviewSection, HowtoSectio
 
 export default function Home() {
   return (
-    <div className='flex flex-col gap-20'>
+    <div className='flex flex-col whitespace-pre-wrap'>
       <HeroSection />
       <HowtoSection />
       <ItemSection />

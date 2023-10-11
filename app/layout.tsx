@@ -27,7 +27,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
       {process.env.NEXT_PUBLIC_GA_TRACKING_ID && <GoogleAnalytics />}
       <body className={classNames(/*[inter.className]*/)}>
         <Header className='sticky top-0' />
-        <div className="h-full mb-auto pt-12">
+        <div className="h-full mb-auto">
           {children}
         </div>
         <Footer />
