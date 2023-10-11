@@ -41,20 +41,20 @@ export type PreviewCardProps = {
 
 export function ReviewCard({title, icon: Icon, description, className, rating=5, author='', ...divProps}: PreviewCardProps) {
   return (
-    <div {...divProps} className={classNames('shadow rounded-lg p-4 border', className)}>
-      <div className='flex flex-col md:flex-row gap-6 items-center'>
-        <div className='w-28 flex flex-col items-center justify-center text-stone-600'>
-          <IoPersonCircleOutline className='text-7xl ' />
-          <p className='text-sm'>{author}</p>
+    <div {...divProps} className={classNames('shadow rounded-lg p-4 border bg-white/50', className)}>
+      <div className='flex flex-row gap-6 items-center'>
+        <div className='flex flex-col items-center justify-center'>
+          <IoPersonCircleOutline className='text-5xl ' />
+          <p className='text-xs'>{author}</p>
         </div>
         <div className='flex-1'>
-          {title && <h2 className='font-bold text-stone-900'>{title}</h2>}
+          {title && <h2 className='font-bold '>{title}</h2>}
           <div className='flex gap-1 mt-1'>
             {rating && [...Array(5)].map((_, i) => (
               <BsStarFill key={`rating-${i}`} className={classNames((i+1)<=Math.floor(rating) ? 'text-yellow-400':'text-stone-200')}/>
             ))}
           </div>
-          {description && <p className='text-stone-600 mt-4'>{description}</p>}
+          {description && <p className='mt-4'>{description}</p>}
         </div>
       </div>
     </div>

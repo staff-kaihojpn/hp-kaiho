@@ -11,11 +11,6 @@ const config: Config = {
       screens: {
         'xs': '480px',
       },
-      colors: {
-        primary: 'var(--color-primary, hsl(0, 0%, 0%))',
-        secondary: 'var(--color-secondary, hsl(0, 0%, 0%))',
-        accent: 'var(--color-accent, hsl(25, 90%, 37%))',
-      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
@@ -31,7 +26,7 @@ const config: Config = {
       custom: {
         "primary": "#005D09",
         "secondary": "#F2C900",
-        "accent": "#AD3140",
+        "accent": "#A66D00",
         "neutral": "#2b3440",
         "base-100": "#E6F2DC",
         "info": "#3abff8",

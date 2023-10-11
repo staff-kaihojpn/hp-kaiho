@@ -24,7 +24,7 @@ export default function Header({className, children}: HeaderProps) {
       <MobileNav className={classNames(!isMobileNav&&'hidden')} onClose={()=>setIsMobileNav(false)}/>
 
       <header className={classNames(" z-10 backdrop-blur bg-stone-50/80", className)}>
-        <div className='flex justify-between items-center max-w-6xl mx-auto py-4 px-6'>
+        <div className='flex justify-between items-center max-w-6xl mx-auto py-2 px-6'>
           <Link href='/' aria-label='to home'>
             <HeaderTitleNav />
           </Link>
@@ -89,9 +89,9 @@ export function MobileNav({className, onClose}:MobileNavProps){
   
   return(
     <div className={classNames(className, "fixed z-20 w-full h-full flex flex-col bg-stone-800 text-stone-300")}>
-      <div className="relative flex justify-between items-center py-4 px-6">
+      <div className="relative flex justify-between items-center py-2 px-6">
         <HeaderTitleNav dark />
-        <div className="absolute right-6 top-6 text-3xl cursor-pointer text-stone-50" onClick={handleOnClose}>
+        <div className="absolute right-6 top-4 text-3xl cursor-pointer text-stone-50" onClick={handleOnClose}>
           <AiOutlineClose />
         </div>
       </div>

@@ -13,6 +13,9 @@ import Counter from './Counter'
 import { ChatButton, LineButton } from './Button'
 
 import { blurDataURL } from '@/lib/blur'
+import { CSSProperties } from 'react'
+import Link from 'next/link'
+import { config } from '../_config'
 
 export type SectionProps = {
   title?: string
@@ -23,8 +26,8 @@ export type SectionProps = {
 export function Section({title, description, className, children}:SectionProps) {
   return (
     <div className={classNames('w-full', className)}>
-      <section className='px-6 mx-auto max-w-6xl'>
-        <Heading className="pb-12" title={title} description={description}/>
+      <section className='px-4 mx-auto max-w-4xl'>
+        <Heading className="pb-12 text-center" title={title} description={description}/>
         {children}
       </section>
     </div>
@@ -36,8 +39,8 @@ export function HeroSection() {
   const heading = {
     title: 
 `骨董品・古美術品
-無料で査定いたします
-LINE・チャットで受付中
+無料で鑑定いたします
+スマホで、かんたん査定
 `,
     description: 
 `開豊ジャパンは、八王子市の古美術品店
@@ -57,68 +60,203 @@ LINEやチャットで、スピーディに鑑定・買取!!
     outerComment:
 `いまだけ！ LINE査定なら
 査定額が、20%アップ`
-
   }
   return (
-    <div className={classNames('w-full')} style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 25%, #D0E7D2 25%, #D0E7D2 80%, transparent 80%, transparent 100%)"}}>
-      <section className='px-6 mx-auto max-w-6xl '>
-        <div className='relative flex flex-col whitespace-pre-wrap gap-12'>
-          {heading.title && 
-            <h2 className='text-2xl md:text-3xl md:max-w-xl text-center md:text-left font-bold text-stone-900'>{heading.title}</h2>
-          }
-          {
-            <div className="flex gap-6 md:max-w-xl justify-center md:justify-normal">
-              <LineButton />
-              <ChatButton />
-            </div>
-          }
-
-          
-          <div className='mx-auto md:absolute md:top-0 md:right-0'>
-            <Counter {...counter} outerCommentClassName=' text-amber-600 animate-bounce'/>
-            <Image priority={true} placeholder="blur" blurDataURL={blurDataURL} className='' src={'/items/other.webp'} width={420} height={420} style={{objectFit:'contain'}} alt={'logo image'} />
+    <section className={classNames('w-full')} style={{}}>
+      <div className='px-4 mx-auto max-w-4xl flex justify-between flex-col-reverse md:flex-row-reverse items-center'>
+        
+        <div className='flex flex-col text-center whitespace-pre-wrap gap-8 items-center'>
+          <h2 className='text-2xl md:text-3xl font-black text-primary'>{heading.title}</h2>
+          <div className="flex gap-8">
+            <Link href='/assessments/line'>
+              <div className='btn btn-primary'>査定をはじめる</div>
+            </Link>
+            <div className='btn btn-primary btn-outline' onClick={config.action.openChat}>チャットで相談</div>
           </div>
-          
-          {heading.description && 
-            <p className='md:text-lg md:max-w-xl text-center md:text-left text-stone-700'>{heading.description}</p>
-          }
-          
+          <p className=''>{heading.description}</p>
         </div>
-      </section>
-    </div>
+        
+        <div className='relative mb-12 md:mb-0'>
+          <Image priority={true} src={'/items/other.webp'} width={350} height={350} alt={'antique item'} className='absolute bottom-[30px]' />
+
+          <div className='relative'>
+            <div className='w-48 text-center absolute font-bold' style={{top:'80px', left:'50%', transform:'translate(-50%, 0)'}}>
+              <p className='mb-2'>
+                <span className=' text-gold'>いまだけ! LINE査定で<br /></span>
+                <span className='text-gold'>査定額 20%UP</span>
+              </p>
+              <p className='text-4xl text-gold'>￥72,500</p>
+            </div>
+            <Image priority={true} src={'/home/phone_frame.webp'} width={350} height={539} alt={'smart_phone_frame'} />
+          </div>
+        </div>
+      </div>
+
+    </section>
   )
 }
 
 
+export function HowtoSection() {
+  const steps = [
+    {title:'LINEアプリでトークを開始', image:'/home/howto_1.webp'},
+    {title:'トークに写真を送りましょう', image:'/home/howto_2.webp'},
+    {title:'鑑定結果のメッセージが届く', image:'/home/howto_3.webp'},
+  ]
+
+  return (
+    <Section title={
+`必要なのはスマホだけ！
+まずは、かんたん査定から`
+    }>
+      <div className='flex flex-col md:flex-row gap-8'>
+          {steps.map((step, i) => (
+            <div key={i} className='flex flex-row-reverse md:flex-col items-center gap-4'>
+              <div className='flex flex-1 gap-2 items-baseline'>
+                <p className='text-5xl text-gold opacity-60'>{i+1}</p>
+                <h3 className=''>{step.title}</h3>
+              </div>
+              <div className='w-[40%] md:w-auto'>
+                <Image src={step.image} width={300} height={460} alt={step.title} />
+              </div>
+            </div>
+          ))}
+      </div>
+    </Section>
+  )
+
+}
+
 export function ItemSection() {
   const heading = {
-    title:"買取しています",
-    description:'あなたの家族の大切にしていたものを、確かな目利きで高く買取いたします。'
+    title:
+`高額買取保障！
+さがしています`,
+    description:
+`当社が特に高価買取に力を入れている商品を紹介します`
   }
 
   const items = [
-    {name:'金製品', src:'/items/gold.webp', end:3500000},
-    {name:'鉄瓶', src:'/items/iron.webp', end:500000},
-    {name:'銀製品', src:'/items/silver.webp', end:40000},
-    {name:'煎茶道具', src:'/items/sencha.webp', end:18000},
-    {name:'竹花籠', src:'/items/basket.webp', end:80000},
-    {name:'蒔絵', src:'/items/makie.webp', end:750000},
-    {name:'御茶道具', src:'/items/tea.webp', end:50000},
-    {name:'陶磁器', src:'/items/ceramics.webp', end:800000},
-    {name:'仏教美術', src:'/items/statue.webp', end:1200000},
-    {name:'その他', src:'/items/other.webp', end:58000},
+    {title:'金製品', description:'金瓶・金杯・アクセサリー', src:'/items/gold.webp', end:3500000},
+    {title:'鉄瓶', description:'南部鉄瓶・', src:'/items/iron.webp', end:500000},
+    {title:'銀製品', description:'銀瓶・銀杯・カトラリー', src:'/items/silver.webp', end:40000},
+    {title:'煎茶道具', description:'煎茶道具', src:'/items/sencha.webp', end:18000},
+    {title:'竹花籠', description:'花籠', src:'/items/basket.webp', end:80000},
+    {title:'蒔絵', description:'蒔絵', src:'/items/makie.webp', end:750000},
+    {title:'御茶道具', description:'御茶道具', src:'/items/tea.webp', end:50000},
+    {title:'陶磁器', description:'陶磁器', src:'/items/ceramics.webp', end:800000},
+    {title:'仏教美術', description:'仏教美術', src:'/items/statue.webp', end:1200000},
+    {title:'その他', description:'その他', src:'/items/other.webp', end:58000},
+  ]
+
+  const wantedPaper:CSSProperties = {
+    background:`radial-gradient(#FFF3DC 90%, #A66D00 120%);`,
+    color:'#5B3C00',
+  }
+  return (
+    <Section {...heading} >
+      <div className='flex flex-wrap gap-4 justify-center'>
+        {items.map((item, i) => (
+          <div key={i} className='wanted-paper flex flex-col gap-2 shadow-lg p-2 w-40 md:w-48 '>
+            <h3 className='text-center text-lg font-bold'>{item.title}</h3>
+            <div className='relative aspect-square border' style={{borderColor:'#5B3C00'}}>
+              <Image className='p-2' src={item.src} fill style={{objectFit:'contain'}} alt={item.title} />
+            </div>
+            <p className='text-center font-bold text-sm h-12'>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+
+export function AssessmentSection() {
+  const heading = {
+    title:"査定のすすめ方",
+    description:
+`査定は２ステップに分けて行います
+かんたん査定で概算を出した後、
+本査定で実際の買取金額をお伝えします`
+  }
+  const steps = [
+    {
+      title:'かんたん査定',
+      description:
+`まずはお手持ちのスマホ・パソコンから写真を送り、
+概算の査定額を出しましょう`, 
+      cards:[
+        {
+          title:'かんたん査定(LINE)' , 
+          description:
+`やることは、
+LINEに写真を送るだけ！
+かんたんに査定できます`, 
+          image:'/home/step_line.webp', 
+          href:'/assessments/line'
+        },
+        {
+          title:'かんたん査定(チャット)',
+          description:
+`LINEをやってなくても大丈夫！
+ホームページ上からチャットで相談や査定ができます`,
+          image:'/home/step_chat.webp', 
+          href:'/assessments/chat'
+        },
+      ]
+    },
+    {
+      title:'本査定',
+      description:
+`かんたん査定が済んだ後、
+鑑定士が実際の買取額を決定します`, 
+      cards:[
+        {
+          title:'本査定（訪問）' , 
+          description:
+`かんたん査定が済んだ後、
+ご自宅に鑑定士が査定に伺い、
+査定を行います`, 
+          image:'/home/step_carryin.webp', 
+          href:'/assessments/carryin'
+        },
+        {
+          title:'本査定（持込）',
+          description:
+`かんたん査定が済んだ後、
+弊社に直接商品をお持ちいただき、
+査定を行います`,
+          image:'/home/step_onsite.webp', 
+          href:'/assessments/onsite'
+        },
+      ]
+    }
   ]
 
   return (
     <Section {...heading}>
-      <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
-        {items.map((item, i) => (
-          <div className='relative flex flex-col items-center gap-2 border rounded-lg shadow' style={{backgroundImage:"linear-gradient(170deg, transparent 0%, transparent 50%, #D0E7D2 50%, #D0E7D2 80%, transparent 80%, transparent 100%)"}} key={i}>
-            <h3 className='text-center text-xl py-2 px-4'>{item.name}</h3>
-            <div className='relative aspect-square w-60 max-w-full'>
-              <Image src={item.src} fill style={{objectFit:'contain'}} alt={item.name} />
+      <div className='flex flex-col items-center gap-12'>
+        {steps.map((step, i) => (
+          <div key={i} className='flex flex-col items-center gap-6'>
+            <div className='flex gap-4 items-end max-w-sm '>
+              <p className='text-7xl text-gold opacity-60'>{i+1}</p>
+              <div>
+                <h3 className='text-xl font-bold'>{step.title}</h3>
+                <p className='text-sm'>{step.description}</p>
+              </div>
             </div>
-            <Counter className='absolute bottom-4 right-0 left-0' end={item.end} mini={true}  />
+            <div className='flex flex-col md:flex-row'>
+              {step.cards.map((card, j) => (
+                <div key={j} className='flex flex-col p-4 max-w-xs border rounded-lg items-center bg-white/50'>
+                  <p className='text-xl font-bold mb-4'>{card.title}</p>
+                  <Image src={card.image} width={300} height={460} alt={card.title} />
+                  <p className='my-4'>{card.description}</p>
+                  <Link href={card.href}>
+                    <p className='font-bold'>{`〉もっと詳しく`}</p>
+                  </Link>
+                </div>
+              ))}
+            </div>
             
           </div>
         ))}
@@ -127,35 +265,14 @@ export function ItemSection() {
   )
 }
 
-
-export const assessments = [
-  {title:'LINE査定' , description:'LINEから写真を送るだけ' , icon:SiLine, href:'/assessments/line'},
-  {title:'チャット査定' , description:'チャットでご相談ください' , icon:BsChatLeftText, href:'/assessments/chat'},
-  {title:'持ち込み査定' , description:'弊社に査定品をお持ちください' , icon:AiOutlineShop, href:'/assessments/carryin'},
-  {title:'訪問査定' , description:'スタッフが直接査定に伺います' , icon:GiJapan, href:'/assessments/onsite'},
-]
-
-export function AssessmentSection() {
-  const heading = {
-    title:"査定方法",
-    description:'様々な鑑定・買取をさせていただいております、まずはお気軽にご相談ください。'
-  }
-
-  return (
-    <Section {...heading}>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-        {assessments.map((assessment, i) => (
-          <Card className='flex-1 ' {...assessment} href={assessment.href} key={i}/>
-        ))}
-      </div>
-    </Section>
-  )
-}
-
 export function ReviewSection() {
   const heading = {
-    title:"お客様の声",
-    description:''
+    title:
+`ご利用いただいた
+お客様の声`,
+    description:
+`LINE査定、チャットサポートが
+好評いただいています`
   }
   const reviews = [
     {title:'LINE査定が簡単でした♪', description:'実家の整理で、価値のわからない古いものがたくさん出てきました、近所のお店だったので利用しました。LINEで写真を送るだけで、 すぐに査定をしてもらえたので助かりました。また利用する機会があればお願いします。', rating:5, author:'40代・女性'},

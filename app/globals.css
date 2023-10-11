@@ -114,6 +114,17 @@ body {
     transform: rotate(30deg);
     right: 0;
   }
+
+  .wanted-paper {
+    background:radial-gradient(#FFF3DC 90%, #A66D00 120%);
+    color:#5B3C00;
+  }
+  .text-gold {
+    color: #A66D00;
+    background: -webkit-linear-gradient(-90deg, #FFC453, #A66D00);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 
