@@ -1,21 +1,16 @@
 'use client'
 
-import {GiJapan} from 'react-icons/gi'
-import {BsChatLeftText} from 'react-icons/bs'
-import {AiOutlineShop} from 'react-icons/ai'
-import {SiLine} from 'react-icons/si'
-import {Card, ReviewCard} from './Card'
+import { ReviewCard} from './Card'
 import Heading from './Heading'
 import Image from 'next/image'
 import classNames from 'classnames'
 
-import Counter from './Counter'
-import { ChatButton, LineButton } from './Button'
-
-import { blurDataURL } from '@/lib/blur'
 import { CSSProperties } from 'react'
 import Link from 'next/link'
 import { config } from '../_config'
+
+import { useInView, animated } from '@react-spring/web'
+
 
 export type SectionProps = {
   title?: string
@@ -53,14 +48,21 @@ export function HeroSection() {
 LINEやチャットで、スピーディに鑑定・買取!!
 `
   }
-  const counter = {
-    innerComment: '58,000 →',
-    start: 58000,
-    end: 72500, 
-    outerComment:
-`いまだけ！ LINE査定なら
-査定額が、20%アップ`
-  }
+
+  const [ref, springs] = useInView(
+    () => ({
+      from: {
+        rotate: 90,
+      },
+      to: {
+        rotate: 0,
+      }
+    }),
+    {
+      rootMargin: '-20% 0%',
+    }
+  )
+
   return (
     <section className={classNames('w-full', 'bg-flash', 'pt-12 pb-20')}>
       <div className='px-4 mx-auto max-w-4xl flex justify-between flex-col-reverse md:flex-row-reverse items-center'>
@@ -76,19 +78,19 @@ LINEやチャットで、スピーディに鑑定・買取!!
           <p className=''>{heading.description}</p>
         </div>
         
-        <div className='relative mb-12 md:mb-0'>
-          <Image priority={true} src={'/items/other.webp'} width={350} height={350} alt={'antique item'} className='absolute bottom-[30px]' />
+        <div className='relative mb-12 md:mb-0 overflow-hidden'>
+          <></>
+          <Image ref={ref}  priority={true} src={'/items/other.webp'} width={350} height={350} alt={'antique item'} className='absolute bottom-[30px]' />
 
-          <div className='relative'>
-            <div className='w-48 text-center absolute font-bold' style={{top:'80px', left:'50%', transform:'translate(-50%, 0)'}}>
+          <animated.div className='relative' style={{transformOrigin:'bottom left', ...springs}}>
+            <div className='w-48 text-center absolute font-black' style={{top:'100px', left:'50%', transform:'translate(-50%, 0)'}}>
               <p className='mb-2'>
-                <span className=' text-gold'>いまだけ! LINE査定で<br /></span>
-                <span className='text-gold'>査定額 20%UP</span>
+                <span className='text-gold'>いまだけ! LINE査定で<br /></span>
+                <span className='text-2xl text-gold'>査定額 20%UP</span>
               </p>
-              <p className='text-4xl text-gold'>￥72,500</p>
             </div>
             <Image priority={true} src={'/home/phone_frame.webp'} width={350} height={539} alt={'smart_phone_frame'} />
-          </div>
+          </animated.div>
         </div>
       </div>
 
@@ -281,11 +283,17 @@ export function ReviewSection() {
   ]
   return (
     <Section {...heading}>
-      <div className='flex flex-col gap-6'>
-        {reviews.map((review, i) => (
-          <ReviewCard {...review} key={i} />
-        ))}
+      <div className='relative flex items-end'>
+        <div className='absolute bottom-0 -left-20 md:static md:left-0'>
+          <Image src='/home/standing.webp' width={160} height={304} alt={heading.title} />
+        </div>
+        <div className='flex flex-col gap-6 flex-1 ml-12 md:ml-0'>
+          {reviews.map((review, i) => (
+            <ReviewCard {...review} key={i} />
+          ))}
       </div>
+      </div>
+      
     </Section>
   )
 }
