@@ -3,10 +3,7 @@ import Image from 'next/image'
 
 import type { IconType } from 'react-icons';
 import { LuArrowRight } from 'react-icons/lu';
-import {IoPersonCircleOutline} from 'react-icons/io5'
-import {BsStarFill} from 'react-icons/bs'
 import Link from 'next/link';
-import { CSSProperties } from 'react';
 
 
 type DivProps = JSX.IntrinsicElements['div']
@@ -34,32 +31,6 @@ export function Card({href, title, icon: Icon, description, className}: CardProp
   )
 }
 
-export type PreviewCardProps = {
-  rating?: number
-  author?: string
-} & CardProps
-
-export function ReviewCard({title, icon: Icon, description, className, rating=5, author='', ...divProps}: PreviewCardProps) {
-  return (
-    <div {...divProps} className={classNames('shadow rounded-lg p-4 border bg-white/50', className)}>
-      <div className='flex flex-row gap-6 items-center'>
-        <div className='flex flex-col items-center justify-center'>
-          <IoPersonCircleOutline className='text-5xl ' />
-          <p className='text-xs'>{author}</p>
-        </div>
-        <div className='flex-1'>
-          {title && <h2 className='font-bold '>{title}</h2>}
-          <div className='flex gap-1 mt-1'>
-            {rating && [...Array(5)].map((_, i) => (
-              <BsStarFill key={`rating-${i}`} className={classNames((i+1)<=Math.floor(rating) ? 'text-yellow-400':'text-stone-200')}/>
-            ))}
-          </div>
-          {description && <p className='mt-4'>{description}</p>}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 
 export type StepCardProps = JSX.IntrinsicElements['div'] & {

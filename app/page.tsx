@@ -1,7 +1,8 @@
-import Image from 'next/image'
-
-import HelloWorld from './hello.mdx'
-import { HeroSection, ItemSection, AssessmentSection, ReviewSection, HowtoSection } from './_components/Section'
+import HeroSection from './_components/section/HeroSection'
+import HowtoSection from './_components/section/HowtoSection'
+import ItemSection from './_components/section/ItemSection'
+import AssessmentSection from './_components/section/AsessmentSection'
+import ReviewSection from './_components/section/ReviewSection'
 
 export default function Home() {
   return (
@@ -11,8 +12,6 @@ export default function Home() {
       <ItemSection />
       <AssessmentSection />
       <ReviewSection />
-      {/*<HelloWorld />*/}
-    
     </div>
   )
 }
