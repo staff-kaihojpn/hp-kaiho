@@ -2,68 +2,70 @@ import Link from "next/link"
 import { Section } from "."
 import Image from "next/image"
 
-export default function AssessmentSection() {
-  const heading = {
-    title:"査定のすすめ方",
-    description:
+
+const heading = {
+  title:"査定のすすめ方",
+  description:
 `査定は２ステップに分けて行います
 かんたん査定で概算を出した後、
 本査定で実際の買取金額をお伝えします`
-  }
-  const steps = [
-    {
-      title:'かんたん査定',
-      description:
+}
+const steps = [
+  {
+    title:'かんたん査定',
+    description:
 `まずはお手持ちのスマホ・パソコンから写真を送り、
 概算の査定額を出しましょう`, 
-      cards:[
-        {
-          title:'かんたん査定(LINE)' , 
-          description:
+    cards:[
+      {
+        title:'かんたん査定(LINE)' , 
+        description:
 `やることは、
 LINEに写真を送るだけ！
 かんたんに査定できます`, 
-          image:'/home/step_line.webp', 
-          href:'/assessments/line'
-        },
-        {
-          title:'かんたん査定(チャット)',
-          description:
+        image:'/home/step_line.webp', 
+        href:'/assessments/line'
+      },
+      {
+        title:'かんたん査定(チャット)',
+        description:
 `LINEをやってなくても大丈夫！
 ホームページ上からチャットで相談や査定ができます`,
-          image:'/home/step_chat.webp', 
-          href:'/assessments/chat'
-        },
-      ]
-    },
-    {
-      title:'本査定',
-      description:
+        image:'/home/step_chat.webp', 
+        href:'/assessments/chat'
+      },
+    ]
+  },
+  {
+    title:'本査定',
+    description:
 `かんたん査定が済んだ後、
 鑑定士が実際の買取額を決定します`, 
-      cards:[
-        {
-          title:'本査定（訪問）' , 
-          description:
+    cards:[
+      {
+        title:'本査定（訪問）' , 
+        description:
 `かんたん査定が済んだ後、
 ご自宅に鑑定士が査定に伺い、
 査定を行います`, 
-          image:'/home/step_carryin.webp', 
-          href:'/assessments/carryin'
-        },
-        {
-          title:'本査定（持込）',
-          description:
+        image:'/home/step_carryin.webp', 
+        href:'/assessments/carryin'
+      },
+      {
+        title:'本査定（持込）',
+        description:
 `かんたん査定が済んだ後、
 弊社に直接商品をお持ちいただき、
 査定を行います`,
-          image:'/home/step_onsite.webp', 
-          href:'/assessments/onsite'
-        },
-      ]
-    }
-  ]
+        image:'/home/step_onsite.webp', 
+        href:'/assessments/onsite'
+      },
+    ]
+  }
+]
 
+
+export default function AssessmentSection() {
   return (
     <Section {...heading}>
       <div className='flex flex-col items-center gap-12'>

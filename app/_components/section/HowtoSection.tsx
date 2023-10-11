@@ -1,12 +1,14 @@
 import Image from 'next/image'
 import { Section } from '.'
 
+
+const steps = [
+  {title:'LINEアプリでトークを開始', image:'/home/howto_1.webp'},
+  {title:'トークに写真を送りましょう', image:'/home/howto_2.webp'},
+  {title:'鑑定結果のメッセージが届く', image:'/home/howto_3.webp'},
+]
+
 export default function HowtoSection() {
-  const steps = [
-    {title:'LINEアプリでトークを開始', image:'/home/howto_1.webp'},
-    {title:'トークに写真を送りましょう', image:'/home/howto_2.webp'},
-    {title:'鑑定結果のメッセージが届く', image:'/home/howto_3.webp'},
-  ]
 
   return (
     <Section title={

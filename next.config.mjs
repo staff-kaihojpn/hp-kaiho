@@ -1,4 +1,4 @@
-//import remarkGfm from 'remark-gfm'
+import remarkGfm from 'remark-gfm'
 import createMDX from '@next/mdx'
 
 /** @type {import('next').NextConfig} */
@@ -7,7 +7,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  //pageExtensions: ['tsx', 'mdx'],
+  pageExtensions: ['tsx', 'mdx'],
   
   webpack(config) {
     config.module.rules.push({
@@ -20,7 +20,7 @@ const nextConfig = {
 
 const withMDX = createMDX({
   options: {
-    //remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [],
   },
 })
