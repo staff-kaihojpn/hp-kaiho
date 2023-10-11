@@ -1,7 +1,7 @@
 
 import classNames from 'classnames'
 import { StepCard } from '../../_components/Card'
-import { Section } from '../../_components/section'
+import { Section } from '../../_components/_section'
 
 
 const steps = [

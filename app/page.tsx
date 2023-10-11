@@ -1,8 +1,8 @@
-import HeroSection from './_components/section/HeroSection'
-import HowtoSection from './_components/section/HowtoSection'
-import ItemSection from './_components/section/ItemSection'
-import AssessmentSection from './_components/section/AsessmentSection'
-import ReviewSection from './_components/section/ReviewSection'
+import HeroSection from './_components/_section/HeroSection'
+import HowtoSection from './_components/_section/HowtoSection'
+import ItemSection from './_components/_section/ItemSection'
+import AssessmentSection from './_components/_section/AsessmentSection'
+import ReviewSection from './_components/_section/ReviewSection'
 
 export default function Home() {
   return (
