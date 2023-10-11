@@ -1,3 +1,6 @@
+import nextMDX from "@next/mdx";
+import remarkGfm from "remark-gfm";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
@@ -16,5 +19,10 @@ const nextConfig = {
   },
 }
 
-const withMDX = require('@next/mdx')()
-module.exports = withMDX(nextConfig)
+const withMDX = nextMDX({
+  options: {
+    remarkPlugins: [remarkGfm],
+  },
+})
+
+export default withMDX(nextConfig)
