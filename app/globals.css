@@ -125,6 +125,9 @@ body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  .bg-flash{
+    background: radial-gradient(circle farthest-side at 0px 0px, rgba(255,255,254,0.8) 40%, rgba(255,255,128,0.2) 55%, transparent 70%);
+  }
 }
 
 
