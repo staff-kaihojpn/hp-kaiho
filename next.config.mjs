@@ -1,5 +1,5 @@
-import nextMDX from "@next/mdx";
-import remarkGfm from "remark-gfm";
+import remarkGfm from 'remark-gfm'
+import createMDX from '@next/mdx'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,9 +7,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    mdxRs: true,
-  },
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -19,9 +18,10 @@ const nextConfig = {
   },
 }
 
-const withMDX = nextMDX({
+const withMDX = createMDX({
   options: {
     remarkPlugins: [remarkGfm],
+    rehypePlugins: [],
   },
 })
 
