@@ -32,8 +32,7 @@
     "react-icons": "^4.11.0",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "3.3.3",
-    "typescript": "5.2.2",
-    "use-count-up": "^3.0.1"
+    "typescript": "5.2.2"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
