@@ -7,7 +7,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  pageExtensions: ['tsx', 'mdx'],
+  //pageExtensions: ['tsx', 'mdx'],
   
   webpack(config) {
     config.module.rules.push({
