@@ -60,7 +60,6 @@ LINEやチャットで、スピーディに鑑定・買取!!
     outerComment:
 `いまだけ！ LINE査定なら
 査定額が、20%アップ`
-
   }
   return (
     <section className={classNames('w-full')} style={{}}>
@@ -81,9 +80,12 @@ LINEやチャットで、スピーディに鑑定・買取!!
           <Image priority={true} src={'/items/other.webp'} width={350} height={350} alt={'antique item'} className='absolute bottom-[30px]' />
 
           <div className='relative'>
-            <div className='w-48 text-center text-secondary absolute font-bold' style={{top:'80px', left:'50%', transform:'translate(-50%, 0)'}}>
-              <p className='mb-2'>いまだけ! LINE査定で<br />査定額 20%UP</p>
-              <p className='text-4xl'>￥72,500</p>
+            <div className='w-48 text-center absolute font-bold' style={{top:'80px', left:'50%', transform:'translate(-50%, 0)'}}>
+              <p className='mb-2'>
+                <span className=' text-gold'>いまだけ! LINE査定で<br /></span>
+                <span className='text-gold'>査定額 20%UP</span>
+              </p>
+              <p className='text-4xl text-gold'>￥72,500</p>
             </div>
             <Image priority={true} src={'/home/phone_frame.webp'} width={350} height={539} alt={'smart_phone_frame'} />
           </div>
@@ -111,7 +113,7 @@ export function HowtoSection() {
           {steps.map((step, i) => (
             <div key={i} className='flex flex-row-reverse md:flex-col items-center gap-4'>
               <div className='flex flex-1 gap-2 items-baseline'>
-                <p className='text-5xl'>{i+1}</p>
+                <p className='text-5xl text-gold opacity-60'>{i+1}</p>
                 <h3 className=''>{step.title}</h3>
               </div>
               <div className='w-[40%] md:w-auto'>
@@ -233,11 +235,11 @@ LINEに写真を送るだけ！
 
   return (
     <Section {...heading}>
-      <div className='flex flex-col items-center gap-8'>
+      <div className='flex flex-col items-center gap-12'>
         {steps.map((step, i) => (
-          <div key={i} className=''>
-            <div className='flex gap-2 items-end max-w-sm'>
-              <p className='text-7xl'>{i+1}</p>
+          <div key={i} className='flex flex-col items-center gap-6'>
+            <div className='flex gap-4 items-end max-w-sm '>
+              <p className='text-7xl text-gold opacity-60'>{i+1}</p>
               <div>
                 <h3 className='text-xl font-bold'>{step.title}</h3>
                 <p className='text-sm'>{step.description}</p>
