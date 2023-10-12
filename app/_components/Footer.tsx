@@ -5,6 +5,7 @@ import { FloatingButton } from './Button'
 import {SiLine} from 'react-icons/si'
 import {config,  metadata } from '../_config'
 import { CompanyTable } from './Table'
+import Image from 'next/image'
 
 export type FooterProps = {
   className?:string,
@@ -33,7 +34,10 @@ export default function Footer({className, children}: FooterProps) {
         
       </div>
       {process.env.NEXT_PUBLIC_LINE_SHARE_ID && 
-        <FloatingButton href={`https://lin.ee/${process.env.NEXT_PUBLIC_LINE_SHARE_ID}`} target="_blank" rel="noopener noreferrer" icon={SiLine} className='fixed bottom-20 xs:bottom-24 right-4 xs:right-6 z-20 text-stone-50 bg-green-600 ' />
+        <>
+          <Link href={config.link.line} className='fixed bottom-20 xs:bottom-24 right-20 xs:right-24 z-20 shadow-xl opacity-90 '><Image width={160} height={60} src="/coupon/line.webp" alt='line coupon'/></Link>
+          <FloatingButton href={`https://lin.ee/${process.env.NEXT_PUBLIC_LINE_SHARE_ID}`} target="_blank" rel="noopener noreferrer" icon={SiLine} className='fixed bottom-20 xs:bottom-24 right-4 xs:right-6 z-20 text-stone-50 bg-green-600 ' />
+        </>
       }
       
     </footer>
