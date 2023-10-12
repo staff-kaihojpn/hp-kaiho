@@ -60,12 +60,11 @@ export default function HeroSection() {
           <Image ref={ref}  priority={true} src={'/items/other.webp'} width={350} height={350} alt={'antique item'} className='absolute bottom-[30px]' />
 
           <animated.div className='relative' style={{transformOrigin:'bottom left', ...springs}}>
-            <div className='w-48 text-center absolute font-black' style={{top:'100px', left:'50%', transform:'translate(-50%, 0)'}}>
-              <p className='mb-2'>
-                <span className='text-gold'>いまだけ! LINE査定で<br /></span>
-                <span className='text-2xl text-gold'>査定額 20%UP</span>
-              </p>
-            </div>
+              <div className='flex gap-2 absolute top-24 w-full justify-center opacity-80'>
+                <Image src='/badges/1.webp' width={65} height={65} alt="badge1" />
+                <Image src='/badges/2.webp' width={65} height={65} alt="badge2" />
+                <Image src='/badges/3.webp' width={65} height={65} alt="badge3" />
+              </div>
             <Image priority={true} src={'/home/phone_frame.webp'} width={350} height={539} alt={'smart_phone_frame'} />
           </animated.div>
         </div>
