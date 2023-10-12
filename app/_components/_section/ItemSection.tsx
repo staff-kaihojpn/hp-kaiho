@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Section } from "."
-
+import Divider from '@/public/items/divider.svg'
 
 const heading = {
   title:
@@ -31,9 +31,13 @@ export default function ItemSection() {
           <div key={i} className='wanted-paper flex flex-col gap-2 shadow-lg p-2 w-40 md:w-48 '>
             <h3 className='text-center text-lg font-bold'>{item.title}</h3>
             <div className='relative aspect-square border' style={{borderColor:'#5B3C00'}}>
-              <Image className='p-2' src={item.src} fill style={{objectFit:'contain'}} alt={item.title} />
+              <Image className='sepia-[50%] ' src={item.src} fill style={{objectFit:'contain'}} alt={item.title} />
             </div>
-            <p className='text-center font-bold text-sm h-12'>{item.description}</p>
+            <div className='flex gap-1'>
+              <Divider className='fill-[#5B3C00]' width={8} height={60} />
+              <p className='text-center font-bold text-sm flex-1'>{item.description}</p>
+              <Divider className='fill-[#5B3C00]' width={8} height={60} style={{transform: 'scale(-1, 1)'}} />
+            </div>
           </div>
         ))}
       </div>
