@@ -18,7 +18,7 @@ export default function HowtoSection() {
       <div className='flex flex-col md:flex-row gap-8'>
           {steps.map((step, i) => (
             <div key={i} className='flex flex-row-reverse md:flex-col items-center gap-4'>
-              <div className='flex flex-1 gap-2 items-baseline'>
+              <div className='flex flex-1 gap-2 items-end'>
                 <p className='text-5xl text-gold opacity-60'>{i+1}</p>
                 <h3 className=''>{step.title}</h3>
               </div>

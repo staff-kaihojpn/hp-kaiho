@@ -52,7 +52,7 @@ export default function ReviewSection() {
     <Section {...heading}>
       <div className='relative flex items-end'>
         <div className='absolute bottom-0 -left-20 md:static md:left-0'>
-          <Image src='/home/standing.webp' width={160} height={304} alt={heading.title} />
+          <Image src='/home/standing.webp' width={160} height={300} alt={heading.title} />
         </div>
         <div className='flex flex-col gap-6 flex-1 ml-12 md:ml-0'>
           {reviews.map((review, i) => (
