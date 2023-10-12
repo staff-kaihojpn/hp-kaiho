@@ -4,7 +4,7 @@ export default function AssessmentsLayout({children}: { children: React.ReactNod
   
   return (
     <div className="flex flex-col gap-16">
-      {children}
+      <div className="prose mx-auto px-6 mt-12">{children}</div>
       <AssessmentSection />
     </div>
   )

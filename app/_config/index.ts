@@ -1,9 +1,11 @@
 import { Crisp } from "crisp-sdk-web"
 import { Metadata } from "next";
 import { IconType } from "react-icons";
+import { AiOutlineIdcard } from "react-icons/ai";
 import {BsFillTelephoneFill, BsFillGeoAltFill} from 'react-icons/bs'
 import {BsCalendarCheck} from 'react-icons/bs'
 import {FiMail} from 'react-icons/fi'
+import { SiPostgresql } from "react-icons/si";
 
 export const metadata:Metadata = {
   title: '開豊ジャパン',
@@ -24,24 +26,24 @@ export const config = {
 
   pageGroups:[
     {
-      name:'仮査定の手順', 
+      name:'かんたん査定とは', 
       pages:[
-        {name: 'LINE査定', path: '/assessments/line'},
-        {name: 'チャット査定', path: '/assessments/chat'},
+        {name: 'かんたん査定(LINE)', path: '/assessments/line'},
+        {name: 'かんたん査定(チャット)', path: '/assessments/chat'},
       ],
     },
     {
-      name:'本査定の手順', 
+      name:'本査定とは', 
       pages:[
-        {name: '持ち込み査定', path: '/assessments/carryin'},
-        {name: '訪問査定', path: '/assessments/onsite'},
+        {name: '本査定(訪問)', path: '/assessments/onsite'},
+        {name: '本査定(持込)', path: '/assessments/carryin'},
       ],
     },
     {
       name:'ヘルプとポリシー', 
       pages:[
         {name: 'よくある質問', path: '/help/faq'},
-        {name: '出張査定・買取規約', path: '/help/rule'},
+        {name: '買取規約', path: '/help/rule'},
         {name: 'プライバシーポリシー', path: '/help/privacy'},
         {name: '会社概要', path: '/help/about'},
       ],
@@ -66,4 +68,6 @@ export const company:Company = {
   email: {label:'メール', value:'staff.kaihojpn@gmail.com', icon:FiMail},
   tel: {label:'電話', value:'042-667-7005', icon: BsFillTelephoneFill},
   business : {label:'営業時間', value:'10:00〜18:00 (土日祝日を除く)', icon:BsCalendarCheck},
+  licence: {label:'古物商許可証', value:'東京都公安委員会 第304360606938号', icon:AiOutlineIdcard},
+  licenceIvory: {label:'特別国際種事業者', value:'第02734号', icon:SiPostgresql},
 }

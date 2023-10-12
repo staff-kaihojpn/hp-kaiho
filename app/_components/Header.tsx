@@ -24,7 +24,7 @@ export default function Header({className, children}: HeaderProps) {
       <MobileNav className={classNames(!isMobileNav&&'hidden')} onClose={()=>setIsMobileNav(false)}/>
 
       <header className={classNames(" z-10 backdrop-blur bg-stone-50/80", className)}>
-        <div className='flex justify-between items-center max-w-6xl mx-auto py-2 px-6'>
+        <div className='flex justify-between items-center max-w-4xl mx-auto py-2 px-6'>
           <Link href='/' aria-label='to home'>
             <HeaderTitleNav />
           </Link>
