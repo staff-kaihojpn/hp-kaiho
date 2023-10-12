@@ -48,7 +48,7 @@ LINEに写真を送るだけ！
 `かんたん査定が済んだ後、
 ご自宅に鑑定士が査定に伺い、
 査定を行います`, 
-        image:'/home/step_carryin.webp', 
+        image:'/home/step_onsite.webp', 
         href:'/assessments/carryin'
       },
       {
@@ -57,7 +57,7 @@ LINEに写真を送るだけ！
 `かんたん査定が済んだ後、
 弊社に直接商品をお持ちいただき、
 査定を行います`,
-        image:'/home/step_onsite.webp', 
+        image:'/home/step_carryin.webp', 
         href:'/assessments/onsite'
       },
     ]
