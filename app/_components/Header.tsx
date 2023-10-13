@@ -102,8 +102,8 @@ export function MobileNav({className, onClose}:MobileNavProps){
             <label className="">{group.name}</label>
             <ul className="pl-8 flex flex-col gap-2 mt-4 text-stone-50 font-bold text-xl">
               {group.pages.map((page, j)=>(
-                <li key={j} className='' onClick={handleOnClose}>
-                  <Link href={page.path} onClick={(e)=>e.currentTarget.blur()}>{page.name}</Link>
+                <li key={j} >
+                  <Link href={page.path} onClick={(e)=>{e.currentTarget.blur(); onClose && onClose();}}>{page.name}</Link>
                 </li>
               ))}
             </ul>
