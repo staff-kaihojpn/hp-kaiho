@@ -90,7 +90,7 @@ export function MobileNav({className, onClose}:MobileNavProps){
   return(
     <div className={classNames(className, "fixed z-20 w-full h-full flex flex-col bg-stone-800 text-stone-300")}>
       <div className="relative flex justify-between items-center py-2 px-6">
-        <Link href='/' aria-label='to home'>
+        <Link href='/' aria-label='to home' onClick={handleOnClose}>
           <HeaderTitleNav dark />
         </Link>
         <div className="absolute right-6 top-4 text-3xl cursor-pointer text-stone-50" onClick={handleOnClose}>
