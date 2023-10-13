@@ -63,6 +63,7 @@ export type Company = {
   }
 }
 export const company:Company = {
+  siteName: {label:'会社名', value:'開豊ジャパン'},
   name: {label:'会社名', value:'株式会社 開豊ジャパン'},
   address: {label:'住所', value:'東京都八王子市大船町142-6', icon:BsFillGeoAltFill},
   email: {label:'メール', value:'staff.kaihojpn@gmail.com', icon:FiMail},
