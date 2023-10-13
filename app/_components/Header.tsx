@@ -3,10 +3,9 @@
 import classNames from 'classnames'
 import Link from 'next/link'
 import Logo from '@/public/logo.svg'
-import { ListNav } from './Nav'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { useState } from 'react'
-import { metadata } from '../_config'
+import { company } from '../_config'
 import { AiOutlineClose } from 'react-icons/ai'
 import { config } from '@/app/_config'
 
@@ -51,7 +50,7 @@ export function HeaderTitleNav({dark, ...props}:HeaderTitleProps){
       <Logo className={classNames(dark?"fill-stone-50":"fill-stone-800", "mr-4")} width={40} height={40} />
       <div>
         <p className='text-xs'>骨董品・古美術品 買取</p>
-        <h1 className='text-xl'>{metadata.title+''}</h1>
+        <h1 className='text-xl'>{company.siteName.value+''}</h1>
       </div>
     </div>
   )
