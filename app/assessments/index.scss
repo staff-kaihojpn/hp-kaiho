@@ -1,0 +1,85 @@
+.prose {
+  h2 {
+    color: hsl(var(--p));
+  }
+  img {
+    max-height: 300px;
+    margin: 0 auto;
+  }
+}
+
+$marker-size: 2rem;
+$marker-padding: calc( $marker-size / 6 );
+
+$border-size: 1rem;
+$border-weight: 2px;
+
+@keyframes linearGradientMove {
+  100% {
+    background-position: 0 $border-size;
+  }
+}
+
+.stepper {
+  ol {
+    list-style: none;
+    counter-reset: item;
+    padding-left: 0;
+  
+    li {
+      counter-increment: item;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: $marker-size;
+  
+      &::before {
+        content: counter(item);
+        display: inline-block;
+        font-size: calc($marker-size - ( $marker-padding * 2 ) );
+        width: $marker-size;
+        height: $marker-size;
+        border: none ;
+        border-radius: 50%;
+        text-align: center;
+        line-height: calc($marker-size - ( $marker-padding * 2 ) );
+        top:0;
+        left: 0;
+        position:absolute;
+        background-color: hsl(var(--p));
+        color: hsl(var(--pc));
+        padding: $marker-padding;
+        font-weight: bold;
+      }
+      
+      
+      &::after {
+        content: "";
+        position: absolute;
+        top: $marker-size;
+        left: calc(($marker-size / 2) - ($border-weight / 2));
+        width: $border-weight;
+        height: 100%;
+        background: linear-gradient(0deg, hsl(var(--pc)) 50%, transparent 0) repeat-y;
+        background-size: $border-weight $border-size;
+        background-position: 0 0;
+        animation: linearGradientMove .8s infinite linear;
+      }
+      
+      p {
+        padding-left: calc($marker-size / 4);
+        &:first-child {
+          line-height: $marker-size;
+          padding-left: calc($marker-size / 4);
+          font-size: 1.15em;
+          font-weight: bold;  
+        }
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+      
+    }
+  }
+}
+

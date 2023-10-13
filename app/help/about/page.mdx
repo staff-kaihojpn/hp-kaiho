@@ -1,13 +1,23 @@
-## 会社概要
+import { company } from '@/app/_config'
 
-| 会社名 | 株式会社 開豊ジャパン |
+export const metadata = {
+  title: `会社概要`,
+  description: 
+`開豊ジャパンについての詳細情報を記載します`
+}
+
+## {metadata.title}
+
+<p>{metadata.description}</p>
+
+|  {company.name.label} | {company.name.value} |
 | ---: | :-------------- |
-| 住所   | 東京都八王子市大船町142-6 |
-| メール   | staff.kaihojpn@gmail.com |
-| 電話番号   | 042-667-7005 |
-| 営業日   | 10:00〜18:00 (土日祝日を除く) |
-| 古物商許可証     | 東京都公安委員会 第308770205133号 |
-| 特別国際種事業者 | 第02734号 |
+| {company.address.label}   | {company.address.value} |
+| {company.email.label}   | {company.email.value} |
+| {company.tel.label}   | {company.tel.value} |
+| {company.business.label}   | {company.business.value} |
+| {company.licence.label}     | {company.licence.value} |
+| {company.licenceIvory.label} | {company.licenceIvory.value} |
 
 
 
