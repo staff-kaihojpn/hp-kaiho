@@ -26,14 +26,14 @@ export const config = {
 
   pageGroups:[
     {
-      name:'かんたん査定とは', 
+      name:'かんたん査定', 
       pages:[
         {name: 'かんたん査定(LINE)', path: '/assessments/line'},
         {name: 'かんたん査定(チャット)', path: '/assessments/chat'},
       ],
     },
     {
-      name:'本査定とは', 
+      name:'本査定', 
       pages:[
         {name: '本査定(訪問)', path: '/assessments/onsite'},
         {name: '本査定(持込)', path: '/assessments/carryin'},
