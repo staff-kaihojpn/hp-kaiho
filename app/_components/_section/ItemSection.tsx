@@ -11,16 +11,16 @@ const heading = {
 }
 
 const items = [
-  {title:'金製品', description:'金瓶・金杯・アクセサリー', src:'/items/gold.webp', end:3500000},
-  {title:'鉄瓶', description:'南部鉄瓶・', src:'/items/iron.webp', end:500000},
-  {title:'銀製品', description:'銀瓶・銀杯・カトラリー', src:'/items/silver.webp', end:40000},
-  {title:'煎茶道具', description:'煎茶道具', src:'/items/sencha.webp', end:18000},
-  {title:'竹花籠', description:'花籠', src:'/items/basket.webp', end:80000},
-  {title:'蒔絵', description:'蒔絵', src:'/items/makie.webp', end:750000},
-  {title:'御茶道具', description:'御茶道具', src:'/items/tea.webp', end:50000},
-  {title:'陶磁器', description:'陶磁器', src:'/items/ceramics.webp', end:800000},
-  {title:'仏教美術', description:'仏教美術', src:'/items/statue.webp', end:1200000},
-  {title:'その他', description:'その他', src:'/items/other.webp', end:58000},
+  {title:'金製品', description:'金瓶 | 金杯 | アクセサリー | コイン | 小判 | 金歯', src:'/items/gold.webp'},
+  {title:'鉄瓶', description:'南部鉄瓶 | 龍文堂 | 亀文堂 | 金寿堂 | 金龍堂 | 祥雲堂', src:'/items/iron.webp'},
+  {title:'銀製品', description:'銀瓶 | 銀杯 | 銀舟 | トロフィー | コイン | 食器', src:'/items/silver.webp'},
+  {title:'煎茶道具', description:'湯沸 | 茶托 | 菓子器 | 菓子盆 | 急須 | 煎茶碗', src:'/items/sencha.webp'},
+  {title:'竹細工', description:'花籠 | 茶籠 | 花入 | 盛籠', src:'/items/basket.webp'},
+  {title:'蒔絵', description:'香合 | 棗 | 椀 | 菓子器 | 硯箱 | 文箱', src:'/items/makie.webp'},
+  {title:'御茶道具', description:'抹茶茶碗 | 釜 | 風炉 | 棗 | 茶杓 | 柄杓 | 建水 | 風炉先 | 屏風', src:'/items/tea.webp'},
+  {title:'陶磁器', description:'青磁 | 白磁 | 色絵 | 焼締 | 素焼 | 染付', src:'/items/ceramics.webp'},
+  {title:'仏教美術', description:'仏像 | 厨子 | 仏器 | 燭台 | 灯籠 | 鐘 | 経卓 | 欄間', src:'/items/statue.webp'},
+  {title:'その他', description:'着物 | 植木鉢 | 盆石 | 日本人形 | 彫刻 | 箪笥 | 楽器 | レトロ', src:'/items/other.webp'},
 ]
 
 export default function ItemSection() {

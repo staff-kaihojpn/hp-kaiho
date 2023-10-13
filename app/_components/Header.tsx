@@ -65,7 +65,7 @@ export function DesktopNav({...props}:DesktopNavProps){
       {config.pageGroups.map((group, i)=>(
         <div key={i} className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost">{group.name}</label>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+          <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-white/95 rounded-box w-52">
             {group.pages.map((page, j)=>(
               <li key={j}>
                 <Link href={page.path} onClick={(e)=>e.currentTarget.blur()}>{page.name}</Link>
