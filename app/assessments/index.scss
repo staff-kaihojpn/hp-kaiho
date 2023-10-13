@@ -26,7 +26,7 @@ $border-weight: 2px;
     counter-reset: item;
     padding-left: 0;
   
-    li {
+    > li {
       counter-increment: item;
       margin-bottom: 10px;
       position: relative;
