@@ -24,9 +24,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
   
   return (
     <html lang="ja" className={classNames([yuji_syuku.variable])}>
-      <Head>
-        {process.env.NEXT_PUBLIC_GA_TRACKING_ID && <GoogleAnalytics />}
-      </Head>
+      {process.env.NEXT_PUBLIC_GA_TRACKING_ID && <GoogleAnalytics />}
       {process.env.NEXT_PUBLIC_CRISP_WEBSITE_ID && <CrispChat />}
       <body className={classNames(/*[inter.className]*/)}>
         <Header className='sticky top-0' />
