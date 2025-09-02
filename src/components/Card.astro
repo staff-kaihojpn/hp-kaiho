@@ -1,0 +1,64 @@
+---
+export interface CardProps {
+  href?: string;
+  title?: string;
+  description?: string;
+  icon?: string;
+  className?: string;
+}
+
+export interface StepCardProps {
+  step?: number;
+  title?: string;
+  description?: string;
+  image?: string;
+  className?: string;
+}
+
+const { href = '', title, icon, description, className = '' } = Astro.props as CardProps;
+---
+
+<a href={href} class={`card bg-base-100 shadow-lg hover:shadow-xl transition-shadow cursor-pointer border ${className}`}>
+  <div class="card-body">
+    {icon && (
+      <div class="card-title">
+        <i class={`${icon} text-4xl text-base-content/60`}></i>
+      </div>
+    )}
+    {title && <h2 class="card-title text-lg font-bold mt-4">{title}</h2>}
+    {description && <p class="text-base-content/70 mt-4">{description}</p>}
+    
+    <div class="card-actions justify-end mt-4">
+      <i class="fas fa-arrow-right text-xl text-base-content/40"></i>
+    </div>
+  </div>
+</a>
+
+<!-- StepCard component for separate usage -->
+<script is:inline>
+  // Export StepCard as a separate component if needed
+  window.StepCard = function({ step, title, description, image, className = '' }) {
+    return `
+      <div class="card bg-base-100 shadow-lg border relative ${className || ''}">
+        ${step ? `
+          <div class="absolute top-0 left-0 w-10 h-10 bg-gradient-to-br from-transparent via-transparent to-success rounded-tl-lg flex items-center justify-center">
+            <span class="text-white font-bold text-sm">${step}</span>
+          </div>
+        ` : ''}
+        <div class="card-body">
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="flex-1">
+              ${title ? `<h3 class="card-title">${title}</h3>` : ''}
+              ${description ? `<p class="mt-4 text-base-content/70">${description}</p>` : ''}
+            </div>
+            ${image ? `
+              <div class="w-full sm:w-72 aspect-square">
+                <img src="${image}" alt="step-image" class="w-full h-full object-cover rounded-lg" />
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  };
+</script>

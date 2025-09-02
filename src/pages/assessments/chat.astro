@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const metadata = {
+  title: 'かんたん査定(チャット)',
+  description: '骨董品・美術品専門の鑑定士とオンラインでチャットができます。自宅に眠る骨董品の真の価値を明らかにしましょう。'
+};
+
+const steps = [
+  {
+    title: 'チャットの開始',
+    description: 'ページ右下のチャットアイコンを押してください、チャット画面が立ち上げります',
+    image: '/assessments/chat1.webp'
+  },
+  {
+    title: 'メッセージを送信',
+    description: '査定依頼の旨を送ってください',
+    image: '/assessments/chat2.webp'
+  },
+  {
+    title: 'メールアドレスの確認',
+    description: '連絡用のメールアドレスをおしえてください、チャットが切断された際に、再度連絡する際に必要です。',
+    image: '/assessments/chat3.webp'
+  },
+  {
+    title: '撮影のポイント',
+    description: '左下の📎ボタンを押して、写真を送信してください。銘等の撮り忘れが無いように、複数箇所から撮影してください。',
+    image: '/assessments/chat4.webp'
+  },
+  {
+    title: '本査定へ',
+    description: '査定価格を返信します。買取規約に同意の上、本査定の方法をご訪問、持ち込みかをお伝えください。',
+    image: '/assessments/chat5.webp'
+  }
+];
+---
+
+<BaseLayout title={metadata.title} description={metadata.description}>
+  <div class="container mx-auto px-4 py-12 max-w-4xl">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">{metadata.title}</h1>
+      <p class="text-xl leading-relaxed">{metadata.description}</p>
+    </div>
+
+    <!-- Steps -->
+    <div class="space-y-12">
+      <h2 class="text-2xl font-bold text-center mb-8">かんたん査定(チャット)の手順</h2>
+      
+      {steps.map((step, index) => (
+        <div class="card lg:card-side bg-base-100 shadow-xl">
+          <figure class="lg:w-1/2">
+            <img 
+              src={step.image} 
+              alt={`Step ${index + 1}`}
+              class="w-full h-64 lg:h-auto object-cover"
+              loading="lazy"
+            />
+          </figure>
+          <div class="card-body lg:w-1/2">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="badge badge-primary badge-lg text-lg font-bold w-8 h-8 p-0">
+                {index + 1}
+              </div>
+              <h3 class="card-title text-xl">{step.title}</h3>
+            </div>
+            <p class="leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-16">
+      <div class="card bg-gradient-to-br from-primary to-secondary text-primary-content">
+        <div class="card-body">
+          <h3 class="card-title justify-center text-2xl mb-4">
+            今すぐチャットで査定を始める
+          </h3>
+          <p class="text-center mb-6">
+            専門の鑑定士がオンラインでお待ちしています
+          </p>
+          <div class="card-actions justify-center">
+            <button class="btn btn-accent btn-lg" id="start-chat">
+              チャットを開始する
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const startChatBtn = document.getElementById('start-chat');
+    startChatBtn?.addEventListener('click', () => {
+      if (typeof window !== 'undefined' && window.Crisp) {
+        window.Crisp.chat.open();
+      }
+    });
+  });
+</script>

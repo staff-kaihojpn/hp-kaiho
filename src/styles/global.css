@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font Definitions */
+@font-face {
+  font-family: 'DigitalNumbers';
+  src: url('/assets/fonts/DigitalNumbers-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+/* Custom CSS Variables */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 250, 250, 249;
+  --background-end-rgb: 255, 255, 255;
+  --font-yuji-syuku: 'Yuji Syuku', serif;
+  --font-digital-numbers: 'DigitalNumbers', monospace;
+}
+
+/* Typography */
+h1 {
+  font-family: var(--font-yuji-syuku);
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+}
+
+body {
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* Custom utility classes using @apply */
+@layer utilities {
+  .vertical-rl {
+    writing-mode: vertical-rl;
+  }
+
+  .filter-shadow-md {
+    filter: drop-shadow(3px 3px 5px rgba(160, 160, 160, 0.7));
+  }
+
+  .filter-shadow-lg {
+    filter: drop-shadow(7px 7px 7px rgba(160, 160, 160, 0.7));
+  }
+
+  .transition-filter-shadow {
+    transition-property: filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  .marker {
+    @apply relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: 
+      linear-gradient(90deg, #fff 0%, #fff 100%),
+      linear-gradient(90deg, #222 0%, #222 100%);
+    background-size: 0%, 100%;
+    background-repeat: no-repeat;
+    color: #222;
+    transition: background-size .3s ease-in;
+    transition-delay: .1s;
+  }
+
+  .marker.active {
+    background-size: 100%, 100%;
+  }
+
+  .marker::before {
+    @apply absolute w-0 h-full bg-red-800 content-[''] -z-10;
+    transition: width .3s ease-in;
+    transition-delay: .1s;
+  }
+
+  .marker.active::before {
+    @apply w-full;
+  }
+
+  .fukidashi {
+    @apply inline-block relative;
+  }
+
+  .fukidashi::before,
+  .fukidashi::after {
+    @apply content-[''] inline-block bg-black w-px absolute h-[50px] top-0;
+  }
+
+  .fukidashi.accent::before,
+  .fukidashi.accent::after {
+    @apply bg-amber-600;
+  }
+
+  .fukidashi::before {
+    @apply -rotate-30 left-0;
+  }
+
+  .fukidashi::after {
+    @apply rotate-30 right-0;
+  }
+
+  .wanted-paper {
+    background: radial-gradient(#FFF3DC 90%, #A66D00 120%);
+    color: #5B3C00;
+  }
+
+  .text-gold {
+    color: #A66D00;
+    background: -webkit-linear-gradient(-90deg, #FFC453, #A66D00);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bg-flash {
+    background: radial-gradient(circle farthest-side at 0px 0px, rgba(255,255,254,0.8) 40%, rgba(255,255,128,0.2) 55%, transparent 70%);
+  }
+}
+
+/* Assessment Page Styles - migrated from app/assessments/index.scss */
+.prose h2 {
+  color: hsl(var(--p));
+}
+
+.prose img {
+  max-height: 300px;
+  margin: 0 auto;
+}
+
+/* Stepper Component Styles */
+.stepper ol {
+  list-style: none;
+  counter-reset: item;
+  padding-left: 0;
+}
+
+.stepper ol > li {
+  counter-increment: item;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.stepper ol > li::before {
+  content: counter(item);
+  display: inline-block;
+  font-size: calc(2rem - (2rem / 6 * 2));
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  line-height: calc(2rem - (2rem / 6 * 2));
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: hsl(var(--p));
+  color: hsl(var(--pc));
+  padding: calc(2rem / 6);
+  font-weight: bold;
+}
+
+.stepper ol > li::after {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  left: calc((2rem / 2) - (2px / 2));
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(0deg, hsl(var(--pc)) 50%, transparent 0) repeat-y;
+  background-size: 2px 1rem;
+  background-position: 0 0;
+  animation: linearGradientMove .8s infinite linear;
+}
+
+.stepper ol > li p {
+  padding-left: calc(2rem / 4);
+}
+
+.stepper ol > li p:first-child {
+  line-height: 2rem;
+  padding-left: calc(2rem / 4);
+  font-size: 1.15em;
+  font-weight: bold;
+}
+
+.stepper ol > li:last-child::after {
+  display: none;
+}
+
+@keyframes linearGradientMove {
+  100% {
+    background-position: 0 1rem;
+  }
+}
+
+/* Border triangle utilities */
+.border-b-triangle:after, 
+.border-b-triangle:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.border-b-triangle:after {
+  border-color: transparent;
+  border-top-color: #fafaf9;
+  border-width: 20px;
+  margin-left: -20px;
+}
+
+.border-b-triangle:before {
+  border-color: transparent;
+  border-top-color: #78716c;
+  border-width: 21px;
+  margin-left: -21px;
+}

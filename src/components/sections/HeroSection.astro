@@ -1,0 +1,106 @@
+---
+
+const heading = {
+  title: `骨董品・古美術品
+無料で鑑定いたします
+スマホで、かんたん査定`,
+  description: `開豊ジャパンは、八王子市の古美術品店
+確かな目利きと、多数の高価買取実績あり
+
+眠ったままの骨董品、思いの詰まった遺品など、
+１点１点しっかり丁寧に鑑定します。
+
+どんなお品物でも高価買取、
+LINEやチャットで、スピーディに鑑定・買取!!`
+};
+---
+
+<section class="hero min-h-screen bg-flash pt-12 pb-20">
+  <div class="hero-content flex-col-reverse md:flex-row-reverse text-center md:text-left max-w-4xl">
+    
+    <!-- Text Content -->
+    <div class="flex-1">
+      <h2 class="text-2xl md:text-3xl font-black text-primary mb-8 whitespace-pre-wrap">
+        {heading.title}
+      </h2>
+      
+      <div class="flex gap-4 justify-center md:justify-start mb-8">
+        <a href="/assessments/line" class="btn btn-primary">
+          査定をはじめる
+        </a>
+        <button class="btn btn-primary btn-outline" id="chat-button">
+          チャットで相談
+        </button>
+      </div>
+      
+      <p class="text-base leading-relaxed whitespace-pre-wrap">
+        {heading.description}
+      </p>
+    </div>
+    
+    <!-- Image Content -->
+    <div class="flex-1 relative mb-12 md:mb-0 overflow-hidden">
+      <img 
+        src="/items/other.webp" 
+        width="350" 
+        height="350" 
+        alt="antique item" 
+        class="absolute bottom-[30px] animate-fade-in"
+        loading="eager"
+      />
+
+      <div class="relative transform-origin-bottom-left animate-slide-in-right">
+        <div class="flex gap-2 absolute top-24 w-full justify-center opacity-80">
+          <img src="/badges/1.webp" width="65" height="65" alt="badge1" />
+          <img src="/badges/2.webp" width="65" height="65" alt="badge2" />
+          <img src="/badges/3.webp" width="65" height="65" alt="badge3" />
+        </div>
+        <img 
+          src="/home/phone_frame.webp" 
+          width="350" 
+          height="539" 
+          alt="smart phone frame"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const chatButton = document.getElementById('chat-button');
+    chatButton?.addEventListener('click', () => {
+      // Open Crisp chat if available
+      if (typeof window !== 'undefined' && window.Crisp) {
+        window.Crisp.chat.open();
+      }
+    });
+  });
+</script>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slide-in-right {
+    from { 
+      transform: rotate(90deg); 
+      opacity: 0;
+    }
+    to { 
+      transform: rotate(0deg); 
+      opacity: 1;
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 1s ease-in-out;
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-in-out;
+  }
+</style>

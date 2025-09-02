@@ -1,0 +1,42 @@
+---
+const steps = [
+  {title: 'LINEアプリでトークを開始', image: '/home/howto_1.webp'},
+  {title: 'トークに写真を送りましょう', image: '/home/howto_2.webp'},
+  {title: '鑑定結果のメッセージが届く', image: '/home/howto_3.webp'},
+];
+---
+
+<section class="py-16 bg-base-100">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 whitespace-pre-wrap">
+        必要なのはスマホだけ！
+まずは、かんたん査定から
+      </h2>
+    </div>
+
+    <!-- Steps -->
+    <div class="flex flex-col md:flex-row gap-8 md:gap-12">
+      {steps.map((step, i) => (
+        <div class="flex flex-row-reverse md:flex-col items-center gap-4 flex-1">
+          <div class="flex flex-1 gap-2 items-end md:items-center md:justify-center text-center">
+            <div class="badge badge-primary badge-lg text-2xl font-bold w-12 h-12 p-0">
+              {i + 1}
+            </div>
+            <h3 class="text-lg font-semibold">{step.title}</h3>
+          </div>
+          <div class="w-[40%] md:w-auto">
+            <img 
+              src={step.image} 
+              width="300" 
+              height="460" 
+              alt={step.title}
+              class="rounded-lg shadow-lg max-w-full h-auto"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

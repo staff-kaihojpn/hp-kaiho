@@ -1,0 +1,92 @@
+---
+const reviews = [
+  {
+    name: '田中様',
+    location: '東京都',
+    rating: 5,
+    comment: '古い茶道具を査定していただきました。想像以上の高額査定で、丁寧な対応にも満足しています。',
+    item: '茶道具一式'
+  },
+  {
+    name: '山田様',
+    location: '神奈川県',
+    rating: 5,
+    comment: 'LINEでの査定が本当に簡単でした。写真を送るだけで、すぐに返事をいただけて助かりました。',
+    item: '金製品'
+  },
+  {
+    name: '佐藤様',
+    location: '埼玉県',
+    rating: 5,
+    comment: '遺品整理で困っていましたが、出張査定で全て対応していただけて本当に助かりました。',
+    item: '骨董品多数'
+  }
+];
+---
+
+<section class="py-16 bg-base-100">
+  <div class="container mx-auto px-4 max-w-6xl">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        お客様の声
+      </h2>
+      <p class="text-lg opacity-80">
+        開豊ジャパンをご利用いただいたお客様からの喜びの声
+      </p>
+    </div>
+
+    <!-- Reviews Grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+      {reviews.map((review) => (
+        <div class="card bg-base-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="card-body">
+            <!-- Rating Stars -->
+            <div class="flex justify-center mb-3">
+              {[...Array(5)].map((_, i) => (
+                <svg 
+                  class={`w-5 h-5 ${i < review.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                  fill="currentColor" 
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+
+            <!-- Comment -->
+            <blockquote class="text-center mb-4 italic">
+              "{review.comment}"
+            </blockquote>
+
+            <!-- Customer Info -->
+            <div class="text-center">
+              <div class="font-semibold">{review.name}</div>
+              <div class="text-sm opacity-70">{review.location}</div>
+              <div class="badge badge-primary badge-sm mt-2">{review.item}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-12">
+      <div class="card bg-primary text-primary-content">
+        <div class="card-body">
+          <h3 class="card-title justify-center text-2xl mb-4">
+            あなたも査定してみませんか？
+          </h3>
+          <p class="text-center mb-6">
+            無料査定で、あなたの大切な品物の価値を確認してみませんか
+          </p>
+          <div class="card-actions justify-center">
+            <a href="/assessments/line" class="btn btn-secondary btn-lg">
+              無料査定を始める
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

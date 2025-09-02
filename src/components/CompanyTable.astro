@@ -1,0 +1,31 @@
+---
+import { company } from '../config';
+---
+
+<div class="overflow-x-auto">
+  <table class="table table-xs text-stone-300">
+    <tbody>
+      {Object.entries(company).map(([key, item]) => (
+        <tr>
+          <td class="font-medium text-stone-400">
+            {item.icon && <span class="mr-2">{item.icon}</span>}
+            {item.label}
+          </td>
+          <td class="text-stone-50">
+            {key === 'email' ? (
+              <a href={`mailto:${item.value}`} class="hover:text-blue-400">
+                {item.value}
+              </a>
+            ) : key === 'tel' ? (
+              <a href={`tel:${item.value}`} class="hover:text-blue-400">
+                {item.value}
+              </a>
+            ) : (
+              item.value
+            )}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

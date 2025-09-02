@@ -1,0 +1,19 @@
+---
+import Heading from './Heading.astro';
+import classNames from 'classnames';
+
+export interface SectionProps {
+  title?: string;
+  description?: string;
+  className?: string;
+}
+
+const { title, description, className = '' } = Astro.props as SectionProps;
+---
+
+<div class={classNames('w-full bg-flash py-20', className)}>
+  <section class="px-4 mx-auto max-w-4xl">
+    <Heading className="pb-12 text-center" title={title} description={description} />
+    <slot />
+  </section>
+</div>

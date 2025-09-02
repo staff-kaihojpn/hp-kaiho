@@ -8,9 +8,9 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+# astro
+/.astro/
+/dist/
 
 # production
 /build
@@ -32,9 +32,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
+# astro generated files
+src/env.d.ts
 
-# Next.js sitemap file and robots
+# sitemap and robots
 public/sitemap*.xml
 public/robots.txt

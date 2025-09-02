@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { company } from '../../config';
+
+const metadata = {
+  title: '査定・買取規約',
+  description: '当店の査定・買取規約についての詳細をご確認いただけるページです。アイテムの査定から買取までのプロセス、取引条件について説明しています。ご利用の際に必ずお読みください。'
+};
+
+const rules = [
+  {
+    title: '第1条（目的）',
+    content: 'ご利用者様は、本サービスを利用することにより、本規約に同意することになります。ご利用者様は本規約をよくお読みになって、本サービスをご利用ください。'
+  },
+  {
+    title: '第2条（買取商品）',
+    content: '出張買取り可能なお品物は、金銀製品、鉄瓶、茶道具、竹花籠、蒔絵、陶磁器、仏教美術、その他アンティーク品、当社取扱商品といたします。'
+  },
+  {
+    title: '第3条（出張集荷）',
+    list: [
+      'ご利用者様からご連絡いただき、当社担当者が出張集荷にお伺いします。お品物の査定は、集荷時に行う場合（集荷時査定）と、当社に持ち帰り行う場合（持ち帰り査定）があります。当社の判断により出張買取をお断りすることがあります。',
+      '点検時の不良や傷、贋作等一部のお品物について買取をお断りする場合があります。'
+    ]
+  },
+  {
+    title: '第4条（売買契約の成立）',
+    list: [
+      '集荷時査定の場合、当社担当者がお品物を査定した後、買取金額をその場で提示いたします。持ち帰り査定の場合、一旦お預かりしたお品物を、当社担当者が査定した後、買取金額をご連絡いたします。その際に承諾いただける場合は「承諾」、そうでない場合は「キャンセル」の旨をお伝えください。',
+      '買取対象商品であっても、当社買取基準により買取金額がつかない場合がございます。持ち帰り査定の場合は、出張集荷時に「お預かり書」にその場合の処理方法について「返却」または「廃棄」を明示していただきます。',
+      '売買契約成立後でもその場でお品物を引き渡しされるか、引き渡ししないかご判断願います。',
+      '不正品の疑いがあると判断された場合、売買契約の成立前、後にかかわらず所轄警察署にその旨を申告するとともに法的対応をとらせていただく場合があります。',
+      'クレジットカードやショッピングクレジットによる割賦販売代金の残金未払いの品物は、売買取引することは致しかねます。',
+      '万が一、違法コピー品または盗品などである事が発覚した場合、お取引を無効としてお支払いした該当品の代金を請求する場合がございます。'
+    ]
+  },
+  {
+    title: '第5条（古物営業法に基づく本人確認）',
+    content: '古物営業法の定めにより、ご本人確認をさせていただきます。',
+    list: [
+      'ご本人様確認書類（※）で、確認いたします。',
+      'ご本人様確認書類に記載されている住所と訪問先は、一致している必要があります。',
+      '金融機関の口座名義は、ご利用者様ご本人に限らせていただきます。'
+    ],
+    note: '※ ご本人様確認書類（生年月日・現住所記載、有効期限内のもの）運転免許証、敬老手帳、パスポート、住民基本台帳カード、在留カード、健康保険証等'
+  },
+  {
+    title: '第6条（特定商取引法に基づく手続き）',
+    content: '特定商取引法の定めにより当社所定の手続きを経た上で売買契約を締結させていただきます。持ち帰り査定の場合は再度担当者が訪問し面前にてもしくは契約書を郵送する方法にて売買契約を締結させていただきます。'
+  }
+];
+---
+
+<BaseLayout title={metadata.title} description={metadata.description}>
+  <div class="container mx-auto px-4 py-12 max-w-4xl">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">{metadata.title}</h1>
+      <p class="text-lg leading-relaxed">{metadata.description}</p>
+    </div>
+
+    <!-- Important Notice -->
+    <div class="alert alert-warning mb-8">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 19c-.77.833.192 2.5 1.732 2.5z" />
+      </svg>
+      <span>本査定をお申し込みいただく前に、必ず本規約をお読みいただき、ご同意のうえお申し込みください。</span>
+    </div>
+
+    <!-- Introduction -->
+    <div class="prose max-w-none mb-8">
+      <p class="text-base leading-relaxed">
+        <strong>{company.name.value}</strong> （以下「当社」という）が提供する出張買取サービス（以下「本サービス」という）の規約（以下「本規約」という）を、以下の通り定めます。
+      </p>
+    </div>
+
+    <!-- Rules Sections -->
+    <div class="space-y-6">
+      {rules.map((rule) => (
+        <div class="card bg-base-100 shadow-lg">
+          <div class="card-body">
+            <h3 class="card-title text-xl mb-4">{rule.title}</h3>
+            {rule.content && (
+              <p class="text-base leading-relaxed mb-4">{rule.content}</p>
+            )}
+            {rule.list && (
+              <ol class="list-decimal list-inside space-y-3 text-sm">
+                {rule.list.map((item) => (
+                  <li class="leading-relaxed">{item}</li>
+                ))}
+              </ol>
+            )}
+            {rule.note && (
+              <div class="alert alert-info mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-sm">{rule.note}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Agreement Section -->
+    <div class="mt-12">
+      <div class="card bg-gradient-to-br from-primary to-secondary text-primary-content shadow-xl">
+        <div class="card-body text-center">
+          <h3 class="card-title justify-center text-2xl mb-4">
+            規約に同意して査定を始める
+          </h3>
+          <p class="mb-6">
+            上記規約をご確認・ご同意いただけましたら、査定をお申し込みください
+          </p>
+          <div class="card-actions justify-center gap-4">
+            <a href="/assessments/line" class="btn btn-accent btn-lg">
+              LINE査定を始める
+            </a>
+            <button class="btn btn-outline btn-lg" id="start-chat">
+              チャット査定を始める
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="mt-12">
+      <div class="card bg-base-200 shadow-lg">
+        <div class="card-body">
+          <h3 class="card-title justify-center mb-4">お問い合わせ</h3>
+          <p class="text-center mb-4">本規約についてご不明な点がございましたら、お気軽にお問い合わせください。</p>
+          <div class="grid md:grid-cols-3 gap-4 text-center">
+            <div>
+              <div class="font-semibold">住所</div>
+              <div class="text-sm">{company.address.value}</div>
+            </div>
+            <div>
+              <div class="font-semibold">電話</div>
+              <a href={`tel:${company.tel.value}`} class="text-primary hover:underline text-sm">
+                {company.tel.value}
+              </a>
+            </div>
+            <div>
+              <div class="font-semibold">メール</div>
+              <a href={`mailto:${company.email.value}`} class="text-primary hover:underline text-sm">
+                {company.email.value}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const startChatBtn = document.getElementById('start-chat');
+    startChatBtn?.addEventListener('click', () => {
+      if (typeof window !== 'undefined' && window.Crisp) {
+        window.Crisp.chat.open();
+      }
+    });
+  });
+</script>

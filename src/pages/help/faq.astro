@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const metadata = {
+  title: 'よくある質問',
+  description: '骨董品・美術品買取についてよくある質問・疑問にお答えします'
+};
+
+const faqs = [
+  {
+    question: 'かんたん査定と本査定の違いはなんですか？',
+    answer: 'かんたん査定は、お客様がお持ちいただいた商品の状態を確認し、おおよその査定額をお伝えするものです。本査定は、お客様がお持ちいただいた商品を専門の鑑定士が鑑定し、実際の買取額をお伝えするものです。'
+  },
+  {
+    question: '査定にお金はかかりますか？',
+    answer: 'いっさいかかりません。無料で査定を行っております。'
+  },
+  {
+    question: '査定額と買取金額は違いますか？',
+    answer: '査定金額と買取金額は違う場合があります。かんたん査定の段階では、おおよその査定額を(○○○円～○○○円)のようにお伝えしております。本査定の段階で贋作や破損などが発覚した場合、査定額の下限額を下回る場合があります。'
+  },
+  {
+    question: '買取金額が0円でも、引取してもらえますか？',
+    answer: '買取金額が0円の場合でも、引取を承ることがあります。'
+  },
+  {
+    question: '支払いはいつになりますか？',
+    answer: '現金の場合、その場でお支払いいたします。銀行振込の場合、3営業日以内にお振込みいたします。'
+  },
+  {
+    question: 'どのような支払い方法がありますか？',
+    answer: '現金、銀行振込払いがございます。'
+  },
+  {
+    question: '買取後に、やっぱり返してほしいと思ったらどうすればいいですか？',
+    answer: '買取後の返品はお受けできません。ご了承ください。'
+  }
+];
+---
+
+<BaseLayout title={metadata.title} description={metadata.description}>
+  <div class="container mx-auto px-4 py-12 max-w-4xl">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">{metadata.title}</h1>
+      <p class="text-xl leading-relaxed">{metadata.description}</p>
+    </div>
+
+    <!-- FAQ Items -->
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <div class="collapse collapse-plus bg-base-200 shadow-sm hover:shadow-md transition-shadow">
+          <input type="radio" name="faq-accordion" id={`faq-${index}`} />
+          <div class="collapse-title text-lg font-medium">
+            <label for={`faq-${index}`} class="cursor-pointer w-full block">
+              {faq.question}
+            </label>
+          </div>
+          <div class="collapse-content">
+            <p class="pt-2 leading-relaxed">{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Contact Section -->
+    <div class="mt-16">
+      <div class="card bg-gradient-to-br from-primary/5 to-secondary/5 shadow-lg">
+        <div class="card-body text-center">
+          <h3 class="card-title justify-center text-2xl mb-4">
+            他にもご質問がございましたら
+          </h3>
+          <p class="mb-6">
+            お気軽にお問い合わせください。専門スタッフがお答えいたします。
+          </p>
+          <div class="card-actions justify-center gap-4">
+            <a href="/assessments/line" class="btn btn-primary">
+              LINEで問い合わせ
+            </a>
+            <button class="btn btn-outline" id="chat-contact">
+              チャットで問い合わせ
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const chatBtn = document.getElementById('chat-contact');
+    chatBtn?.addEventListener('click', () => {
+      if (typeof window !== 'undefined' && window.Crisp) {
+        window.Crisp.chat.open();
+      }
+    });
+  });
+</script>

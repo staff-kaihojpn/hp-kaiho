@@ -1,0 +1,108 @@
+---
+import { config, company } from '../config';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<header class:list={[className, "z-10 backdrop-blur bg-stone-50/80"]}>
+  <div class="flex justify-between items-center max-w-4xl mx-auto py-2 px-6">
+    <a href="/" class="flex items-center">
+      <svg class="fill-stone-800 mr-4" width="40" height="40">
+        <use href="/logo.svg#logo"></use>
+      </svg>
+      <div>
+        <p class="text-xs">骨董品・古美術品 買取</p>
+        <h1 class="text-xl">{company.siteName.value}</h1>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="relative hidden md:flex flex-row gap-4">
+      {config.pageGroups.map((group) => (
+        <div class="dropdown dropdown-end">
+          <label tabindex="0" class="btn btn-ghost">{group.name}</label>
+          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-white/95 rounded-box w-52">
+            {group.pages.map((page) => (
+              <li>
+                <a href={page.path}>{page.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="md:hidden mobile-menu-toggle" aria-label="Menu">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav fixed z-20 w-full h-full flex-col bg-stone-800 text-stone-300 hidden">
+  <div class="relative flex justify-between items-center py-2 px-6">
+    <a href="/" class="flex items-center text-stone-50">
+      <svg class="fill-stone-50 mr-4" width="40" height="40">
+        <use href="/logo.svg#logo"></use>
+      </svg>
+      <div>
+        <p class="text-xs">骨董品・古美術品 買取</p>
+        <h1 class="text-xl">{company.siteName.value}</h1>
+      </div>
+    </a>
+    <button class="absolute right-6 top-4 text-3xl cursor-pointer text-stone-50 mobile-menu-close" aria-label="Close">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <div class="flex flex-col gap-12 mt-8 px-6">
+    {config.pageGroups.map((group) => (
+      <div>
+        <label>{group.name}</label>
+        <ul class="pl-8 flex flex-col gap-2 mt-4 text-stone-50 font-bold text-xl">
+          {group.pages.map((page) => (
+            <li>
+              <a href={page.path} class="mobile-nav-link">{page.name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  // Mobile menu functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.querySelector('.mobile-menu-toggle');
+    const closeBtn = document.querySelector('.mobile-menu-close');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    const openMenu = () => {
+      mobileNav?.classList.remove('hidden');
+      mobileNav?.classList.add('flex');
+    };
+
+    const closeMenu = () => {
+      mobileNav?.classList.add('hidden');
+      mobileNav?.classList.remove('flex');
+    };
+
+    toggleBtn?.addEventListener('click', openMenu);
+    closeBtn?.addEventListener('click', closeMenu);
+    
+    navLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  });
+</script>

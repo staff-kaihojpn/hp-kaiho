@@ -1,0 +1,18 @@
+---
+export interface FloatingButtonProps {
+  href: string;
+  icon: string;
+  className?: string;
+  ariaLabel?: string;
+}
+
+const { href, icon, className = '', ariaLabel = 'floating button' } = Astro.props as FloatingButtonProps;
+---
+
+<a 
+  href={href} 
+  aria-label={ariaLabel} 
+  class={`btn btn-circle btn-lg shadow-lg hover:shadow-xl transition-all ${className}`}
+>
+  <i class={`${icon} text-2xl`}></i>
+</a>

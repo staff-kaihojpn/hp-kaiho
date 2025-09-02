@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+import { metadata } from '../config';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+}
+
+const { 
+  title = metadata.title, 
+  description = metadata.description, 
+  keywords = metadata.keywords 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja" data-theme="custom">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.ico">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <meta name="keywords" content={keywords.join(', ')}>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    {import.meta.env.PUBLIC_GA_TRACKING_ID && (
+      <script is:inline type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_TRACKING_ID}`}></script>
+      <script is:inline type="text/partytown">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', import.meta.env.PUBLIC_GA_TRACKING_ID);
+      </script>
+    )}
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <Header class="sticky top-0" />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    
+    <!-- Crisp Chat -->
+    {import.meta.env.PUBLIC_CRISP_WEBSITE_ID && (
+      <script is:inline type="text/javascript">
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = import.meta.env.PUBLIC_CRISP_WEBSITE_ID;
+        (function() {
+          d = document;
+          s = d.createElement("script");
+          s.src = "https://client.crisp.chat/l.js";
+          s.async = 1;
+          d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+      </script>
+    )}
+  </body>
+</html>
