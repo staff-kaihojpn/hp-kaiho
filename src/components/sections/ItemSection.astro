@@ -1,76 +1,149 @@
 ---
 const heading = {
-  title: `高額買取保障！
-さがしています`,
-  description: `当社が特に高価買取に力を入れている商品を紹介します`
+  title: "高額買取保障！",
+  subtitle: "特に探している商品",
+  description: "当社が特に高価買取に力を入れている商品をご紹介します"
 };
 
-const items = [
-  {title: '金製品', description: '金瓶 | 金杯 | アクセサリー | コイン | 小判 | 金歯', src: '/items/gold.webp'},
-  {title: '鉄瓶', description: '南部鉄瓶 | 龍文堂 | 亀文堂 | 金寿堂 | 金龍堂 | 祥雲堂', src: '/items/iron.webp'},
-  {title: '銀製品', description: '銀瓶 | 銀杯 | 銀舟 | トロフィー | コイン | 食器', src: '/items/silver.webp'},
-  {title: '煎茶道具', description: '湯沸 | 茶托 | 菓子器 | 菓子盆 | 急須 | 煎茶碗', src: '/items/sencha.webp'},
-  {title: '竹細工', description: '花籠 | 茶籠 | 花入 | 盛籠', src: '/items/basket.webp'},
-  {title: '蒔絵', description: '香合 | 棗 | 椀 | 菓子器 | 硯箱 | 文箱', src: '/items/makie.webp'},
-  {title: '御茶道具', description: '抹茶茶碗 | 釜 | 風炉 | 棗 | 茶杓 | 柄杓 | 建水 | 風炉先 | 屏風', src: '/items/tea.webp'},
-  {title: '陶磁器', description: '青磁 | 白磁 | 色絵 | 焼締 | 素焼 | 染付', src: '/items/ceramics.webp'},
-  {title: '仏教美術', description: '仏像 | 厨子 | 仏器 | 燭台 | 灯籠 | 鐘 | 経卓 | 欄間', src: '/items/statue.webp'},
-  {title: 'その他', description: '着物 | 植木鉢 | 盆石 | 日本人形 | 彫刻 | 箪笥 | 楽器 | レトロ', src: '/items/other.webp'},
+const categories = [
+  {
+    title: '貴金属・銀製品',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.563.563 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+    </svg>`,
+    color: 'badge-warning',
+    items: [
+      {title: '金製品', description: '金瓶・金杯・アクセサリー・コイン・小判・金歯', src: '/items/gold.webp', price: '高価買取'},
+      {title: '銀製品', description: '銀瓶・銀杯・銀舟・トロフィー・コイン・食器', src: '/items/silver.webp', price: '高価買取'},
+      {title: '鉄瓶', description: '南部鉄瓶・龍文堂・亀文堂・金寿堂・金龍堂・祥雲堂', src: '/items/iron.webp', price: '高価買取'}
+    ]
+  },
+  {
+    title: '茶道具・工芸品',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+    </svg>`,
+    color: 'badge-success', 
+    items: [
+      {title: '御茶道具', description: '抹茶茶碗・釜・風炉・棗・茶杓・柄杓・建水・風炉先・屏風', src: '/items/tea.webp', price: '高価買取'},
+      {title: '煎茶道具', description: '湯沸・茶托・菓子器・菓子盆・急須・煎茶碗', src: '/items/sencha.webp', price: '高価買取'},
+      {title: '蒔絵', description: '香合・棗・椀・菓子器・硯箱・文箱', src: '/items/makie.webp', price: '高価買取'}
+    ]
+  },
+  {
+    title: '美術品・工芸品',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
+    </svg>`,
+    color: 'badge-info',
+    items: [
+      {title: '陶磁器', description: '青磁・白磁・色絵・焼締・素焼・染付', src: '/items/ceramics.webp', price: '高価買取'},
+      {title: '仏教美術', description: '仏像・厨子・仏器・燭台・灯籠・鐘・経卓・欄間', src: '/items/statue.webp', price: '高価買取'},
+      {title: '竹細工', description: '花籠・茶籠・花入・盛籠', src: '/items/basket.webp', price: '高価買取'}
+    ]
+  }
 ];
+
+const otherItem = {title: 'その他', description: '着物・植木鉢・盆石・日本人形・彫刻・箪笥・楽器・レトロ雑貨', src: '/items/other.webp', price: 'ご相談ください'};
 ---
 
-<section class="py-16 bg-base-200">
-  <div class="container mx-auto px-4 max-w-6xl">
+<section class="py-20 bg-base-100">
+  <div class="container mx-auto px-4 max-w-7xl">
     <!-- Section Header -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 whitespace-pre-wrap">
+    <div class="text-center mb-20">
+      <div class="badge badge-neutral badge-outline mb-6">買取品目</div>
+      <h2 class="text-3xl md:text-5xl font-light mb-3 text-base-content tracking-tight">
         {heading.title}
       </h2>
-      <p class="text-lg opacity-80">
+      <h3 class="text-xl md:text-2xl mb-8 text-primary font-light tracking-wide">
+        {heading.subtitle}
+      </h3>
+      <p class="text-lg text-base-content/60 max-w-2xl mx-auto font-light leading-relaxed">
         {heading.description}
       </p>
     </div>
 
-    <!-- Items Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 justify-items-center">
-      {items.map((item) => (
-        <div class="card bg-amber-50 shadow-lg hover:shadow-xl transition-shadow duration-300 w-full max-w-48 wanted-paper">
-          <div class="card-body p-3">
-            <h3 class="card-title text-center text-sm font-bold justify-center text-amber-900">
-              {item.title}
-            </h3>
-            
-            <figure class="aspect-square border-2 border-amber-800 rounded-lg overflow-hidden">
-              <img 
-                class="sepia-[50%] object-contain w-full h-full" 
-                src={item.src} 
-                alt={item.title}
-                loading="lazy"
-              />
-            </figure>
-            
-            <div class="flex gap-1 items-center">
-              <!-- Left Divider -->
-              <svg width="8" height="60" viewBox="0 0 8 60" class="fill-amber-800">
-                <rect width="2" height="60" x="3"/>
-                <rect width="2" height="40" x="1" y="10"/>
-                <rect width="2" height="20" x="5" y="20"/>
-              </svg>
-              
-              <p class="text-center font-bold text-xs flex-1 text-amber-900 leading-tight">
-                {item.description}
-              </p>
-              
-              <!-- Right Divider (flipped) -->
-              <svg width="8" height="60" viewBox="0 0 8 60" class="fill-amber-800 scale-x-[-1]">
-                <rect width="2" height="60" x="3"/>
-                <rect width="2" height="40" x="1" y="10"/>
-                <rect width="2" height="20" x="5" y="20"/>
-              </svg>
-            </div>
+    <!-- Categories -->
+    <div class="space-y-16">
+      {categories.map((category) => (
+        <div class="bg-base-200 rounded-2xl p-8">
+          <div class="flex items-center justify-center gap-4 mb-8">
+            <div class="p-2 bg-base-100 rounded-full text-primary shadow-md" set:html={category.icon}></div>
+            <h3 class="text-2xl font-bold">{category.title}</h3>
+            <div class={`badge ${category.color} badge-lg`}>特に高価買取中</div>
+          </div>
+          
+          <div class="grid md:grid-cols-3 gap-6">
+            {category.items.map((item) => (
+              <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+                <figure class="px-4 pt-4">
+                  <div class="relative overflow-hidden rounded-xl">
+                    <img 
+                      src={item.src} 
+                      alt={item.title}
+                      class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div class="absolute top-2 right-2">
+                      <div class="badge badge-error badge-sm">WANTED</div>
+                    </div>
+                  </div>
+                </figure>
+                <div class="card-body">
+                  <h4 class="card-title text-lg justify-center">{item.title}</h4>
+                  <p class="text-sm text-center opacity-70 leading-relaxed">{item.description}</p>
+                  <div class="card-actions justify-center mt-4">
+                    <div class="badge badge-outline badge-lg font-bold text-accent">{item.price}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       ))}
+    </div>
+
+    <!-- Other Items -->
+    <div class="mt-16">
+      <div class="card bg-gradient-to-br from-neutral to-neutral-focus text-neutral-content shadow-2xl">
+        <div class="card-body text-center py-12">
+          <div class="mb-4 flex justify-center">
+            <div class="p-3 bg-base-100/20 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">
+            {otherItem.title}
+          </h3>
+          <p class="text-lg mb-6 max-w-2xl mx-auto opacity-90">{otherItem.description}</p>
+          <div class="card-actions justify-center">
+            <div class="badge badge-primary badge-lg">{otherItem.price}</div>
+          </div>
+          <div class="mt-6">
+            <p class="text-sm opacity-75">お手持ちの品物について、まずはお気軽にお問い合わせください</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <div class="card bg-primary text-primary-content shadow-xl max-w-2xl mx-auto">
+        <div class="card-body text-center">
+          <h4 class="card-title justify-center text-xl">お品物の査定をお考えですか？</h4>
+          <p class="mb-4">写真を撮って送るだけで、専門鑑定士が無料で査定いたします</p>
+          <div class="card-actions justify-center">
+            <a href="/assessments/line" class="btn btn-accent btn-lg gap-2">
+              今すぐ査定依頼
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

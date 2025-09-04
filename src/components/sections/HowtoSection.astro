@@ -1,42 +1,113 @@
 ---
 const steps = [
-  {title: 'LINEアプリでトークを開始', image: '/home/howto_1.webp'},
-  {title: 'トークに写真を送りましょう', image: '/home/howto_2.webp'},
-  {title: '鑑定結果のメッセージが届く', image: '/home/howto_3.webp'},
+  {
+    title: 'LINEアプリでトークを開始', 
+    description: 'QRコードを読み込んで友だち追加',
+    image: '/home/howto_1.webp',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+    </svg>`
+  },
+  {
+    title: 'トークに写真を送りましょう', 
+    description: 'お品物の写真を複数枚撮影して送信',
+    image: '/home/howto_2.webp',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+    </svg>`
+  },
+  {
+    title: '鑑定結果のメッセージが届く', 
+    description: '専門鑑定士による査定額をお知らせ',
+    image: '/home/howto_3.webp',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+    </svg>`
+  },
 ];
 ---
 
-<section class="py-16 bg-base-100">
-  <div class="container mx-auto px-4 max-w-4xl">
+<section class="py-20 bg-base-200">
+  <div class="container mx-auto px-4 max-w-6xl">
     <!-- Section Header -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 whitespace-pre-wrap">
-        必要なのはスマホだけ！
-まずは、かんたん査定から
+    <div class="text-center mb-16">
+      <div class="badge badge-neutral badge-outline mb-6">査定の流れ</div>
+      <h2 class="text-3xl md:text-5xl font-light mb-6 tracking-tight">
+        必要なのはスマホだけ
       </h2>
+      <p class="text-xl text-base-content/60 font-light">
+        まずは、かんたん査定から始めましょう
+      </p>
     </div>
 
-    <!-- Steps -->
-    <div class="flex flex-col md:flex-row gap-8 md:gap-12">
-      {steps.map((step, i) => (
-        <div class="flex flex-row-reverse md:flex-col items-center gap-4 flex-1">
-          <div class="flex flex-1 gap-2 items-end md:items-center md:justify-center text-center">
-            <div class="badge badge-primary badge-lg text-2xl font-bold w-12 h-12 p-0">
-              {i + 1}
+    <!-- Steps - Mobile View -->
+    <div class="block lg:hidden">
+      <ul class="steps steps-vertical w-full">
+        {steps.map((step, i) => (
+          <li class="step step-primary" data-content={`${i + 1}`}>
+            <div class="card bg-base-100 shadow-xl w-full mt-4">
+              <figure>
+                <img 
+                  src={step.image} 
+                  width="300" 
+                  height="460" 
+                  alt={step.title}
+                  class="w-full h-48 object-cover"
+                />
+              </figure>
+              <div class="card-body text-center">
+                <div class="mb-3 flex justify-center text-primary" set:html={step.icon}></div>
+                <h3 class="card-title justify-center">{step.title}</h3>
+                <p class="text-sm opacity-70">{step.description}</p>
+              </div>
             </div>
-            <h3 class="text-lg font-semibold">{step.title}</h3>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Steps - Desktop View -->
+    <div class="hidden lg:block">
+      <ul class="steps steps-horizontal w-full mb-8">
+        {steps.map((step, i) => (
+          <li class="step step-primary" data-content={`${i + 1}`}>{step.title}</li>
+        ))}
+      </ul>
+      
+      <div class="grid grid-cols-3 gap-8">
+        {steps.map((step) => (
+          <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <figure class="px-6 pt-6">
+              <img 
+                src={step.image} 
+                width="300" 
+                height="460" 
+                alt={step.title}
+                class="rounded-xl h-64 object-cover"
+              />
+            </figure>
+            <div class="card-body text-center">
+              <div class="mb-4 flex justify-center text-primary" set:html={step.icon}></div>
+              <h3 class="card-title justify-center text-lg mb-2">{step.title}</h3>
+              <p class="text-sm opacity-70">{step.description}</p>
+            </div>
           </div>
-          <div class="w-[40%] md:w-auto">
-            <img 
-              src={step.image} 
-              width="300" 
-              height="460" 
-              alt={step.title}
-              class="rounded-lg shadow-lg max-w-full h-auto"
-            />
-          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-12">
+      <div class="alert alert-info max-w-2xl mx-auto">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <div>
+          <h4 class="font-bold">写真だけで簡単査定！</h4>
+          <div class="text-sm">24時間いつでも査定をお受けしています。まずはお気軽にご相談ください。</div>
         </div>
-      ))}
+      </div>
     </div>
   </div>
 </section>
